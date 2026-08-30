@@ -90,8 +90,8 @@
 
 <nav>
   <a href="index.html" class="brand">
-    <div class="brand-icon">HN</div>
-    <div><div class="brand-name">HNAI<span>.Researcher</span></div><div class="brand-sub">Humera Noor · AI Lab</div></div>
+    <img src="hnai-logo.png" alt="HNAI Logo" style="width:36px;height:36px;border-radius:8px;object-fit:cover;"/>
+    <div><div class="brand-name">HNAI<span>.Researcher</span></div><div class="brand-sub">Humera Noor</div></div>
   </a>
   <a href="index.html" class="nav-back">← Back to Home</a>
   <a href="index.html#courses" class="nav-cta">All Courses →</a>
@@ -105,18 +105,16 @@
   <div class="page-meta">
     <div class="meta-item">🔬 50 Papers Total</div>
     <div class="meta-item">📅 Daily Updates via HNAI Scholar</div>
-    <div class="meta-item">🎓 PhD Reading List Included</div>
+
     <div class="meta-item">🆓 Free Access</div>
   </div>
-  <div class="phd-banner">
-    🎓 <strong>PhD Research Focus:</strong> Intelligent Tutoring Agents using fine-tuned LLMs + Reinforcement Learning for personalized adaptive education — by <strong>Engr. Humera Noor</strong>, Faisalabad, Pakistan. Papers tagged <span style="background:#7c3aed;color:white;border-radius:3px;padding:1px 5px;font-size:10px;font-weight:700;">PHD</span> are core readings for this research track.
-  </div>
+
 </div>
 
 <div class="search-bar">
   <input type="text" class="search-input" id="searchInput" placeholder="🔍 Search papers by title, topic, author..." oninput="filterPapers()"/>
-  <button class="filter-btn active" onclick="filterBy('all', this)">All (50)</button>
-  <button class="filter-btn" onclick="filterBy('phd', this)">🎓 PhD Papers</button>
+  <button class="filter-btn active" onclick="filterBy('all', this)">All</button>
+
   <button class="filter-btn" onclick="filterBy('Intelligent Tutoring Systems', this)">ITS</button>
   <button class="filter-btn" onclick="filterBy('Reinforcement Learning', this)">RL</button>
   <button class="filter-btn" onclick="filterBy('Knowledge Tracing', this)">Knowledge Tracing</button>
@@ -186,7 +184,7 @@ function renderPapers(papers) {
     const url = p.url && p.url !== "#" ? p.url : (summary.match(/https?:\/\/[^\s]+/)?.[0] || "#");
     const isPhd = isPhdPaper(p);
     return `
-    <div class="paper-card ${p.featured ? "featured" : ""} ${isPhd ? "phd" : ""}">
+    <div class="paper-card ${p.featured ? "featured" : ""}">
       <div class="paper-header">
         <div class="paper-tags">
           <span class="paper-source">${p.source || "ArXiv"}</span>
@@ -200,7 +198,7 @@ function renderPapers(papers) {
       <div class="paper-footer">
         <div class="paper-badges">
           ${p.featured ? '<span class="featured-badge">⭐ Featured</span>' : ""}
-          ${isPhd ? '<span class="phd-badge">PhD</span>' : ""}
+
         </div>
         <a href="${url}" class="paper-link" target="_blank" rel="noopener">Read Paper →</a>
       </div>

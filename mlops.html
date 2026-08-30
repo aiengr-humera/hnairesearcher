@@ -79,8 +79,8 @@
 <body>
 <nav>
   <a href="index.html" class="brand">
-    <div class="brand-icon">HN</div>
-    <div><div class="brand-name">HNAI<span>.Researcher</span></div><div class="brand-sub">Humera Noor · AI Lab</div></div>
+    <img src="hnai-logo.png" alt="HNAI Logo" style="width:36px;height:36px;border-radius:8px;object-fit:cover;"/>
+    <div><div class="brand-name">HNAI<span>.Researcher</span></div><div class="brand-sub">Humera Noor</div></div>
   </a>
   <a href="index.html#courses" class="nav-back">← Back to Courses</a>
   <a href="index.html#courses" class="nav-cta">All Courses →</a>
@@ -109,22 +109,22 @@
     
     <div class="sidebar-section">
       <div class="sidebar-section-title">Module 1 — MLOps Foundations</div>
-      <a class="lesson-item active" onclick="loadLesson(0);return false;" href="javascript:void(0)"><div class="lesson-num">1</div><div><div class="lesson-name">What is MLOps?</div><div class="lesson-dur">20min</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(1);return false;" href="javascript:void(0)"><div class="lesson-num">2</div><div><div class="lesson-name">Git & Version Control for ML</div><div class="lesson-dur">30min</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(2);return false;" href="javascript:void(0)"><div class="lesson-num">3</div><div><div class="lesson-name">Experiment Tracking with MLflow</div><div class="lesson-dur">35min</div></div></a>
+      <a class="lesson-item active" onclick="loadLesson(0);return false;" href="javascript:void(0)"><div class="lesson-num">1</div><div><div class="lesson-name">What is MLOps?</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(1);return false;" href="javascript:void(0)"><div class="lesson-num">2</div><div><div class="lesson-name">Git & Version Control for ML</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(2);return false;" href="javascript:void(0)"><div class="lesson-num">3</div><div><div class="lesson-name">Experiment Tracking with MLflow</div></div></a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Module 2 — Deployment</div>
-      <a class="lesson-item" onclick="loadLesson(3);return false;" href="javascript:void(0)"><div class="lesson-num">4</div><div><div class="lesson-name">Building ML APIs with FastAPI</div><div class="lesson-dur">40min</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(4);return false;" href="javascript:void(0)"><div class="lesson-num">5</div><div><div class="lesson-name">Docker for ML Engineers</div><div class="lesson-dur">35min</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(5);return false;" href="javascript:void(0)"><div class="lesson-num">6</div><div><div class="lesson-name">Deploying to Cloud (GCP/AWS)</div><div class="lesson-dur">40min</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(3);return false;" href="javascript:void(0)"><div class="lesson-num">4</div><div><div class="lesson-name">Building ML APIs with FastAPI</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(4);return false;" href="javascript:void(0)"><div class="lesson-num">5</div><div><div class="lesson-name">Docker for ML Engineers</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(5);return false;" href="javascript:void(0)"><div class="lesson-num">6</div><div><div class="lesson-name">Deploying to Cloud (GCP/AWS)</div></div></a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Module 3 — Production ML</div>
-      <a class="lesson-item" onclick="loadLesson(6);return false;" href="javascript:void(0)"><div class="lesson-num">7</div><div><div class="lesson-name">ML Pipelines with Apache Airflow</div><div class="lesson-dur">40min</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(7);return false;" href="javascript:void(0)"><div class="lesson-num">8</div><div><div class="lesson-name">Model Monitoring & Drift Detection</div><div class="lesson-dur">35min</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(8);return false;" href="javascript:void(0)"><div class="lesson-num">9</div><div><div class="lesson-name">CI/CD for Machine Learning</div><div class="lesson-dur">30min</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(9);return false;" href="javascript:void(0)"><div class="lesson-num">10</div><div><div class="lesson-name">MLOps Capstone Project</div><div class="lesson-dur">1h</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(6);return false;" href="javascript:void(0)"><div class="lesson-num">7</div><div><div class="lesson-name">ML Pipelines with Apache Airflow</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(7);return false;" href="javascript:void(0)"><div class="lesson-num">8</div><div><div class="lesson-name">Model Monitoring & Drift Detection</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(8);return false;" href="javascript:void(0)"><div class="lesson-num">9</div><div><div class="lesson-name">CI/CD for Machine Learning</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(9);return false;" href="javascript:void(0)"><div class="lesson-num">10</div><div><div class="lesson-name">MLOps Capstone Project</div></div></a>
     </div>
   </aside>
   <main class="course-main">
@@ -155,7 +155,7 @@ const lessons = [
   {"tag":"Lesson 7 of 10 · Module 3 — Production ML","title":"ML Pipelines with Apache Airflow","subtitle":"Orchestrate complex ML workflows — data ingestion, training and evaluation — all automated.","video":"AHgEgtu7O4o","learn":["What is a DAG?","Airflow operators","Scheduling ML jobs","Triggering retraining","Monitoring pipeline runs","Kubernetes Executor"]},
   {"tag":"Lesson 8 of 10 · Module 3 — Production ML","title":"Model Monitoring & Drift Detection","subtitle":"Keep your production models healthy — detect data drift and model degradation automatically.","video":"Hc3F-KXygms","learn":["Why models degrade","Data drift vs concept drift","Evidently AI library","Building a monitoring dashboard","Alerting on drift","Automated retraining triggers"]},
   {"tag":"Lesson 9 of 10 · Module 3 — Production ML","title":"CI/CD for Machine Learning","subtitle":"Automate testing, training and deployment with GitHub Actions — ML DevOps best practices.","video":"9BgIDqAhaB8","learn":["CI/CD concepts for ML","GitHub Actions basics","Automated model testing","Training pipelines in CI","Docker in GitHub Actions","Deployment automation"]},
-  {"tag":"Lesson 10 of 10 · Module 3 — Production ML","title":"MLOps Capstone Project","subtitle":"End-to-end MLOps project — build, track, deploy and monitor a real ML model in production.","video":"ZVWg18AXXuE","learn":["Full MLOps pipeline design","Experiment tracking","API development","Docker containerization","Cloud deployment","Monitoring setup"]}
+  {"tag":"Lesson 10 of 10 · Module 3 — Production ML","title":"MLOps Capstone Project","subtitle":"End-to-end MLOps project — build, track, deploy and monitor a real ML model in production.","video":"9BgIDqAhaB8","learn":["Full MLOps pipeline design","Experiment tracking","API development","Docker containerization","Cloud deployment","Monitoring setup"]}
 ];
 
 let current = 0;
@@ -173,7 +173,7 @@ function loadLesson(index) {
   document.getElementById('lessonSubtitle').textContent = l.subtitle;
   const frame = document.getElementById('videoFrame');
   frame.src = '';
-  setTimeout(() => { frame.src = 'https://www.youtube.com/embed/' + l.video + '?playsinline=1'; }, 100);
+  setTimeout(() => { frame.src = 'https://www.youtube.com/embed/' + l.video + '?playsinline=1&rel=0&modestbranding=1&iv_load_policy=3'; }, 100);
   const grid = document.getElementById('learnGrid');
   grid.innerHTML = l.learn.map(item => `<div class="learn-item"><div class="learn-check">✓</div>${item}</div>`).join('');
   document.querySelectorAll('.lesson-item').forEach((el, i) => {
