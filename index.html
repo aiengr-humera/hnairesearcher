@@ -1,621 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HNAI.Researcher — Humera Noor · AI Lab</title>
+  <title>HNAI.Researcher — Free AI & ML Education by Humera Noor</title>
   <meta name="description" content="Free AI & ML education by Humera Noor — practical, structured, and completely open source. Learn from real hands-on experience."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --blue: #3b6ef8;
-      --dark: #0a1628;
-      --navy: #1e3a6e;
-      --slate: #64748b;
-      --muted: #94a3b8;
-      --border: #e2e8f0;
-      --bg: #f0f4ff;
-      --white: #ffffff;
-      --green: #22c55e;
+      --mint: #2D8B72; --mint-light: #f0faf6; --mint-mid: #3da882;
+      --warm: #faf8f4; --warm2: #f3f0ea; --dark: #1a1a2e;
+      --text: #2d3748; --slate: #5a6a7a; --muted: #8fa0b0;
+      --border: #e8e4dc; --white: #ffffff;
     }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: var(--bg);
-      color: var(--dark);
-      line-height: 1.6;
-    }
-
-    /* ── SCROLLBAR ── */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 10px; }
-
-    /* ── NAV ── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 0.5px solid var(--border);
-      padding: 14px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
+    body { font-family: "Inter", sans-serif; background: var(--warm); color: var(--text); line-height: 1.6; }
+    ::-webkit-scrollbar { width: 5px; } ::-webkit-scrollbar-thumb { background: var(--mint); border-radius: 10px; }
+    nav { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 56px; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
     .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .brand-mark {
-      width: 36px; height: 36px;
-      background: var(--dark);
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .brand-mark svg { width: 20px; height: 20px; }
-    .brand-wordmark { display: flex; flex-direction: column; line-height: 1.2; }
-    .brand-main { font-size: 15px; font-weight: 800; color: var(--dark); letter-spacing: -0.02em; }
-    .brand-main span { color: var(--blue); }
-    .brand-sub { font-size: 9px; font-weight: 500; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+    .brand-icon { width: 36px; height: 36px; background: var(--mint); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: "Merriweather", serif; font-size: 12px; font-weight: 700; color: white; }
+    .brand-name { font-family: "Merriweather", serif; font-size: 16px; font-weight: 700; color: var(--dark); }
+    .brand-name span { color: var(--mint); }
+    .brand-sub { font-size: 10px; color: var(--muted); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 14px; color: var(--slate); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--mint); }
+    .nav-cta { background: var(--mint); color: white; font-size: 13px; font-weight: 600; padding: 9px 22px; border-radius: 6px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--mint-mid); }
+    @media(max-width:768px){nav{padding:0 20px;}.nav-links{display:none;}}
 
-    .nav-links { display: flex; gap: 28px; list-style: none; }
-    .nav-links a {
-      font-size: 13px; color: var(--slate); text-decoration: none;
-      font-weight: 500; transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--blue); }
+    /* HERO */
+    .hero { background: var(--white); padding: 72px 56px 64px; border-bottom: 1px solid var(--border); }
+    .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 400px; gap: 56px; align-items: center; }
+    @media(max-width:900px){.hero-inner{grid-template-columns:1fr;}}
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--mint-light); border: 1px solid #b2ddd0; border-radius: 20px; padding: 5px 14px; margin-bottom: 20px; }
+    .hero-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--mint); animation: blink 2s infinite; }
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+    .hero-tag-text { font-size: 12px; color: var(--mint); font-weight: 600; }
+    .hero h1 { font-family: "Merriweather", serif; font-size: 36px; font-weight: 700; color: var(--dark); line-height: 1.3; margin-bottom: 16px; }
+    .hero h1 span { color: var(--mint); }
+    .hero-desc { font-size: 15px; color: var(--slate); line-height: 1.8; max-width: 480px; margin-bottom: 28px; }
+    .hero-btns { display: flex; gap: 12px; margin-bottom: 36px; flex-wrap: wrap; }
+    .btn-primary { background: var(--mint); color: white; font-size: 14px; font-weight: 600; padding: 12px 24px; border-radius: 6px; text-decoration: none; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--mint-mid); }
+    .btn-secondary { background: var(--warm2); color: var(--text); font-size: 14px; font-weight: 600; padding: 12px 24px; border-radius: 6px; text-decoration: none; border: 1px solid var(--border); transition: all 0.2s; }
+    .btn-secondary:hover { border-color: var(--mint); color: var(--mint); }
+    .hero-stats { display: flex; gap: 28px; flex-wrap: wrap; }
+    .hstat-n { font-family: "Merriweather", serif; font-size: 26px; font-weight: 700; color: var(--dark); }
+    .hstat-l { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .hero-card { background: var(--warm); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
+    .hero-card-title { font-family: "Merriweather", serif; font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 14px; }
+    .track-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--white); border-radius: 8px; border: 1px solid var(--border); text-decoration: none; margin-bottom: 8px; transition: border-color 0.2s; }
+    .track-item:last-child { margin-bottom: 0; }
+    .track-item:hover { border-color: var(--mint); }
+    .track-icon { font-size: 18px; width: 30px; text-align: center; }
+    .track-name { font-size: 13px; font-weight: 600; color: var(--text); flex: 1; }
+    .track-level { font-size: 11px; color: var(--muted); }
+    .track-arrow { color: var(--muted); font-size: 14px; }
 
-    .nav-right { display: flex; align-items: center; gap: 10px; }
-    .btn-ghost {
-      font-size: 12px; color: var(--slate); border: 0.5px solid var(--border);
-      border-radius: 7px; padding: 7px 14px; font-weight: 600;
-      background: var(--white); cursor: pointer; text-decoration: none;
-      transition: border-color 0.2s, color 0.2s;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-    .btn-ghost:hover { border-color: var(--blue); color: var(--blue); }
-    .btn-primary {
-      font-size: 12px; background: var(--blue); color: var(--white);
-      border: none; border-radius: 7px; padding: 8px 18px;
-      font-weight: 700; cursor: pointer; transition: background 0.2s, transform 0.1s;
-      font-family: 'Plus Jakarta Sans', sans-serif; text-decoration: none;
-    }
-    .btn-primary:hover { background: #2855d0; transform: translateY(-1px); }
-
-    /* ── HERO ── */
-    .hero {
-      background: var(--white);
-      padding: 90px 48px 72px;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 0.5px solid var(--border);
-    }
-    .hero-dots {
-      position: absolute; inset: 0;
-      background-image: radial-gradient(#c7d4f5 1.3px, transparent 1.3px);
-      background-size: 24px 24px;
-      opacity: 0.6;
-    }
-    .hero-glow {
-      position: absolute; top: -100px; right: -80px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, #dbeafe 0%, transparent 68%);
-      opacity: 0.5;
-    }
-    .hero-glow2 {
-      position: absolute; bottom: -80px; left: -60px;
-      width: 360px; height: 360px;
-      background: radial-gradient(circle, #e0e7ff 0%, transparent 68%);
-      opacity: 0.4;
-    }
-    .hero-content { position: relative; z-index: 2; max-width: 680px; }
-
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: #eff6ff; border: 0.5px solid #bfdbfe;
-      border-radius: 20px; padding: 6px 16px; margin-bottom: 22px;
-    }
-    .badge-pulse {
-      width: 8px; height: 8px; border-radius: 50%; background: var(--blue);
-      position: relative; flex-shrink: 0;
-    }
-    .badge-pulse::after {
-      content: ''; position: absolute; inset: -3px;
-      border-radius: 50%; border: 1.5px solid #93c5fd;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.3; transform: scale(1.6); }
-    }
-    .badge-text { font-size: 12px; color: var(--blue); font-weight: 600; }
-
-    .hero h1 {
-      font-size: 54px; font-weight: 800; color: var(--dark);
-      line-height: 1.1; letter-spacing: -0.04em; margin-bottom: 18px;
-    }
-    .hero h1 .hl { color: var(--blue); }
-
-    .hero-sub {
-      font-size: 16px; color: var(--slate); line-height: 1.8;
-      max-width: 520px; margin-bottom: 32px; font-weight: 400;
-    }
-
-    .hero-actions { display: flex; gap: 14px; align-items: center; margin-bottom: 32px; flex-wrap: wrap; }
-    .btn-dark {
-      font-size: 14px; background: var(--dark); color: var(--white);
-      border: none; border-radius: 9px; padding: 13px 26px;
-      font-weight: 700; cursor: pointer; transition: background 0.2s, transform 0.15s;
-      font-family: 'Plus Jakarta Sans', sans-serif; text-decoration: none;
-    }
-    .btn-dark:hover { background: #162340; transform: translateY(-2px); }
-    .btn-outline {
-      font-size: 14px; background: transparent; color: var(--dark);
-      border: 1.5px solid var(--dark); border-radius: 9px; padding: 12px 26px;
-      font-weight: 600; cursor: pointer; transition: all 0.2s;
-      font-family: 'Plus Jakarta Sans', sans-serif; text-decoration: none;
-    }
-    .btn-outline:hover { background: var(--dark); color: var(--white); }
-
-    .hero-mono {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px; color: var(--muted);
-      display: flex; align-items: center; gap: 8px;
-    }
-    .mono-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
-    .mono-text span { color: var(--blue); }
-
-    /* ── STATS ── */
-    .stats {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      background: var(--dark);
-    }
-    .stat {
-      padding: 28px 20px; text-align: center;
-      border-right: 0.5px solid var(--navy);
-      transition: background 0.2s;
-    }
+    /* STATS BAR */
+    .stats { display: grid; grid-template-columns: repeat(4,1fr); background: var(--dark); }
+    .stat { padding: 22px 20px; text-align: center; border-right: 1px solid #1e2d40; }
     .stat:last-child { border-right: none; }
-    .stat:hover { background: #0f2040; }
-    .stat-n { font-size: 32px; font-weight: 800; color: var(--white); letter-spacing: -0.04em; }
-    .stat-n em { font-style: normal; font-size: 18px; color: var(--blue); }
-    .stat-l { font-size: 11px; color: var(--muted); margin-top: 4px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; }
+    .stat:hover { background: #131e2e; }
+    .stat-n { font-family: "Merriweather", serif; font-size: 26px; font-weight: 700; color: white; }
+    .stat-n em { font-style: normal; color: var(--mint); }
+    .stat-l { font-size: 10px; color: #4a6070; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.08em; }
+    @media(max-width:600px){.stats{grid-template-columns:repeat(2,1fr);}}
 
-    /* ── SECTIONS ── */
-    section { padding: 64px 48px; }
-    section.alt { background: var(--white); }
-    .sec-eye { font-size: 11px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
-    .sec-title { font-size: 30px; font-weight: 800; color: var(--dark); letter-spacing: -0.03em; margin-bottom: 8px; }
-    .sec-sub { font-size: 14px; color: var(--slate); font-weight: 400; max-width: 500px; line-height: 1.7; margin-bottom: 36px; }
-    .sec-head-row { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; flex-wrap: wrap; gap: 12px; }
-    .sec-link { font-size: 13px; color: var(--blue); font-weight: 600; text-decoration: none; }
-    .sec-link:hover { text-decoration: underline; }
+    /* SECTIONS */
+    .section { padding: 64px 56px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-alt { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .sec-label { font-size: 12px; font-weight: 600; color: var(--mint); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+    .sec-title { font-family: "Merriweather", serif; font-size: 26px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+    .sec-desc { font-size: 14px; color: var(--slate); max-width: 520px; line-height: 1.7; margin-bottom: 36px; }
+    @media(max-width:768px){.section{padding:48px 20px;}.hero{padding:48px 20px 40px;}}
 
-    /* ── COURSE CARDS ── */
-    .courses-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    @media (max-width: 900px) { .courses-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 580px) { .courses-grid { grid-template-columns: 1fr; } }
+    /* COURSES */
+    .courses-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    @media(max-width:900px){.courses-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:580px){.courses-grid{grid-template-columns:1fr;}}
+    .course-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 22px; text-decoration: none; display: block; transition: all 0.2s; position: relative; overflow: hidden; }
+    .course-card::before { content:""; position:absolute; top:0; left:0; right:0; height:3px; background:var(--mint); transform:scaleX(0); transform-origin:left; transition:transform 0.3s; }
+    .course-card:hover { border-color: #b2ddd0; transform: translateY(-2px); box-shadow: 0 4px 16px rgba(45,139,114,0.1); }
+    .course-card:hover::before { transform: scaleX(1); }
+    .course-emoji { font-size: 24px; margin-bottom: 12px; display: block; }
+    .course-badge { display: inline-block; font-size: 10px; font-weight: 600; color: var(--mint); background: var(--mint-light); border-radius: 3px; padding: 2px 8px; margin-bottom: 8px; }
+    .course-name { font-family: "Merriweather", serif; font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 8px; line-height: 1.4; }
+    .course-desc { font-size: 12px; color: var(--slate); line-height: 1.6; margin-bottom: 14px; }
+    .course-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--border); }
+    .course-lessons { font-size: 12px; color: var(--muted); }
+    .course-cta { font-size: 12px; color: var(--mint); font-weight: 600; }
 
-    .ccard {
-      background: var(--white); border: 0.5px solid var(--border);
-      border-radius: 14px; padding: 20px; position: relative; overflow: hidden;
-      transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;
-    }
-    .ccard:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(59,110,248,0.1); }
-    .ccard-bar { position: absolute; top: 0; left: 0; right: 0; height: 3px; }
-    .ccard-ico { width: 42px; height: 42px; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin: 8px 0 12px; }
-    .ccard-title { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
-    .ccard-desc { font-size: 12px; color: var(--slate); line-height: 1.6; margin-bottom: 14px; }
-    .ccard-foot { display: flex; justify-content: space-between; align-items: center; }
-    .cbadge { font-size: 10px; font-weight: 600; padding: 3px 10px; border-radius: 5px; }
-    .cmeta { font-size: 10px; color: var(--muted); font-family: 'JetBrains Mono', monospace; }
+    /* WHY */
+    .why-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+    @media(max-width:700px){.why-grid{grid-template-columns:1fr;}}
+    .why-card { background: var(--warm); border: 1px solid var(--border); border-radius: 12px; padding: 20px; display: flex; gap: 14px; }
+    .why-icon { font-size: 22px; flex-shrink: 0; }
+    .why-title { font-family: "Merriweather", serif; font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 5px; }
+    .why-desc { font-size: 13px; color: var(--slate); line-height: 1.6; }
 
-    /* course colors */
-    .c1 .ccard-bar { background: #3b6ef8; } .c1 .ccard-ico { background: #eff6ff; } .c1 .cbadge { background: #eff6ff; color: #3b6ef8; }
-    .c2 .ccard-bar { background: #0d9488; } .c2 .ccard-ico { background: #f0fdfa; } .c2 .cbadge { background: #f0fdfa; color: #0d9488; }
-    .c3 .ccard-bar { background: #7c3aed; } .c3 .ccard-ico { background: #f5f3ff; } .c3 .cbadge { background: #f5f3ff; color: #7c3aed; }
-    .c4 .ccard-bar { background: #f59e0b; } .c4 .ccard-ico { background: #fffbeb; } .c4 .cbadge { background: #fffbeb; color: #d97706; }
-    .c5 .ccard-bar { background: #e11d48; } .c5 .ccard-ico { background: #fff1f2; } .c5 .cbadge { background: #fff1f2; color: #e11d48; }
-    .c6 .ccard-bar { background: #16a34a; } .c6 .ccard-ico { background: #f0fdf4; } .c6 .cbadge { background: #f0fdf4; color: #16a34a; }
+    /* ROADMAP */
+    .roadmap-grid { display: flex; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    @media(max-width:600px){.roadmap-grid{flex-direction:column;}}
+    .roadmap-step { flex: 1; padding: 22px 18px; border-right: 1px solid var(--border); text-align: center; }
+    .roadmap-step:last-child { border-right: none; }
+    .roadmap-step.done { background: var(--mint-light); }
+    .step-check { width: 34px; height: 34px; border-radius: 50%; background: var(--border); display: flex; align-items: center; justify-content: center; font-size: 13px; margin: 0 auto 10px; font-weight: 700; color: var(--slate); }
+    .roadmap-step.done .step-check { background: var(--mint); color: white; }
+    .step-title { font-family: "Merriweather", serif; font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .step-time { font-size: 11px; color: var(--muted); }
 
-    /* ── ABOUT ── */
-    .about-inner { display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap; }
-    .av-wrap {
-      width: 80px; height: 80px; border-radius: 18px;
-      background: var(--dark); display: flex; align-items: center;
-      justify-content: center; flex-shrink: 0; position: relative;
-    }
-    .av-initials { font-size: 24px; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
-    .av-dot {
-      position: absolute; bottom: -4px; right: -4px;
-      width: 18px; height: 18px; background: var(--green);
-      border-radius: 50%; border: 3px solid var(--white);
-    }
-    .about-body { flex: 1; min-width: 260px; }
-    .about-name { font-size: 22px; font-weight: 800; color: var(--dark); letter-spacing: -0.02em; margin-bottom: 4px; }
-    .about-role { font-size: 12px; color: var(--blue); font-weight: 600; margin-bottom: 14px; font-family: 'JetBrains Mono', monospace; }
-    .about-bio { font-size: 14px; color: var(--slate); line-height: 1.8; margin-bottom: 18px; font-weight: 400; }
-    .chips { display: flex; gap: 8px; flex-wrap: wrap; }
-    .chip { font-size: 11px; background: #f1f5f9; color: #475569; padding: 4px 12px; border-radius: 6px; font-weight: 600; }
+    /* ABOUT */
+    .about-inner { display: grid; grid-template-columns: 260px 1fr; gap: 52px; align-items: start; }
+    @media(max-width:700px){.about-inner{grid-template-columns:1fr;}}
+    .about-photo { width: 76px; height: 76px; background: var(--mint); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: "Merriweather", serif; font-size: 22px; font-weight: 700; color: white; margin-bottom: 14px; }
+    .about-name { font-family: "Merriweather", serif; font-size: 20px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .about-role { font-size: 13px; color: var(--mint); font-weight: 500; margin-bottom: 12px; }
+    .about-bio { font-size: 14px; color: var(--slate); line-height: 1.8; margin-bottom: 14px; }
+    .about-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .about-tag { font-size: 11px; background: var(--warm2); color: var(--slate); border: 1px solid var(--border); border-radius: 4px; padding: 3px 10px; }
+    .about-quote { background: var(--mint-light); border-left: 3px solid var(--mint); border-radius: 0 8px 8px 0; padding: 18px 20px; margin-bottom: 18px; font-size: 15px; font-style: italic; color: var(--text); font-family: "Merriweather", serif; line-height: 1.7; }
+    .about-detail { font-size: 14px; color: var(--slate); line-height: 1.8; }
 
-    /* ── ROADMAP ── */
-    .road-wrap { position: relative; margin-top: 40px; }
-    .road-line {
-      position: absolute; top: 20px; left: calc(10% + 15px); right: calc(10% + 15px);
-      height: 2px; background: #dde6ff; z-index: 0;
-    }
-    .road-steps { display: flex; position: relative; z-index: 1; }
-    .rstep { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-    .rstep-num {
-      width: 40px; height: 40px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 13px; font-weight: 800;
-      border: 2px solid #dde6ff; background: var(--bg); color: var(--muted);
-      font-family: 'Plus Jakarta Sans', sans-serif; transition: all 0.3s;
-    }
-    .rstep-num.done { background: var(--blue); border-color: var(--blue); color: var(--white); }
-    .rstep-num.active { background: var(--white); border-color: var(--blue); color: var(--blue); box-shadow: 0 0 0 4px #dbeafe; }
-    .rstep-label { font-size: 12px; font-weight: 700; color: var(--dark); text-align: center; line-height: 1.4; }
-    .rstep-sub { font-size: 10px; color: var(--muted); text-align: center; font-family: 'JetBrains Mono', monospace; }
+    /* CTA */
+    .cta-section { background: var(--mint); padding: 56px; text-align: center; }
+    .cta-title { font-family: "Merriweather", serif; font-size: 28px; font-weight: 700; color: white; margin-bottom: 12px; line-height: 1.3; }
+    .cta-sub { font-size: 15px; color: rgba(255,255,255,0.85); margin-bottom: 28px; }
+    .cta-btn { background: white; color: var(--mint); font-size: 14px; font-weight: 700; padding: 13px 30px; border-radius: 6px; text-decoration: none; display: inline-block; transition: all 0.2s; }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
 
-    /* ── WHY SECTION ── */
-    .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    @media (max-width: 640px) { .why-grid { grid-template-columns: 1fr; } }
-    .why-card {
-      background: var(--bg); border: 0.5px solid #dde6ff;
-      border-radius: 14px; padding: 22px; display: flex; gap: 14px; align-items: flex-start;
-      transition: background 0.2s;
-    }
-    .why-card:hover { background: #e8eeff; }
-    .why-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
-    .why-title { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
-    .why-desc { font-size: 12px; color: var(--slate); line-height: 1.65; }
-
-    /* ── CTA BANNER ── */
-    .cta-banner {
-      background: var(--dark); padding: 64px 48px;
-      text-align: center; position: relative; overflow: hidden;
-    }
-    .cta-glow {
-      position: absolute; top: -60px; left: 50%; transform: translateX(-50%);
-      width: 500px; height: 300px;
-      background: radial-gradient(circle, #1d3a8a 0%, transparent 70%);
-    }
-    .cta-banner h2 { font-size: 36px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; margin-bottom: 12px; position: relative; z-index: 1; }
-    .cta-banner h2 span { color: var(--blue); }
-    .cta-banner p { font-size: 14px; color: var(--muted); margin-bottom: 28px; position: relative; z-index: 1; }
-    .cta-banner .btn-primary { font-size: 14px; padding: 13px 28px; border-radius: 9px; position: relative; z-index: 1; }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #060d1a; padding: 40px 48px 28px;
-      border-top: 0.5px solid #1a2a4a;
-    }
-    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; margin-bottom: 32px; }
-    .footer-brand-main { font-size: 18px; font-weight: 800; color: var(--white); letter-spacing: -0.02em; margin-bottom: 6px; }
-    .footer-brand-main span { color: var(--blue); }
-    .footer-tagline { font-size: 11px; color: #475569; font-family: 'JetBrains Mono', monospace; margin-bottom: 16px; }
-    .footer-social { display: flex; gap: 10px; }
-    .social-btn {
-      font-size: 11px; color: #64748b; border: 0.5px solid #1e3a6e;
-      border-radius: 6px; padding: 6px 12px; font-weight: 600;
-      text-decoration: none; transition: all 0.2s; font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-    .social-btn:hover { border-color: var(--blue); color: var(--blue); }
-    .footer-col h4 { font-size: 11px; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .footer-col ul a { font-size: 12px; color: #64748b; text-decoration: none; font-weight: 500; transition: color 0.2s; }
-    .footer-col ul a:hover { color: var(--blue); }
-    .footer-bottom { border-top: 0.5px solid #1a2a4a; padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-    .footer-copy { font-size: 11px; color: #334155; }
-    .footer-made { font-size: 11px; color: #334155; font-family: 'JetBrains Mono', monospace; }
-
-    /* ── MOBILE NAV ── */
-    @media (max-width: 768px) {
-      nav { padding: 12px 20px; }
-      .nav-links { display: none; }
-      .hero { padding: 56px 24px 48px; }
-      .hero h1 { font-size: 34px; }
-      section { padding: 48px 24px; }
-      .stats { grid-template-columns: repeat(2, 1fr); }
-      .stat { border-bottom: 0.5px solid var(--navy); }
-      .cta-banner { padding: 48px 24px; }
-      footer { padding: 36px 24px 24px; }
-      .road-line { display: none; }
-      .road-steps { flex-direction: column; gap: 16px; align-items: flex-start; }
-      .rstep { flex-direction: row; align-items: center; gap: 14px; }
-      .rstep-label, .rstep-sub { text-align: left; }
-    }
+    /* FOOTER */
+    footer { background: var(--dark); padding: 36px 56px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-brand { font-family: "Merriweather", serif; font-size: 15px; font-weight: 700; color: white; }
+    .footer-brand span { color: var(--mint); }
+    .footer-copy { font-size: 12px; color: #4a6070; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 13px; color: #4a6070; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--mint); }
   </style>
 </head>
 <body>
 
-  <!-- ── NAV ── -->
-  <nav>
-    <a href="#" class="brand">
-      <div class="brand-mark">
-        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="10" cy="10" r="4" fill="#3b6ef8"/>
-          <circle cx="10" cy="2.5" r="2" fill="#93c5fd"/>
-          <circle cx="10" cy="17.5" r="2" fill="#93c5fd"/>
-          <circle cx="2.5" cy="10" r="2" fill="#93c5fd"/>
-          <circle cx="17.5" cy="10" r="2" fill="#93c5fd"/>
-          <line x1="10" y1="4.5" x2="10" y2="6" stroke="#3b6ef8" stroke-width="1.2" stroke-linecap="round"/>
-          <line x1="10" y1="14" x2="10" y2="15.5" stroke="#3b6ef8" stroke-width="1.2" stroke-linecap="round"/>
-          <line x1="4.5" y1="10" x2="6" y2="10" stroke="#3b6ef8" stroke-width="1.2" stroke-linecap="round"/>
-          <line x1="14" y1="10" x2="15.5" y2="10" stroke="#3b6ef8" stroke-width="1.2" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="brand-wordmark">
-        <div class="brand-main">HNAI<span>.Researcher</span></div>
-        <div class="brand-sub">Humera Noor · AI Lab</div>
-      </div>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#courses">Courses</a></li>
-      <li><a href="#roadmap">Roadmap</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="research-bank.html">Research Archive</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="nav-right">
-      <a href="https://github.com/kfueit-hnai" target="_blank" class="btn-ghost">GitHub ↗</a>
-      <a href="#courses" class="btn-primary">Start Learning →</a>
-    </div>
-  </nav>
+<nav>
+  <a href="index.html" class="brand">
+    <div class="brand-icon">HN</div>
+    <div><div class="brand-name">HNAI<span>.Researcher</span></div><div class="brand-sub">Humera Noor · AI Lab</div></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="research-bank.html">Research</a></li>
+  </ul>
+  <a href="#courses" class="nav-cta">Start Learning →</a>
+</nav>
 
-  <!-- ── HERO ── -->
-  <section class="hero" style="padding-top:90px;padding-bottom:72px;">
-    <div class="hero-dots"></div>
-    <div class="hero-glow"></div>
-    <div class="hero-glow2"></div>
-    <div class="hero-content">
-      <div class="hero-badge">
-        <div class="badge-pulse"></div>
-        <div class="badge-text">Free · Open Source · Pakistan 🇵🇰 · Student to Researcher</div>
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag"><span class="hero-dot"></span><span class="hero-tag-text">Free · Open Source · Pakistan 🇵🇰</span></div>
+      <h1>Learn <span>Artificial Intelligence</span> the Practical Way</h1>
+      <p class="hero-desc">Free AI & ML education by Humera Noor — structured, hands-on, and completely open source. Built for Pakistani students and researchers who want to go from learner to builder.</p>
+      <div class="hero-btns">
+        <a href="#courses" class="btn-primary">Explore Courses →</a>
+        <a href="research-bank.html" class="btn-secondary">Research Archive</a>
       </div>
-      <h1>Building the Future<br>with <span class="hl">Artificial Intelligence</span></h1>
-      <p class="hero-sub">AI & ML education by Humera Noor — practical, structured, and completely free. Learn from real hands-on experience, not just theory.</p>
-      <div class="hero-actions">
-        <a href="#courses" class="btn-dark">Explore Courses →</a>
-        <a href="#roadmap" class="btn-outline">View Roadmap</a>
-        <a href="research-bank.html" class="btn-outline" style="border-color:#3b6ef8;color:#3b6ef8;">📚 Research Archive</a>
-      </div>
-      <div class="hero-mono">
-        <div class="mono-dot"></div>
-        <div class="mono-text">HNAI.Researcher → <span>ML · LLMs · n8n · Groq · Open Source</span></div>
+      <div class="hero-stats">
+        <div class="hstat"><div class="hstat-n">6</div><div class="hstat-l">Free Courses</div></div>
+        <div class="hstat"><div class="hstat-n">92+</div><div class="hstat-l">Lessons</div></div>
+        <div class="hstat"><div class="hstat-n">0₨</div><div class="hstat-l">Forever Free</div></div>
       </div>
     </div>
-  </section>
-
-  <!-- ── STATS ── -->
-  <div class="stats">
-    <div class="stat"><div class="stat-n">24<em>+</em></div><div class="stat-l">Free Courses</div></div>
-    <div class="stat"><div class="stat-n">100<em>%</em></div><div class="stat-l">Open Source</div></div>
-    <div class="stat"><div class="stat-n">0<em>$</em></div><div class="stat-l">Forever Free</div></div>
-    <div class="stat"><div class="stat-n">∞</div><div class="stat-l">Resources</div></div>
+    <div class="hero-card">
+      <div class="hero-card-title">📚 Start Learning Today</div>
+      <a href="python-for-ai.html" class="track-item"><div class="track-icon">🐍</div><div class="track-name">Python for AI</div><div class="track-level">Beginner · 12 lessons</div><div class="track-arrow">→</div></a>
+      <a href="machine-learning.html" class="track-item"><div class="track-icon">🧠</div><div class="track-name">Machine Learning</div><div class="track-level">Intermediate · 18 lessons</div><div class="track-arrow">→</div></a>
+      <a href="deep-learning.html" class="track-item"><div class="track-icon">🔗</div><div class="track-name">Deep Learning</div><div class="track-level">Advanced · 16 lessons</div><div class="track-arrow">→</div></a>
+      <a href="nlp-llms.html" class="track-item"><div class="track-icon">💬</div><div class="track-name">NLP & LLMs</div><div class="track-level">Advanced · 16 lessons</div><div class="track-arrow">→</div></a>
+    </div>
   </div>
+</div>
 
-  <!-- ── COURSES ── -->
-  <section id="courses">
-    <div class="sec-head-row">
-      <div>
-        <div class="sec-eye">Curriculum</div>
-        <div class="sec-title">Core Learning Tracks</div>
-        <p class="sec-sub" style="margin-bottom:0;">From zero to building real AI systems — pick your track and start learning today.</p>
-      </div>
-      <a href="#" class="sec-link">View all courses →</a>
-    </div>
+<div class="stats">
+  <div class="stat"><div class="stat-n">6<em>+</em></div><div class="stat-l">Free Courses</div></div>
+  <div class="stat"><div class="stat-n">92<em>+</em></div><div class="stat-l">Lessons</div></div>
+  <div class="stat"><div class="stat-n">100<em>%</em></div><div class="stat-l">Open Source</div></div>
+  <div class="stat"><div class="stat-n">0<em>₨</em></div><div class="stat-l">Forever Free</div></div>
+</div>
+
+<div class="section" id="courses">
+  <div class="section-inner">
+    <div class="sec-label">Curriculum</div>
+    <div class="sec-title">Core Learning Tracks</div>
+    <div class="sec-desc">From zero to building real AI systems. All courses are free, structured, and hands-on with Google Colab.</div>
     <div class="courses-grid">
-      <a href="python-for-ai.html" class="ccard c1" style="text-decoration:none;display:block;cursor:pointer;">
-        <div class="ccard-bar"></div>
-        <div class="ccard-ico">🐍</div>
-        <div class="ccard-title">Python for AI</div>
-        <div class="ccard-desc">NumPy, Pandas, data structures & scientific computing — everything you need before touching ML.</div>
-        <div class="ccard-foot"><span class="cbadge">Beginner</span><span class="cmeta">12 lessons</span></div>
-      </a>
-      <a href="machine-learning.html" class="ccard c2" style="text-decoration:none;display:block;cursor:pointer;">
-        <div class="ccard-bar"></div>
-        <div class="ccard-ico">🧠</div>
-        <div class="ccard-title">Machine Learning</div>
-        <div class="ccard-desc">Supervised, unsupervised & reinforcement learning with real datasets and hands-on projects.</div>
-        <div class="ccard-foot"><span class="cbadge">Intermediate</span><span class="cmeta">18 lessons</span></div>
-      </a>
-      <a href="deep-learning.html" class="ccard c3" style="text-decoration:none;display:block;cursor:pointer;">
-        <div class="ccard-bar"></div>
-        <div class="ccard-ico">🔗</div>
-        <div class="ccard-title">Deep Learning</div>
-        <div class="ccard-desc">Neural networks, CNNs, RNNs & transformers with PyTorch and TensorFlow from scratch.</div>
-        <div class="ccard-foot"><span class="cbadge">Advanced</span><span class="cmeta">22 lessons</span></div>
-      </a>
-      <a href="nlp-llms.html" class="ccard c4" style="text-decoration:none;display:block;cursor:pointer;">
-        <div class="ccard-bar"></div>
-        <div class="ccard-ico">💬</div>
-        <div class="ccard-title">NLP & LLMs</div>
-        <div class="ccard-desc">Transformers, BERT, GPT architecture, prompt engineering & fine-tuning large language models.</div>
-        <div class="ccard-foot"><span class="cbadge">Advanced</span><span class="cmeta">16 lessons</span></div>
-      </a>
-      <a href="computer-vision.html" class="ccard c5" style="text-decoration:none;display:block;cursor:pointer;">
-        <div class="ccard-bar"></div>
-        <div class="ccard-ico">👁️</div>
-        <div class="ccard-title">Computer Vision</div>
-        <div class="ccard-desc">Image classification, object detection, segmentation & generative image models.</div>
-        <div class="ccard-foot"><span class="cbadge">Intermediate</span><span class="cmeta">14 lessons</span></div>
-      </a>
-      <a href="mlops.html" class="ccard c6" style="text-decoration:none;display:block;cursor:pointer;">
-        <div class="ccard-bar"></div>
-        <div class="ccard-ico">⚙️</div>
-        <div class="ccard-title">MLOps & Deployment</div>
-        <div class="ccard-desc">Build APIs, pipelines & deploy ML models to production using free and open-source tools.</div>
-        <div class="ccard-foot"><span class="cbadge">Intermediate</span><span class="cmeta">10 lessons</span></div>
-      </a>
+      <a href="python-for-ai.html" class="course-card"><span class="course-emoji">🐍</span><span class="course-badge">Beginner</span><div class="course-name">Python for AI</div><div class="course-desc">NumPy, Pandas, data structures & scientific computing — everything you need before touching ML.</div><div class="course-footer"><span class="course-lessons">📖 12 lessons</span><span class="course-cta">Start →</span></div></a>
+      <a href="machine-learning.html" class="course-card"><span class="course-emoji">🧠</span><span class="course-badge">Intermediate</span><div class="course-name">Machine Learning</div><div class="course-desc">Supervised, unsupervised & reinforcement learning with real datasets and hands-on projects.</div><div class="course-footer"><span class="course-lessons">📖 18 lessons</span><span class="course-cta">Start →</span></div></a>
+      <a href="deep-learning.html" class="course-card"><span class="course-emoji">🔗</span><span class="course-badge">Advanced</span><div class="course-name">Deep Learning</div><div class="course-desc">Neural networks, CNNs, RNNs & transformers with PyTorch and TensorFlow from scratch.</div><div class="course-footer"><span class="course-lessons">📖 16 lessons</span><span class="course-cta">Start →</span></div></a>
+      <a href="nlp-llms.html" class="course-card"><span class="course-emoji">💬</span><span class="course-badge">Advanced</span><div class="course-name">NLP & LLMs</div><div class="course-desc">Transformers, BERT, GPT, prompt engineering & fine-tuning large language models.</div><div class="course-footer"><span class="course-lessons">📖 16 lessons</span><span class="course-cta">Start →</span></div></a>
+      <a href="computer-vision.html" class="course-card"><span class="course-emoji">👁️</span><span class="course-badge">Intermediate</span><div class="course-name">Computer Vision</div><div class="course-desc">Image classification, object detection, segmentation & generative image models with YOLO.</div><div class="course-footer"><span class="course-lessons">📖 14 lessons</span><span class="course-cta">Start →</span></div></a>
+      <a href="mlops.html" class="course-card"><span class="course-emoji">⚙️</span><span class="course-badge">Intermediate</span><div class="course-name">MLOps & Deployment</div><div class="course-desc">Build APIs, Docker containers & deploy ML models to production using free tools.</div><div class="course-footer"><span class="course-lessons">📖 10 lessons</span><span class="course-cta">Start →</span></div></a>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- ── ABOUT ── -->
-  <section class="alt" id="about">
-    <div class="sec-eye">The Person Behind It</div>
+<div class="section section-alt">
+  <div class="section-inner">
+    <div class="sec-label">Why This Platform</div>
+    <div class="sec-title">Built for Students, by a Student</div>
+    <div class="sec-desc">Everything here comes from real experience — no fluff, no paywalls, no gatekeeping.</div>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon">🆓</div><div><div class="why-title">No Paywalls, Ever</div><div class="why-desc">Every lesson, project, and resource is free forever. No subscriptions, no hidden fees.</div></div></div>
+      <div class="why-card"><div class="why-icon">🔧</div><div><div class="why-title">Hands-On & Practical</div><div class="why-desc">Learn by building real things — not watching slides. Every topic comes with runnable Colab code.</div></div></div>
+      <div class="why-card"><div class="why-icon">🌍</div><div><div class="why-title">Open Source Everything</div><div class="why-desc">All content and code is on GitHub. Fork it, contribute, or use it however you like.</div></div></div>
+      <div class="why-card"><div class="why-icon">🗺️</div><div><div class="why-title">Structured Roadmaps</div><div class="why-desc">No random YouTube rabbit holes. A clear path from beginner to real AI systems.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="roadmap">
+  <div class="section-inner">
+    <div class="sec-label">Your Journey</div>
+    <div class="sec-title">AI Learning Roadmap</div>
+    <div class="sec-desc">A clear path from your very first line of Python to building and deploying real AI systems.</div>
+    <div class="roadmap-grid">
+      <div class="roadmap-step done"><div class="step-check">✓</div><div class="step-title">Python Basics</div><div class="step-time">Week 1–2</div></div>
+      <div class="roadmap-step done"><div class="step-check">✓</div><div class="step-title">ML Foundations</div><div class="step-time">Week 3–6</div></div>
+      <div class="roadmap-step"><div class="step-check">3</div><div class="step-title">Deep Learning</div><div class="step-time">Week 7–12</div></div>
+      <div class="roadmap-step"><div class="step-check">4</div><div class="step-title">Real Projects</div><div class="step-time">Month 4–6</div></div>
+      <div class="roadmap-step"><div class="step-check">5</div><div class="step-title">Build & Deploy</div><div class="step-time">Month 6+</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="section section-alt" id="about">
+  <div class="section-inner">
+    <div class="sec-label">The Person Behind It</div>
     <div class="sec-title">About Humera</div>
     <div class="about-inner">
-      <div class="av-wrap">
-        <div class="av-initials">HN</div>
-        <div class="av-dot"></div>
-      </div>
-      <div class="about-body">
-        <div class="about-name">Humera Noor — HNAI.Researcher</div>
-        <div class="about-role">// AI/ML Engineer · Open Source · Pakistan 🇵🇰</div>
-        <div class="about-bio">Hi, I'm Humera — an AI & ML engineer from Pakistan learning in public and sharing everything along the way. This platform is my way of giving back — real lessons from real hands-on experience with LLMs, n8n automation, Groq, and open-source tools. Always free, always open source. My mission: help every student build the future with AI.</div>
-        <div class="chips">
-          <span class="chip">Machine Learning</span>
-          <span class="chip">LLMs</span>
-          <span class="chip">n8n Automation</span>
-          <span class="chip">Groq</span>
-          <span class="chip">Deep Learning</span>
-          <span class="chip">Computer Vision</span>
-          <span class="chip">Open Source</span>
-          <span class="chip">Pakistan 🇵🇰</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── ROADMAP ── -->
-  <section id="roadmap">
-    <div class="sec-eye">Your Journey</div>
-    <div class="sec-title">AI Learning Roadmap</div>
-    <p class="sec-sub">A clear path from your very first line of Python all the way to building and deploying real AI systems.</p>
-    <div class="road-wrap">
-      <div class="road-line"></div>
-      <div class="road-steps">
-        <div class="rstep">
-          <div class="rstep-num done">✓</div>
-          <div class="rstep-label">Python<br>Basics</div>
-          <div class="rstep-sub">Week 1–2</div>
-        </div>
-        <div class="rstep">
-          <div class="rstep-num done">✓</div>
-          <div class="rstep-label">ML<br>Foundations</div>
-          <div class="rstep-sub">Week 3–6</div>
-        </div>
-        <div class="rstep">
-          <div class="rstep-num active">3</div>
-          <div class="rstep-label">Deep<br>Learning</div>
-          <div class="rstep-sub">Week 7–12</div>
-        </div>
-        <div class="rstep">
-          <div class="rstep-num">4</div>
-          <div class="rstep-label">Real<br>Projects</div>
-          <div class="rstep-sub">Month 4–6</div>
-        </div>
-        <div class="rstep">
-          <div class="rstep-num">5</div>
-          <div class="rstep-label">Build &<br>Deploy</div>
-          <div class="rstep-sub">Month 6+</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── WHY ── -->
-  <section class="alt">
-    <div class="sec-eye">Why This Platform</div>
-    <div class="sec-title">Built for Students, by a Student</div>
-    <p class="sec-sub">Everything here comes from real experience — no fluff, no paywalls, no gatekeeping.</p>
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="why-icon">🆓</div>
-        <div>
-          <div class="why-title">No Paywalls, Ever</div>
-          <div class="why-desc">Every single lesson, project, and resource on this platform is free forever. No subscriptions, no hidden fees.</div>
-        </div>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">🔧</div>
-        <div>
-          <div class="why-title">Hands-On & Practical</div>
-          <div class="why-desc">Learn by building real things — not just watching slides. Every topic comes with code you can run immediately.</div>
-        </div>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">🌍</div>
-        <div>
-          <div class="why-title">Open Source Everything</div>
-          <div class="why-desc">All content and code is open source on GitHub. Fork it, contribute to it, or use it however you like.</div>
-        </div>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">🗺️</div>
-        <div>
-          <div class="why-title">Structured Roadmaps</div>
-          <div class="why-desc">No more random YouTube rabbit holes. Follow a clear, structured path from beginner to building real AI systems.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── CTA ── -->
-  <div class="cta-banner" id="contact">
-    <div class="cta-glow"></div>
-    <h2>Ready to Build the Future<br>with <span>Artificial Intelligence?</span></h2>
-    <p>Join hundreds of students already learning AI for free. No signup required — just start.</p>
-    <a href="mailto:engr.humeranoor@gmail.com" class="btn-primary" style="margin-right:12px;">Contact Humera →</a><a href="#courses" class="btn-primary">Start Learning for Free →</a>
-  </div>
-
-  <!-- ── FOOTER ── -->
-  <footer>
-    <div class="footer-top">
       <div>
-        <div class="footer-brand-main">HNAI<span>.Researcher</span></div>
-        <div class="footer-tagline">// building the future with artificial intelligence</div>
-        <div class="footer-social">
-          <a href="https://github.com/kfueit-hnai" target="_blank" class="social-btn">GitHub</a>
-          <a href="https://www.linkedin.com/in/humera-noor/" target="_blank" class="social-btn">LinkedIn</a>
-          <a href="https://www.facebook.com/profile.php?id=61587173570117" target="_blank" class="social-btn">Facebook</a>
+        <div style="width:80px;height:80px;border-radius:12px;overflow:hidden;margin-bottom:14px;"><img src="hnai-logo.png" alt="HNAI.Researcher Logo" style="width:100%;height:100%;object-fit:cover;"/></div>
+        <div class="about-name">Humera Noor</div>
+        <div class="about-role">AI/ML Engineer · PhD Researcher · Pakistan 🇵🇰</div>
+        <p class="about-bio">Hi, I am Humera — an AI & ML engineer from Pakistan learning in public and sharing everything along the way. This platform is my way of giving back.</p>
+        <div class="about-tags">
+          <span class="about-tag">Machine Learning</span><span class="about-tag">LLMs</span><span class="about-tag">n8n</span><span class="about-tag">Groq</span><span class="about-tag">Deep Learning</span><span class="about-tag">Open Source</span>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;">
+          <a href="https://github.com/aiengr-humera" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--dark);color:white;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">🐙 GitHub</a>
+          <a href="https://www.linkedin.com/in/humera-noorahmad/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:#0077b5;color:white;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">💼 LinkedIn</a>
+          <a href="https://www.facebook.com/HNAI.Researcher" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:#1877f2;color:white;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">📘 Facebook</a>
+          <a href="https://aiengr-humera.github.io/portfolio/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--mint);color:white;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">🌐 Portfolio</a>
         </div>
       </div>
-      <div class="footer-col">
-        <h4>Courses</h4>
-        <ul>
-          <li><a href="#">Python for AI</a></li>
-          <li><a href="#">Machine Learning</a></li>
-          <li><a href="#">Deep Learning</a></li>
-          <li><a href="#">NLP & LLMs</a></li>
-          <li><a href="#">Computer Vision</a></li>
-          <li><a href="#">MLOps & Deploy</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <ul>
-          <li><a href="research-bank.html">Research Archive</a></li>
-          <li><a href="#">AI Roadmap</a></li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">Open Source</a></li>
-          <li><a href="#">GitHub Repos</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Connect</h4>
-        <ul>
-          <li><a href="#">About Humera</a></li>
-          <li><a href="https://www.linkedin.com/in/humera-noor/" target="_blank">LinkedIn</a></li>
-          <li><a href="https://www.facebook.com/profile.php?id=61587173570117" target="_blank">Facebook Page</a></li>
-          <li><a href="mailto:engr.humeranoor@gmail.com">engr.humeranoor@gmail.com</a></li>
-        </ul>
+      <div>
+        <div class="about-quote">"My mission: help every student in Pakistan build the future with AI — for free, forever."</div>
+        <p class="about-detail">Real lessons from real hands-on experience with LLMs, n8n automation, Groq, and open-source tools. Always free, always open source. No gatekeeping — just pure knowledge sharing.</p>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2025 Humera Noor · HNAI.Researcher · All rights reserved</div>
-      <div class="footer-made">// made with ❤️ in Pakistan 🇵🇰</div>
-    </div>
-  </footer>
+  </div>
+</div>
+
+<div class="cta-section">
+  <div class="cta-title">Ready to Build the Future with AI?</div>
+  <p class="cta-sub">Join students already learning AI for free. No signup required — just start.</p>
+  <a href="#courses" class="cta-btn">Start Learning for Free →</a>
+</div>
+
+<footer>
+  <div class="footer-brand">HNAI<span>.Researcher</span></div>
+  <div class="footer-copy">© 2026 Humera Noor · made with ❤️ in Pakistan 🇵🇰</div>
+  <div class="footer-links">
+    <a href="https://github.com/aiengr-humera">GitHub</a>
+    <a href="https://www.linkedin.com/in/humera-noorahmad/">LinkedIn</a>
+    <a href="https://www.facebook.com/HNAI.Researcher">Facebook</a>
+    <a href="mailto:engr.humeranoor@gmail.com">Contact</a>
+  </div>
+</footer>
 
 </body>
 </html>
