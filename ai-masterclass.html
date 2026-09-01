@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Engineer Roadmap — HNAI.Researcher</title>
+  <meta name="description" content="Complete AI Engineer Roadmap — Python, Machine Learning, Deep Learning, NLP & LLMs. One course, full journey by HNAI.Researcher."/>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --mint: #2D8B72; --mint-light: #f0faf6; --mint-mid: #3da882;
+      --warm: #faf8f4; --warm2: #f3f0ea; --dark: #1a1a2e;
+      --text: #2d3748; --slate: #5a6a7a; --muted: #8fa0b0;
+      --border: #e8e4dc; --white: #ffffff; --green: #22c55e;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--warm); color: var(--text); line-height: 1.6; }
+    ::-webkit-scrollbar { width: 5px; } ::-webkit-scrollbar-thumb { background: var(--mint); border-radius: 10px; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); padding: 0 48px; height: 60px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .brand-icon { width: 34px; height: 34px; border-radius: 8px; overflow: hidden; }
+    .brand-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .brand-name { font-family: 'Merriweather', serif; font-size: 15px; font-weight: 700; color: var(--dark); }
+    .brand-name span { color: var(--mint); }
+    .brand-sub { font-size: 9px; color: var(--muted); }
+    .nav-back { font-size: 13px; color: var(--slate); text-decoration: none; font-weight: 500; }
+    .nav-back:hover { color: var(--mint); }
+    .nav-cta { background: var(--mint); color: white; font-size: 12px; font-weight: 600; padding: 8px 18px; border-radius: 6px; text-decoration: none; }
+    @media(max-width:768px){nav{padding:0 18px;}}
+
+    /* HERO */
+    .course-hero { background: var(--dark); padding: 56px 48px 48px; border-bottom: 1px solid #1e2d40; position: relative; overflow: hidden; }
+    .hero-glow { position: absolute; top: -100px; right: -60px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(45,139,114,0.15) 0%, transparent 65%); }
+    .hero-inner { position: relative; z-index: 2; max-width: 720px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(45,139,114,0.15); border: 1px solid rgba(45,139,114,0.3); border-radius: 20px; padding: 5px 14px; margin-bottom: 20px; }
+    .hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--mint); animation: blink 2s infinite; }
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+    .hero-badge-text { font-size: 11px; color: var(--mint); font-weight: 600; font-family: 'JetBrains Mono', monospace; }
+    .course-hero h1 { font-family: 'Merriweather', serif; font-size: 34px; font-weight: 700; color: white; line-height: 1.25; margin-bottom: 14px; }
+    .course-hero h1 span { color: var(--mint); }
+    .course-desc { font-size: 15px; color: #8fa0b0; line-height: 1.8; max-width: 560px; margin-bottom: 28px; }
+    .hero-stats { display: flex; gap: 28px; flex-wrap: wrap; margin-bottom: 28px; }
+    .hstat { text-align: left; }
+    .hstat-n { font-family: 'Merriweather', serif; font-size: 24px; font-weight: 700; color: white; }
+    .hstat-l { font-size: 11px; color: #4a6070; margin-top: 2px; text-transform: uppercase; letter-spacing: .06em; }
+    .hero-modules { display: flex; gap: 10px; flex-wrap: wrap; }
+    .module-pill { font-size: 11px; font-weight: 600; padding: 6px 14px; border-radius: 20px; border: 1px solid; }
+    .m1 { background: rgba(59,130,248,0.1); border-color: rgba(59,130,248,0.3); color: #60a5fa; }
+    .m2 { background: rgba(45,139,114,0.1); border-color: rgba(45,139,114,0.3); color: var(--mint); }
+    .m3 { background: rgba(168,85,247,0.1); border-color: rgba(168,85,247,0.3); color: #c084fc; }
+    .m4 { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.3); color: #fbbf24; }
+
+    /* PROGRESS */
+    .progress-bar-wrap { background: #131e2e; padding: 14px 48px; display: flex; align-items: center; gap: 16px; border-bottom: 1px solid #1e2d40; }
+    .progress-label { font-size: 11px; color: var(--muted); font-family: 'JetBrains Mono', monospace; white-space: nowrap; }
+    .progress-track { flex: 1; height: 4px; background: #1e3040; border-radius: 10px; max-width: 300px; }
+    .progress-fill { height: 100%; border-radius: 10px; background: var(--mint); width: 0%; transition: width 1s ease; }
+    .progress-pct { font-size: 11px; color: var(--mint); font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+    @media(max-width:768px){.progress-bar-wrap{padding:12px 18px;}}
+
+    /* LAYOUT */
+    .course-layout { display: grid; grid-template-columns: 280px 1fr; min-height: calc(100vh - 200px); }
+    @media(max-width:900px){.course-layout{grid-template-columns:1fr;}}
+
+    /* SIDEBAR */
+    .sidebar { background: var(--white); border-right: 1px solid var(--border); padding: 20px 0; position: sticky; top: 60px; height: fit-content; max-height: calc(100vh - 60px); overflow-y: auto; -webkit-overflow-scrolling: touch; }
+    .sidebar-title { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; padding: 0 18px; margin-bottom: 12px; }
+    .sidebar-section { margin-top: 4px; }
+    .sidebar-module { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 8px 18px 4px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .mod-1 { color: #3b82f6; background: #eff6ff; }
+    .mod-2 { color: var(--mint); background: var(--mint-light); }
+    .mod-3 { color: #9333ea; background: #faf5ff; }
+    .mod-4 { color: #d97706; background: #fffbeb; }
+    .lesson-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 18px; cursor: pointer; transition: background .15s; border-left: 3px solid transparent; text-decoration: none; }
+    .lesson-item:hover { background: var(--warm); }
+    .lesson-item.active { background: var(--mint-light); border-left-color: var(--mint); }
+    .lesson-num { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; color: var(--muted); flex-shrink: 0; margin-top: 1px; }
+    .lesson-item.active .lesson-num { background: var(--mint); border-color: var(--mint); color: white; }
+    .lesson-item.done .lesson-num { background: var(--green); border-color: var(--green); color: white; }
+    .lesson-name { font-size: 12px; font-weight: 500; color: var(--text); line-height: 1.4; }
+    .lesson-item.active .lesson-name { color: var(--mint); font-weight: 600; }
+
+    /* MAIN */
+    .course-main { padding: 32px 44px; }
+    @media(max-width:768px){.course-main{padding:20px 18px;}.course-hero{padding:40px 18px 32px;}}
+    .lesson-module-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; font-family: 'JetBrains Mono', monospace; }
+    .lesson-tag { font-size: 10px; color: var(--muted); margin-bottom: 6px; font-family: 'JetBrains Mono', monospace; }
+    .lesson-title { font-family: 'Merriweather', serif; font-size: 22px; font-weight: 700; color: var(--dark); margin-bottom: 8px; line-height: 1.3; }
+    .lesson-subtitle { font-size: 14px; color: var(--slate); line-height: 1.7; max-width: 580px; margin-bottom: 24px; }
+    .video-wrap { position: relative; width: 100%; padding-bottom: 56.25%; border-radius: 12px; overflow: hidden; background: #000; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,.1); }
+    .video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+    .learn-box { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+    .learn-box-title { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 12px; font-family: 'Merriweather', serif; }
+    .learn-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; }
+    @media(max-width:600px){.learn-grid{grid-template-columns:1fr;}}
+    .learn-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--slate); line-height: 1.5; }
+    .learn-check { width: 18px; height: 18px; border-radius: 50%; background: var(--mint-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 9px; color: var(--mint); font-weight: 800; margin-top: 1px; }
+    .lesson-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 12px; }
+    .nav-btn { display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: none; transition: all .2s; border: 1.5px solid var(--border); color: var(--slate); background: var(--white); font-family: 'Inter', sans-serif; }
+    .nav-btn:hover { border-color: var(--mint); color: var(--mint); }
+    .nav-btn.next { background: var(--mint); color: white; border-color: var(--mint); }
+    .nav-btn.next:hover { background: var(--mint-mid); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="brand">
+    <div class="brand-icon"><img src="hnai-logo.png" alt="HNAI Logo"/></div>
+    <div><div class="brand-name">HNAI<span>.Researcher</span></div><div class="brand-sub">Humera Noor</div></div>
+  </a>
+  <a href="index.html#courses" class="nav-back">← All Courses</a>
+  <a href="index.html#courses" class="nav-cta">Browse Courses →</a>
+</nav>
+
+<div class="course-hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-badge"><span class="hero-badge-dot"></span><span class="hero-badge-text">HNAI.Researcher · Flagship Course · Free</span></div>
+    <h1>AI Engineer <span>Roadmap</span><br>From Python to LLMs</h1>
+    <p class="course-desc">The complete journey — from your first line of Python to building intelligent AI systems with LLMs. One structured course, 62 lessons, completely free. Built by HNAI.Researcher for serious learners.</p>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n">62</div><div class="hstat-l">Total Lessons</div></div>
+      <div class="hstat"><div class="hstat-n">4</div><div class="hstat-l">Modules</div></div>
+      <div class="hstat"><div class="hstat-n">0₨</div><div class="hstat-l">Forever Free</div></div>
+    </div>
+    <div class="hero-modules">
+      <span class="module-pill m1">Module 1 — Python for AI</span>
+      <span class="module-pill m2">Module 2 — Machine Learning</span>
+      <span class="module-pill m3">Module 3 — Deep Learning</span>
+      <span class="module-pill m4">Module 4 — NLP & LLMs</span>
+    </div>
+  </div>
+</div>
+
+<div class="progress-bar-wrap">
+  <span class="progress-label">// your progress</span>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  <span class="progress-pct" id="progressPct">0% complete</span>
+</div>
+
+<div class="course-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Course Curriculum</div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-module mod-1">Module 1 — Python for AI</div>
+      <a class="lesson-item active" onclick="loadLesson(0);return false;" href="javascript:void(0)"><div class="lesson-num">1</div><div class="lesson-name">Python for Beginners</div></a>
+      <a class="lesson-item" onclick="loadLesson(1);return false;" href="javascript:void(0)"><div class="lesson-num">2</div><div class="lesson-name">Data Structures</div></a>
+      <a class="lesson-item" onclick="loadLesson(2);return false;" href="javascript:void(0)"><div class="lesson-num">3</div><div class="lesson-name">Functions, Loops & OOP</div></a>
+      <a class="lesson-item" onclick="loadLesson(3);return false;" href="javascript:void(0)"><div class="lesson-num">4</div><div class="lesson-name">NumPy Tutorial</div></a>
+      <a class="lesson-item" onclick="loadLesson(4);return false;" href="javascript:void(0)"><div class="lesson-num">5</div><div class="lesson-name">Pandas for Data Analysis</div></a>
+      <a class="lesson-item" onclick="loadLesson(5);return false;" href="javascript:void(0)"><div class="lesson-num">6</div><div class="lesson-name">Data Cleaning with Pandas</div></a>
+      <a class="lesson-item" onclick="loadLesson(6);return false;" href="javascript:void(0)"><div class="lesson-num">7</div><div class="lesson-name">Matplotlib Tutorial</div></a>
+      <a class="lesson-item" onclick="loadLesson(7);return false;" href="javascript:void(0)"><div class="lesson-num">8</div><div class="lesson-name">Seaborn Charts</div></a>
+      <a class="lesson-item" onclick="loadLesson(8);return false;" href="javascript:void(0)"><div class="lesson-num">9</div><div class="lesson-name">SciPy & Linear Algebra</div></a>
+      <a class="lesson-item" onclick="loadLesson(9);return false;" href="javascript:void(0)"><div class="lesson-num">10</div><div class="lesson-name">Statistics & Probability</div></a>
+      <a class="lesson-item" onclick="loadLesson(10);return false;" href="javascript:void(0)"><div class="lesson-num">11</div><div class="lesson-name">Web Scraping</div></a>
+      <a class="lesson-item" onclick="loadLesson(11);return false;" href="javascript:void(0)"><div class="lesson-num">12</div><div class="lesson-name">Python Capstone Project</div></a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-module mod-2">Module 2 — Machine Learning</div>
+      <a class="lesson-item" onclick="loadLesson(12);return false;" href="javascript:void(0)"><div class="lesson-num">13</div><div class="lesson-name">What is Machine Learning?</div></a>
+      <a class="lesson-item" onclick="loadLesson(13);return false;" href="javascript:void(0)"><div class="lesson-num">14</div><div class="lesson-name">Types of ML</div></a>
+      <a class="lesson-item" onclick="loadLesson(14);return false;" href="javascript:void(0)"><div class="lesson-num">15</div><div class="lesson-name">ML Environment (Colab)</div></a>
+      <a class="lesson-item" onclick="loadLesson(15);return false;" href="javascript:void(0)"><div class="lesson-num">16</div><div class="lesson-name">Linear Regression</div></a>
+      <a class="lesson-item" onclick="loadLesson(16);return false;" href="javascript:void(0)"><div class="lesson-num">17</div><div class="lesson-name">Logistic Regression</div></a>
+      <a class="lesson-item" onclick="loadLesson(17);return false;" href="javascript:void(0)"><div class="lesson-num">18</div><div class="lesson-name">Decision Trees & Random Forests</div></a>
+      <a class="lesson-item" onclick="loadLesson(18);return false;" href="javascript:void(0)"><div class="lesson-num">19</div><div class="lesson-name">Support Vector Machines</div></a>
+      <a class="lesson-item" onclick="loadLesson(19);return false;" href="javascript:void(0)"><div class="lesson-num">20</div><div class="lesson-name">K-Nearest Neighbors</div></a>
+      <a class="lesson-item" onclick="loadLesson(20);return false;" href="javascript:void(0)"><div class="lesson-num">21</div><div class="lesson-name">Train/Test Split & Cross Validation</div></a>
+      <a class="lesson-item" onclick="loadLesson(21);return false;" href="javascript:void(0)"><div class="lesson-num">22</div><div class="lesson-name">Accuracy, Precision & F1</div></a>
+      <a class="lesson-item" onclick="loadLesson(22);return false;" href="javascript:void(0)"><div class="lesson-num">23</div><div class="lesson-name">Overfitting & Regularization</div></a>
+      <a class="lesson-item" onclick="loadLesson(23);return false;" href="javascript:void(0)"><div class="lesson-num">24</div><div class="lesson-name">K-Means Clustering</div></a>
+      <a class="lesson-item" onclick="loadLesson(24);return false;" href="javascript:void(0)"><div class="lesson-num">25</div><div class="lesson-name">PCA</div></a>
+      <a class="lesson-item" onclick="loadLesson(25);return false;" href="javascript:void(0)"><div class="lesson-num">26</div><div class="lesson-name">Dimensionality Reduction</div></a>
+      <a class="lesson-item" onclick="loadLesson(26);return false;" href="javascript:void(0)"><div class="lesson-num">27</div><div class="lesson-name">House Price Prediction</div></a>
+      <a class="lesson-item" onclick="loadLesson(27);return false;" href="javascript:void(0)"><div class="lesson-num">28</div><div class="lesson-name">Customer Segmentation</div></a>
+      <a class="lesson-item" onclick="loadLesson(28);return false;" href="javascript:void(0)"><div class="lesson-num">29</div><div class="lesson-name">ML Pipeline with Sklearn</div></a>
+      <a class="lesson-item" onclick="loadLesson(29);return false;" href="javascript:void(0)"><div class="lesson-num">30</div><div class="lesson-name">ML Capstone Project</div></a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-module mod-3">Module 3 — Deep Learning</div>
+      <a class="lesson-item" onclick="loadLesson(30);return false;" href="javascript:void(0)"><div class="lesson-num">31</div><div class="lesson-name">What is Deep Learning?</div></a>
+      <a class="lesson-item" onclick="loadLesson(31);return false;" href="javascript:void(0)"><div class="lesson-num">32</div><div class="lesson-name">The Perceptron & Neural Nets</div></a>
+      <a class="lesson-item" onclick="loadLesson(32);return false;" href="javascript:void(0)"><div class="lesson-num">33</div><div class="lesson-name">Activation Functions</div></a>
+      <a class="lesson-item" onclick="loadLesson(33);return false;" href="javascript:void(0)"><div class="lesson-num">34</div><div class="lesson-name">Backpropagation</div></a>
+      <a class="lesson-item" onclick="loadLesson(34);return false;" href="javascript:void(0)"><div class="lesson-num">35</div><div class="lesson-name">PyTorch Setup & Tensors</div></a>
+      <a class="lesson-item" onclick="loadLesson(35);return false;" href="javascript:void(0)"><div class="lesson-num">36</div><div class="lesson-name">First Neural Network</div></a>
+      <a class="lesson-item" onclick="loadLesson(36);return false;" href="javascript:void(0)"><div class="lesson-num">37</div><div class="lesson-name">Training Loop in PyTorch</div></a>
+      <a class="lesson-item" onclick="loadLesson(37);return false;" href="javascript:void(0)"><div class="lesson-num">38</div><div class="lesson-name">CNNs Explained</div></a>
+      <a class="lesson-item" onclick="loadLesson(38);return false;" href="javascript:void(0)"><div class="lesson-num">39</div><div class="lesson-name">CNN with PyTorch</div></a>
+      <a class="lesson-item" onclick="loadLesson(39);return false;" href="javascript:void(0)"><div class="lesson-num">40</div><div class="lesson-name">Transfer Learning</div></a>
+      <a class="lesson-item" onclick="loadLesson(40);return false;" href="javascript:void(0)"><div class="lesson-num">41</div><div class="lesson-name">RNNs & LSTMs</div></a>
+      <a class="lesson-item" onclick="loadLesson(41);return false;" href="javascript:void(0)"><div class="lesson-num">42</div><div class="lesson-name">Attention Mechanism</div></a>
+      <a class="lesson-item" onclick="loadLesson(42);return false;" href="javascript:void(0)"><div class="lesson-num">43</div><div class="lesson-name">Transformers from Scratch</div></a>
+      <a class="lesson-item" onclick="loadLesson(43);return false;" href="javascript:void(0)"><div class="lesson-num">44</div><div class="lesson-name">Image Classifier Project</div></a>
+      <a class="lesson-item" onclick="loadLesson(44);return false;" href="javascript:void(0)"><div class="lesson-num">45</div><div class="lesson-name">Text Sentiment with LSTM</div></a>
+      <a class="lesson-item" onclick="loadLesson(45);return false;" href="javascript:void(0)"><div class="lesson-num">46</div><div class="lesson-name">Deep Learning Capstone</div></a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-module mod-4">Module 4 — NLP & LLMs</div>
+      <a class="lesson-item" onclick="loadLesson(46);return false;" href="javascript:void(0)"><div class="lesson-num">47</div><div class="lesson-name">Introduction to NLP</div></a>
+      <a class="lesson-item" onclick="loadLesson(47);return false;" href="javascript:void(0)"><div class="lesson-num">48</div><div class="lesson-name">Text Preprocessing</div></a>
+      <a class="lesson-item" onclick="loadLesson(48);return false;" href="javascript:void(0)"><div class="lesson-num">49</div><div class="lesson-name">Bag of Words & TF-IDF</div></a>
+      <a class="lesson-item" onclick="loadLesson(49);return false;" href="javascript:void(0)"><div class="lesson-num">50</div><div class="lesson-name">Word Embeddings</div></a>
+      <a class="lesson-item" onclick="loadLesson(50);return false;" href="javascript:void(0)"><div class="lesson-num">51</div><div class="lesson-name">Text Classification</div></a>
+      <a class="lesson-item" onclick="loadLesson(51);return false;" href="javascript:void(0)"><div class="lesson-num">52</div><div class="lesson-name">Named Entity Recognition</div></a>
+      <a class="lesson-item" onclick="loadLesson(52);return false;" href="javascript:void(0)"><div class="lesson-num">53</div><div class="lesson-name">Sentiment Analysis</div></a>
+      <a class="lesson-item" onclick="loadLesson(53);return false;" href="javascript:void(0)"><div class="lesson-num">54</div><div class="lesson-name">Transformers for NLP</div></a>
+      <a class="lesson-item" onclick="loadLesson(54);return false;" href="javascript:void(0)"><div class="lesson-num">55</div><div class="lesson-name">BERT Fine-Tuning</div></a>
+      <a class="lesson-item" onclick="loadLesson(55);return false;" href="javascript:void(0)"><div class="lesson-num">56</div><div class="lesson-name">How LLMs Work</div></a>
+      <a class="lesson-item" onclick="loadLesson(56);return false;" href="javascript:void(0)"><div class="lesson-num">57</div><div class="lesson-name">Prompt Engineering</div></a>
+      <a class="lesson-item" onclick="loadLesson(57);return false;" href="javascript:void(0)"><div class="lesson-num">58</div><div class="lesson-name">Fine-Tuning LLMs</div></a>
+      <a class="lesson-item" onclick="loadLesson(58);return false;" href="javascript:void(0)"><div class="lesson-num">59</div><div class="lesson-name">RAG Systems</div></a>
+      <a class="lesson-item" onclick="loadLesson(59);return false;" href="javascript:void(0)"><div class="lesson-num">60</div><div class="lesson-name">Build a Chatbot</div></a>
+      <a class="lesson-item" onclick="loadLesson(60);return false;" href="javascript:void(0)"><div class="lesson-num">61</div><div class="lesson-name">Text Summarizer</div></a>
+      <a class="lesson-item" onclick="loadLesson(61);return false;" href="javascript:void(0)"><div class="lesson-num">62</div><div class="lesson-name">NLP Capstone Project</div></a>
+    </div>
+  </aside>
+
+  <main class="course-main">
+    <div class="lesson-module-tag" id="lessonModuleTag"></div>
+    <div class="lesson-tag" id="lessonTag"></div>
+    <div class="lesson-title" id="lessonTitle"></div>
+    <div class="lesson-subtitle" id="lessonSubtitle"></div>
+    <div class="video-wrap">
+      <iframe id="videoFrame" src="" title="Lesson Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="learn-box">
+      <div class="learn-box-title">✅ What You'll Learn in This Lesson</div>
+      <div class="learn-grid" id="learnGrid"></div>
+    </div>
+    <div class="lesson-nav">
+      <button class="nav-btn" id="prevBtn" onclick="changeLesson(-1)">← Previous</button>
+      <button class="nav-btn next" id="nextBtn" onclick="changeLesson(1)">Next Lesson →</button>
+    </div>
+  </main>
+</div>
+
+<script>
+const lessons = [
+  // MODULE 1 — PYTHON FOR AI
+  {mod:"Module 1 — Python for AI",tag:"Lesson 1 of 62",title:"Python for Beginners",subtitle:"Start from zero — variables, loops, functions, and all Python fundamentals you need for AI.",video:"_uQrJ0TkZlc",modClass:"m1",learn:["Variables, strings & numbers","Lists, tuples & dictionaries","Conditions & loops","Functions & modules","File handling basics","Error handling"]},
+  {mod:"Module 1 — Python for AI",tag:"Lesson 2 of 62",title:"Python Data Structures",subtitle:"Deep dive into lists, sets, dictionaries and tuples — the building blocks of every Python AI program.",video:"W8KRzm-HUcc",modClass:"m1",learn:["Lists vs tuples vs sets","Dictionary methods","Nested structures","List comprehensions","When to use which","Memory efficiency"]},
+  {mod:"Module 1 — Python for AI",tag:"Lesson 3 of 62",title:"Functions, Loops & OOP",subtitle:"Write clean, reusable code with functions and object-oriented programming.",video:"ZDa-Z5JzLYM",modClass:"m1",learn:["Defining functions","Args & kwargs","Lambda functions","Classes & objects","Inheritance basics","For & while loops"]},
+  {mod:"Module 1 — Python for AI",tag:"Lesson 4 of 62",title:"NumPy Tutorial",subtitle:"NumPy is the backbone of all ML libraries. Master arrays and matrix operations.",video:"lXZk0g60qRg",modClass:"m1",learn:["Creating NumPy arrays","Array indexing & slicing","Mathematical operations","Matrix multiplication","Broadcasting rules","Random number generation"]},
+  {mod:"Module 1 — Python for AI",tag:"Lesson 5 of 62",title:"Pandas for Data Analysis",subtitle:"Load, explore and manipulate real datasets with Pandas.",video:"2uvysYbKdjM",modClass:"m1",learn:["DataFrames & Series","Loading CSV files","Filtering & selecting","GroupBy operations","Merging tables","Handling missing values"]},
+  {mod:"Module 1 — Python for AI",tag:"Lesson 6 of 62",title:"Data Cleaning with Pandas",subtitle:"Real datasets are messy. Learn how to clean and prepare data for ML.",video:"bDhvCp3_lYw",modClass:"m1",learn:["Finding missing values","Filling & dropping NaNs","Removing duplicates","Fixing data types","String cleaning","Outlier detection"]},
+  {mod:"Module 1 — Python for AI",tag:"Lesson 7 of 62",title:"Matplotlib Tutorial",subtitle:"Turn your data into beautiful charts to understand patterns.",video:"UO98U4y43Vc",modClass:"m1",learn:["Line & bar charts","Scatter plots","Histograms","Subplots & layout","Customizing styles","Saving charts"]},
+  {mod:"Module 1 — Python for AI",tag:"Lesson 8 of 62",title:"Seaborn for Beautiful Charts",subtitle:"Seaborn makes statistical visualizations beautiful and simple.",video:"rzfmZqAYPZQ",modClass:"m1",learn:["Seaborn vs Matplotlib","Distribution plots","Correlation heatmaps","Pair plots","Categorical plots","Styling & themes"]},
+  {mod:"Module 1 — Python for AI",tag:"Lesson 9 of 62",title:"SciPy & Linear Algebra",subtitle:"The math behind ML — vectors, matrices and linear algebra made simple.",video:"ZpNYhE66CqE",modClass:"m1",learn:["Vectors & matrices","Dot products","Matrix inverse","Eigenvalues basics","SciPy optimization","Solving equations"]},
+  {mod:"Module 1 — Python for AI",tag:"Lesson 10 of 62",title:"Statistics & Probability",subtitle:"Understand the statistics that power every ML algorithm.",video:"xxpc-HPKV2M",modClass:"m1",learn:["Mean, median & mode","Variance & std dev","Normal distribution","Bayes theorem","Probability basics","Hypothesis testing"]},
+  {mod:"Module 1 — Python for AI",tag:"Lesson 11 of 62",title:"Web Scraping",subtitle:"Collect your own datasets from the web — essential for any AI researcher.",video:"XVv6mJpFOb0",modClass:"m1",learn:["HTTP requests","Parsing HTML","Scraping tables","Handling pagination","Storing data","Ethical scraping"]},
+  {mod:"Module 1 — Python for AI",tag:"Lesson 12 of 62",title:"Python Capstone Project",subtitle:"Build a complete Python data pipeline from scratch.",video:"GPVsHOlRBBI",modClass:"m1",learn:["Project planning","Data collection","Cleaning pipeline","Exploratory analysis","Visualization","Presenting findings"]},
+  // MODULE 2 — MACHINE LEARNING
+  {mod:"Module 2 — Machine Learning",tag:"Lesson 13 of 62",title:"What is Machine Learning?",subtitle:"Understand what ML really is, how it differs from traditional programming, and where it's used.",video:"aircAruvnKk",modClass:"m2",learn:["What ML actually is","Traditional vs ML","Real-world applications","Types of ML problems","When NOT to use ML","The ML workflow"]},
+  {mod:"Module 2 — Machine Learning",tag:"Lesson 14 of 62",title:"Types of ML: Supervised, Unsupervised & RL",subtitle:"Master the three paradigms of machine learning.",video:"1FZ0A1QCMWc",modClass:"m2",learn:["Supervised learning","Unsupervised learning","Reinforcement learning","Classification vs Regression","Clustering problems","Choosing the right type"]},
+  {mod:"Module 2 — Machine Learning",tag:"Lesson 15 of 62",title:"Setting Up ML Environment (Colab)",subtitle:"Set up Google Colab — the fastest, free way to run ML code.",video:"inN8seMm7UI",modClass:"m2",learn:["Why Google Colab?","Running notebooks","Installing libraries","Loading datasets","Google Drive connection","First ML model"]},
+  {mod:"Module 2 — Machine Learning",tag:"Lesson 16 of 62",title:"Linear Regression",subtitle:"Understand what linear regression does and implement it in Python.",video:"4b5d3muPQmA",modClass:"m2",learn:["What regression means","Best fit line","Making predictions","Training a model","Evaluating models","Scikit-learn"]},
+  {mod:"Module 2 — Machine Learning",tag:"Lesson 17 of 62",title:"Logistic Regression & Classification",subtitle:"Classify data into categories — the go-to for binary classification.",video:"yIYKR4sgzI8",modClass:"m2",learn:["Binary classification","Sigmoid function","Decision boundaries","Multiclass classification","Log loss","Scikit-learn"]},
+  {mod:"Module 2 — Machine Learning",tag:"Lesson 18 of 62",title:"Decision Trees & Random Forests",subtitle:"Build interpretable models and supercharge accuracy with Random Forests.",video:"RmajweUFKHA",modClass:"m2",learn:["How trees split","Information gain & Gini","Pruning","Bagging & ensembles","Random Forest","Feature importance"]},
+  {mod:"Module 2 — Machine Learning",tag:"Lesson 19 of 62",title:"Support Vector Machines (SVM)",subtitle:"Use hyperplanes and kernels to classify complex datasets.",video:"_YPScrckx28",modClass:"m2",learn:["Hyperplanes & margins","Support vectors","Kernel trick","Soft vs Hard margin","SVM for regression","Scikit-learn SVM"]},
+  {mod:"Module 2 — Machine Learning",tag:"Lesson 20 of 62",title:"K-Nearest Neighbors (KNN)",subtitle:"The simplest ML classifier — distance-based learning.",video:"HVXime0nQeI",modClass:"m2",learn:["How KNN classifies","Distance metrics","Choosing K","KNN for regression","Strengths & weaknesses","KNN in Sklearn"]},
+  {mod:"Module 2 — Machine Learning",tag:"Lesson 21 of 62",title:"Train/Test Split & Cross Validation",subtitle:"Properly evaluate your model on real, unseen data.",video:"fSytzGwwBVw",modClass:"m2",learn:["Why split matters","test_size parameter","Stratified splitting","K-Fold CV","Leave-One-Out CV","Cross_val_score"]},
+  {mod:"Module 2 — Machine Learning",tag:"Lesson 22 of 62",title:"Accuracy, Precision, Recall & F1",subtitle:"Go beyond accuracy — understand metrics for imbalanced datasets.",video:"85dtiMz9tSo",modClass:"m2",learn:["Confusion matrix","Accuracy formula","Precision vs Recall","F1 score","ROC-AUC curve","Classification report"]},
+  {mod:"Module 2 — Machine Learning",tag:"Lesson 23 of 62",title:"Overfitting, Underfitting & Regularization",subtitle:"Prevent your model from memorizing instead of learning.",video:"EuBBz3bI-aA",modClass:"m2",learn:["Bias-variance tradeoff","Signs of overfitting","Signs of underfitting","L1 (Lasso)","L2 (Ridge)","Early stopping"]},
+  {mod:"Module 2 — Machine Learning",tag:"Lesson 24 of 62",title:"K-Means Clustering",subtitle:"Group similar data points without labels.",video:"4b5d3muPQmA",modClass:"m2",learn:["What clustering is","K-Means steps","Elbow method","Inertia & silhouette","K-Means limits","Real-world examples"]},
+  {mod:"Module 2 — Machine Learning",tag:"Lesson 25 of 62",title:"Principal Component Analysis (PCA)",subtitle:"Reduce dimensions and speed up ML models.",video:"FgakZw6K1QQ",modClass:"m2",learn:["Why dimensions matter","Variance explained","PCA in Sklearn","2D projections","When to use PCA","PCA vs feature selection"]},
+  {mod:"Module 2 — Machine Learning",tag:"Lesson 26 of 62",title:"Dimensionality Reduction",subtitle:"Beyond PCA — t-SNE, UMAP and more.",video:"NEaUSP4YerM",modClass:"m2",learn:["t-SNE explained","UMAP algorithm","When to use each","Visualization","Feature selection vs extraction","Combining with supervised"]},
+  {mod:"Module 2 — Machine Learning",tag:"Lesson 27 of 62",title:"House Price Prediction Project",subtitle:"Build a complete regression project end to end.",video:"Wqmtf9SA_kk",modClass:"m2",learn:["Loading housing data","Feature engineering","Missing values","Training a model","Evaluating with RMSE","Improving performance"]},
+  {mod:"Module 2 — Machine Learning",tag:"Lesson 28 of 62",title:"Customer Segmentation Project",subtitle:"Use K-Means on real customer data to find meaningful groups.",video:"5I3Ei69I40s",modClass:"m2",learn:["Loading dataset","Exploratory analysis","Preprocessing & scaling","Running K-Means","Visualizing segments","Business interpretation"]},
+  {mod:"Module 2 — Machine Learning",tag:"Lesson 29 of 62",title:"ML Pipeline with Scikit-Learn",subtitle:"Build production-ready ML pipelines.",video:"0UWXCAYn8rk",modClass:"m2",learn:["What is a pipeline","Pipeline in Sklearn","ColumnTransformer","Combining steps","Grid search","Saving models"]},
+  {mod:"Module 2 — Machine Learning",tag:"Lesson 30 of 62",title:"ML Capstone Project",subtitle:"End-to-end ML project from raw data to evaluated model.",video:"i_LwzRVP7bg",modClass:"m2",learn:["Define the problem","Collect & explore","Feature engineering","Train multiple models","Compare & evaluate","Deploy"]},
+  // MODULE 3 — DEEP LEARNING
+  {mod:"Module 3 — Deep Learning",tag:"Lesson 31 of 62",title:"What is Deep Learning?",subtitle:"Understand how deep learning differs from classical ML.",video:"aircAruvnKk",modClass:"m3",learn:["ML vs Deep Learning","Why DL works","Hierarchy of AI","GPU requirements","DL applications","What you will build"]},
+  {mod:"Module 3 — Deep Learning",tag:"Lesson 32 of 62",title:"The Perceptron & Neural Nets",subtitle:"How artificial neurons mimic biological ones.",video:"CqOfi41LfDw",modClass:"m3",learn:["Biological vs artificial neuron","The perceptron model","Weighted inputs & bias","Layers explained","Forward pass","Activation and output"]},
+  {mod:"Module 3 — Deep Learning",tag:"Lesson 33 of 62",title:"Activation Functions",subtitle:"ReLU, sigmoid, tanh — the secret sauce of deep learning.",video:"m0pIlLfpXWE",modClass:"m3",learn:["Why activation functions?","Sigmoid & its problems","Tanh function","ReLU & Leaky ReLU","Softmax","Choosing activation"]},
+  {mod:"Module 3 — Deep Learning",tag:"Lesson 34 of 62",title:"Backpropagation & Gradient Descent",subtitle:"The algorithm that trains every neural network.",video:"Ilg3gGewQ5U",modClass:"m3",learn:["The loss function","Chain rule","Forward & backward pass","Learning rate","Optimizers: SGD & Adam","Vanishing gradient"]},
+  {mod:"Module 3 — Deep Learning",tag:"Lesson 35 of 62",title:"PyTorch Setup & Tensors",subtitle:"Install PyTorch and master tensors.",video:"IC0_FRiX-sw",modClass:"m3",learn:["Installing PyTorch","Tensors vs NumPy","Tensor operations","GPU (CUDA)","Autograd","PyTorch ecosystem"]},
+  {mod:"Module 3 — Deep Learning",tag:"Lesson 36 of 62",title:"Building Your First Neural Network",subtitle:"Code a neural network from scratch in PyTorch.",video:"mozBidd58XI",modClass:"m3",learn:["nn.Module class","Defining layers","Forward method","Loss functions","Model parameters","Inspecting the model"]},
+  {mod:"Module 3 — Deep Learning",tag:"Lesson 37 of 62",title:"Training Loop in PyTorch",subtitle:"Write the training loop every ML engineer uses.",video:"kQXIb2msfU4",modClass:"m3",learn:["The training loop","DataLoader & Dataset","Batch training","Validation loop","Saving checkpoints","Plotting curves"]},
+  {mod:"Module 3 — Deep Learning",tag:"Lesson 38 of 62",title:"CNNs Explained",subtitle:"Understand convolutions, pooling and feature extraction.",video:"QzY57FaENXg",modClass:"m3",learn:["What is a convolution?","Filters & feature maps","Pooling layers","CNN architecture","Famous CNN models","Flattening & dense layers"]},
+  {mod:"Module 3 — Deep Learning",tag:"Lesson 39 of 62",title:"Building a CNN with PyTorch",subtitle:"Code a full CNN image classifier in PyTorch.",video:"pDdP0TFzsoQ",modClass:"m3",learn:["Defining conv layers","MaxPooling in code","Flatten & linear","Training on CIFAR-10","Evaluating accuracy","Visualizing predictions"]},
+  {mod:"Module 3 — Deep Learning",tag:"Lesson 40 of 62",title:"Transfer Learning",subtitle:"Achieve expert-level classification using pretrained models.",video:"K0lWSB2QoIQ",modClass:"m3",learn:["ImageNet pretrained","ResNet & EfficientNet","Feature extraction","Fine-tuning","Custom head","Practical tips"]},
+  {mod:"Module 3 — Deep Learning",tag:"Lesson 41 of 62",title:"RNNs & LSTMs",subtitle:"Process sequential data with recurrent neural networks.",video:"LHXXI4-IEns",modClass:"m3",learn:["Sequence data","Vanilla RNN","Vanishing gradient","LSTM cell","GRU architecture","Bidirectional RNNs"]},
+  {mod:"Module 3 — Deep Learning",tag:"Lesson 42 of 62",title:"Attention Mechanism",subtitle:"The key innovation behind all modern AI.",video:"eMlx5fFNoYc",modClass:"m3",learn:["The attention idea","Query, Key, Value","Scaled dot-product","Multi-head attention","Self-attention","Visualizations"]},
+  {mod:"Module 3 — Deep Learning",tag:"Lesson 43 of 62",title:"Transformers from Scratch",subtitle:"Build the architecture that powers GPT and BERT.",video:"TQQlZhbC5ps",modClass:"m3",learn:["Encoder-decoder","Positional encoding","Multi-head self-attention","Feed-forward layers","Layer normalization","Full assembly"]},
+  {mod:"Module 3 — Deep Learning",tag:"Lesson 44 of 62",title:"Image Classifier Project",subtitle:"End-to-end image classification project.",video:"hppq8abaxzc",modClass:"m3",learn:["Dataset preparation","Augmentation","Transfer learning","Training & testing","Confusion matrix","Deployment basics"]},
+  {mod:"Module 3 — Deep Learning",tag:"Lesson 45 of 62",title:"Text Sentiment with LSTM",subtitle:"Train an LSTM to predict movie review sentiment.",video:"i8D90oqlUmE",modClass:"m3",learn:["Text preprocessing","Tokenization & padding","Embedding layer","LSTM model","Training & evaluation","Inference"]},
+  {mod:"Module 3 — Deep Learning",tag:"Lesson 46 of 62",title:"Deep Learning Capstone",subtitle:"End-to-end deep learning project — your choice of domain.",video:"hVlOWvaNTwI",modClass:"m3",learn:["Project scoping","Data pipeline","Model selection","Hyperparameter tuning","Final evaluation","Presenting results"]},
+  // MODULE 4 — NLP & LLMs
+  {mod:"Module 4 — NLP & LLMs",tag:"Lesson 47 of 62",title:"Introduction to NLP",subtitle:"Discover what Natural Language Processing is and how machines understand language.",video:"taX_CP_ACV8",modClass:"m4",learn:["What NLP is","Core NLP tasks","NLP vs traditional","NLP in real world","Key challenges","The NLP pipeline"]},
+  {mod:"Module 4 — NLP & LLMs",tag:"Lesson 48 of 62",title:"Text Preprocessing & Tokenization",subtitle:"Clean and prepare raw text for ML.",video:"fNxaJsNG3-s",modClass:"m4",learn:["Why preprocessing?","Tokenization","Stop word removal","Stemming vs lemmatization","NLTK & SpaCy","Text cleaning pipeline"]},
+  {mod:"Module 4 — NLP & LLMs",tag:"Lesson 49 of 62",title:"Bag of Words & TF-IDF",subtitle:"Convert text into numbers machines understand.",video:"D2V1okCEsiE",modClass:"m4",learn:["Bag of Words model","Vocabulary building","TF-IDF formula","CountVectorizer","TfidfVectorizer","Limitations of BoW"]},
+  {mod:"Module 4 — NLP & LLMs",tag:"Lesson 50 of 62",title:"Word Embeddings & Word2Vec",subtitle:"Words as vectors — how semantic meaning is captured.",video:"viZrOnJclY0",modClass:"m4",learn:["Distributional hypothesis","Word2Vec CBOW & Skip-gram","GloVe embeddings","Cosine similarity","Pretrained embeddings","Semantic analogies"]},
+  {mod:"Module 4 — NLP & LLMs",tag:"Lesson 51 of 62",title:"Text Classification",subtitle:"Build a text classifier using TF-IDF and ML.",video:"M9Itm95nc9I",modClass:"m4",learn:["Classification pipeline","Vectorizing text","Naive Bayes","SVM for text","Evaluating classifiers","Multi-class"]},
+  {mod:"Module 4 — NLP & LLMs",tag:"Lesson 52 of 62",title:"Named Entity Recognition",subtitle:"Extract names, places, organizations from raw text.",video:"T-DO2ze4Kh0",modClass:"m4",learn:["What NER is","SpaCy NER pipeline","Entity types","Custom NER","Evaluating NER","Applications"]},
+  {mod:"Module 4 — NLP & LLMs",tag:"Lesson 53 of 62",title:"Sentiment Analysis Pipeline",subtitle:"Build end-to-end sentiment analysis.",video:"i8D90oqlUmE",modClass:"m4",learn:["Sentiment types","VADER lexicon-based","ML-based sentiment","IMDB dataset","Training classifier","Deployment"]},
+  {mod:"Module 4 — NLP & LLMs",tag:"Lesson 54 of 62",title:"Transformers for NLP",subtitle:"The architecture that changed everything — applied to language.",video:"TQQlZhbC5ps",modClass:"m4",learn:["Transformers recap","Encoder-only models","Self-attention for text","Positional encoding","Pre-training vs fine-tuning","BERT vs GPT"]},
+  {mod:"Module 4 — NLP & LLMs",tag:"Lesson 55 of 62",title:"BERT Fine-Tuning",subtitle:"Fine-tune Google BERT on your own text classification task.",video:"xI0HHN5XKDo",modClass:"m4",learn:["BERT pre-training","[CLS] & [SEP] tokens","Tokenizer","Fine-tuning tasks","Hugging Face Trainer","Evaluating BERT"]},
+  {mod:"Module 4 — NLP & LLMs",tag:"Lesson 56 of 62",title:"How LLMs Work",subtitle:"Understand the architecture and capabilities of large language models.",video:"5sLYAQS9sWQ",modClass:"m4",learn:["GPT architecture","Pre-training on text","Next token prediction","Context window","Temperature & sampling","LLM families"]},
+  {mod:"Module 4 — NLP & LLMs",tag:"Lesson 57 of 62",title:"Prompt Engineering",subtitle:"Get the most out of any LLM with systematic prompt design.",video:"_ZvnD73m40o",modClass:"m4",learn:["Zero-shot prompting","Few-shot prompting","Chain-of-thought","Role prompting","Output formatting","Common mistakes"]},
+  {mod:"Module 4 — NLP & LLMs",tag:"Lesson 58 of 62",title:"Fine-Tuning LLMs with Hugging Face",subtitle:"Customize open-source LLMs for your own tasks.",video:"eC6Hd1hFvos",modClass:"m4",learn:["When to fine-tune","QLoRA explained","Dataset preparation","SFT Trainer","Training on Colab","Evaluating LLM"]},
+  {mod:"Module 4 — NLP & LLMs",tag:"Lesson 59 of 62",title:"RAG — Retrieval Augmented Generation",subtitle:"Give LLMs access to your own documents.",video:"T-D1OfcDW1M",modClass:"m4",learn:["Why RAG?","Document chunking","Embedding & vector stores","Similarity search","LLM + retrieval","Evaluating RAG"]},
+  {mod:"Module 4 — NLP & LLMs",tag:"Lesson 60 of 62",title:"Build a Chatbot with LLM",subtitle:"Build a conversational chatbot using Groq API.",video:"eSl3_gOrUSM",modClass:"m4",learn:["Groq API setup","System prompts","Conversation memory","Streaming responses","Gradio UI","Deploying"]},
+  {mod:"Module 4 — NLP & LLMs",tag:"Lesson 61 of 62",title:"Text Summarizer Project",subtitle:"Build an automatic document summarizer using transformers.",video:"xhHOHfONdMA",modClass:"m4",learn:["Extractive vs abstractive","BART & T5","Loading from HF","Summarizing long texts","Chunking","Simple UI"]},
+  {mod:"Module 4 — NLP & LLMs",tag:"Lesson 62 of 62",title:"NLP Capstone Project",subtitle:"End-to-end NLP project — raw text to deployed intelligent application.",video:"j75gQNGHGRE",modClass:"m4",learn:["Problem definition","Data collection","Model selection","Training & evaluation","Building interface","Deployment"]}
+];
+
+const moduleColors = { m1:"#3b82f6", m2:"#2D8B72", m3:"#9333ea", m4:"#d97706" };
+let current = 0;
+const completed = new Set();
+
+function loadLesson(index) {
+  current = index;
+  const l = lessons[index];
+  const color = moduleColors[l.modClass];
+  document.getElementById('lessonModuleTag').textContent = l.mod;
+  document.getElementById('lessonModuleTag').style.color = color;
+  document.getElementById('lessonTag').textContent = l.tag;
+  document.getElementById('lessonTitle').textContent = l.title;
+  document.getElementById('lessonSubtitle').textContent = l.subtitle;
+  const frame = document.getElementById('videoFrame');
+  frame.src = '';
+  setTimeout(() => { frame.src = 'https://www.youtube.com/embed/' + l.video + '?playsinline=1&rel=0&modestbranding=1'; }, 100);
+  document.getElementById('learnGrid').innerHTML = l.learn.map(item => `<div class="learn-item"><div class="learn-check">✓</div>${item}</div>`).join('');
+  document.querySelectorAll('.lesson-item').forEach((el, i) => {
+    el.classList.toggle('active', i === index);
+    el.classList.toggle('done', completed.has(i));
+    el.querySelector('.lesson-num').textContent = completed.has(i) ? '✓' : (i + 1);
+  });
+  if (index > 0) completed.add(index - 1);
+  updateProgress();
+  document.getElementById('prevBtn').style.visibility = index === 0 ? 'hidden' : 'visible';
+  document.getElementById('nextBtn').textContent = index === lessons.length - 1 ? '🎉 Course Complete!' : 'Next Lesson →';
+  const activeItem = document.querySelectorAll('.lesson-item')[index];
+  if (activeItem) activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function changeLesson(dir) {
+  const next = current + dir;
+  if (next >= 0 && next < lessons.length) loadLesson(next);
+}
+
+function updateProgress() {
+  const pct = Math.round((completed.size / lessons.length) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressPct').textContent = pct + '% complete';
+}
+
+loadLesson(0);
+</script>
+</body>
+</html>
