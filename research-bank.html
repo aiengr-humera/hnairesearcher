@@ -4,7 +4,6 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Research Archive — HNAI.Researcher</title>
-  <meta name="description" content="Curated AI/ML research papers — ITS, LLMs, RL, Knowledge Tracing, Adaptive Learning. PhD research archive by Humera Noor."/>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -15,12 +14,14 @@
       --border: #e8e4dc; --white: #ffffff;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: "Inter", sans-serif; background: var(--warm); color: var(--text); line-height: 1.6; }
+    body { font-family: 'Inter', sans-serif; background: var(--warm); color: var(--text); line-height: 1.6; }
     ::-webkit-scrollbar { width: 5px; } ::-webkit-scrollbar-thumb { background: var(--mint); border-radius: 10px; }
+
     nav { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 56px; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
     .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .brand-icon { width: 36px; height: 36px; background: var(--mint); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: "Merriweather", serif; font-size: 12px; font-weight: 700; color: white; }
-    .brand-name { font-family: "Merriweather", serif; font-size: 16px; font-weight: 700; color: var(--dark); }
+    .brand-icon { width: 36px; height: 36px; border-radius: 8px; overflow: hidden; }
+    .brand-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .brand-name { font-family: 'Merriweather', serif; font-size: 16px; font-weight: 700; color: var(--dark); }
     .brand-name span { color: var(--mint); }
     .brand-sub { font-size: 10px; color: var(--muted); }
     .nav-back { font-size: 13px; color: var(--slate); text-decoration: none; font-weight: 500; }
@@ -32,53 +33,53 @@
     .breadcrumb { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
     .breadcrumb a { color: var(--mint); text-decoration: none; font-weight: 500; }
     .page-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--mint-light); border: 1px solid #b2ddd0; border-radius: 20px; padding: 4px 12px; margin-bottom: 14px; font-size: 11px; color: var(--mint); font-weight: 600; }
-    .page-hero h1 { font-family: "Merriweather", serif; font-size: 30px; font-weight: 700; color: var(--dark); margin-bottom: 12px; line-height: 1.3; }
+    .page-hero h1 { font-family: 'Merriweather', serif; font-size: 30px; font-weight: 700; color: var(--dark); margin-bottom: 12px; line-height: 1.3; }
     .page-hero h1 span { color: var(--mint); }
     .page-desc { font-size: 14px; color: var(--slate); max-width: 600px; line-height: 1.8; margin-bottom: 20px; }
     .page-meta { display: flex; gap: 20px; flex-wrap: wrap; }
     .meta-item { font-size: 12px; color: var(--slate); font-weight: 500; }
-    .phd-banner { background: var(--mint-light); border: 1px solid #b2ddd0; border-radius: 10px; padding: 14px 20px; margin-top: 20px; font-size: 13px; color: var(--text); line-height: 1.6; max-width: 700px; }
-    .phd-banner strong { color: var(--mint); }
 
-    .search-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 14px 56px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-    .search-input { flex: 1; min-width: 200px; max-width: 360px; padding: 9px 14px; border: 1px solid var(--border); border-radius: 8px; font-size: 13px; font-family: "Inter", sans-serif; background: var(--warm); color: var(--text); outline: none; transition: border-color 0.2s; }
+    .collections-section { padding: 36px 56px 20px; background: var(--white); border-bottom: 1px solid var(--border); }
+    .collections-label { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 14px; }
+    .collections-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+    .collection-card { background: var(--warm); border: 1px solid var(--border); border-radius: 12px; padding: 14px; cursor: pointer; transition: all .2s; }
+    .collection-card:hover { border-color: var(--mint); background: var(--mint-light); }
+    .collection-card.active { background: var(--mint-light); border-color: var(--mint); }
+    .collection-logo { width: 28px; height: 28px; border-radius: 6px; overflow: hidden; margin-bottom: 8px; }
+    .collection-logo img { width: 100%; height: 100%; object-fit: cover; }
+    .collection-name { font-size: 13px; font-weight: 500; color: var(--dark); margin-bottom: 3px; line-height: 1.3; }
+    .collection-count { font-size: 11px; color: var(--muted); }
+    .collection-card.active .collection-count { color: var(--mint); }
+
+    .search-bar { background: var(--warm); padding: 14px 56px; border-bottom: 1px solid var(--border); display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .search-input { flex: 1; min-width: 200px; max-width: 360px; padding: 9px 14px; border: 1px solid var(--border); border-radius: 8px; font-size: 13px; font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); outline: none; transition: border-color .2s; }
     .search-input:focus { border-color: var(--mint); }
-    .filter-btn { padding: 7px 14px; border: 1px solid var(--border); border-radius: 6px; background: var(--white); font-size: 11px; font-weight: 600; color: var(--slate); cursor: pointer; font-family: "Inter", sans-serif; transition: all 0.2s; white-space: nowrap; }
-    .filter-btn:hover, .filter-btn.active { background: var(--mint); color: white; border-color: var(--mint); }
-    .results-count { font-size: 12px; color: var(--muted); margin-left: auto; white-space: nowrap; }
+    .results-count { font-size: 12px; color: var(--muted); margin-left: auto; }
 
-    .papers-section { padding: 36px 56px 60px; }
-    .papers-inner { max-width: 1100px; margin: 0 auto; }
-    .papers-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+    .papers-section { padding: 32px 56px 60px; }
+    .active-collection-label { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 16px; }
+    .papers-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
     @media(max-width:800px){.papers-grid{grid-template-columns:1fr;}}
-    @media(max-width:768px){.search-bar{padding:12px 20px;}.papers-section{padding:24px 20px 48px;}.page-hero{padding:36px 20px 28px;}}
+    @media(max-width:768px){.collections-section{padding:24px 20px 16px;}.search-bar{padding:12px 20px;}.papers-section{padding:24px 20px 48px;}.page-hero{padding:36px 20px 28px;}}
 
-    .paper-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 20px; transition: all 0.2s; display: flex; flex-direction: column; }
-    .paper-card:hover { border-color: #b2ddd0; box-shadow: 0 4px 16px rgba(45,139,114,0.08); transform: translateY(-1px); }
-    .paper-card.featured { border-color: var(--mint); border-width: 1.5px; }
-    .paper-card.phd { background: linear-gradient(135deg, var(--mint-light) 0%, var(--white) 100%); }
-    .paper-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
-    .paper-tags { display: flex; gap: 6px; flex-wrap: wrap; }
-    .paper-source { font-size: 10px; font-weight: 700; color: var(--mint); background: white; border: 1px solid #b2ddd0; border-radius: 4px; padding: 2px 7px; text-transform: uppercase; letter-spacing: 0.05em; }
-    .paper-cat { font-size: 10px; font-weight: 600; color: var(--slate); background: var(--warm2); border: 1px solid var(--border); border-radius: 4px; padding: 2px 7px; }
-    .paper-date { font-size: 11px; color: var(--muted); flex-shrink: 0; }
-    .paper-title { font-family: "Merriweather", serif; font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 6px; line-height: 1.5; }
+    .paper-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 18px; transition: all .2s; display: flex; flex-direction: column; }
+    .paper-card:hover { border-color: #b2ddd0; box-shadow: 0 4px 16px rgba(45,139,114,.08); transform: translateY(-1px); }
+    .paper-card.featured { border-color: var(--mint); }
+    .paper-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+    .paper-source { font-size: 10px; font-weight: 600; color: var(--mint); background: var(--mint-light); border: 1px solid #b2ddd0; border-radius: 4px; padding: 2px 7px; }
+    .paper-date { font-size: 10px; color: var(--muted); }
+    .featured-badge { font-size: 9px; background: var(--mint); color: white; border-radius: 3px; padding: 2px 6px; font-weight: 600; text-transform: uppercase; }
+    .paper-title { font-family: 'Merriweather', serif; font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 5px; line-height: 1.5; }
     .paper-authors { font-size: 11px; color: var(--mint); font-weight: 500; margin-bottom: 10px; }
-    .paper-summary { font-size: 12px; color: var(--slate); line-height: 1.65; margin-bottom: 14px; flex: 1; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
-    .paper-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid var(--border); margin-top: auto; }
-    .paper-badges { display: flex; gap: 6px; align-items: center; }
-    .featured-badge { font-size: 9px; background: var(--mint); color: white; border-radius: 3px; padding: 2px 6px; font-weight: 700; text-transform: uppercase; }
-    .phd-badge { font-size: 9px; background: #7c3aed; color: white; border-radius: 3px; padding: 2px 6px; font-weight: 700; text-transform: uppercase; }
+    .paper-summary { font-size: 12px; color: var(--slate); line-height: 1.65; margin-bottom: 14px; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .paper-footer { display: flex; align-items: center; justify-content: flex-end; padding-top: 10px; border-top: 1px solid var(--border); margin-top: auto; }
     .paper-link { font-size: 12px; color: var(--mint); font-weight: 600; text-decoration: none; }
     .paper-link:hover { text-decoration: underline; }
 
-    .empty-state { grid-column: 1/-1; text-align: center; padding: 60px 20px; }
-    .empty-icon { font-size: 48px; margin-bottom: 16px; }
-    .empty-title { font-family: "Merriweather", serif; font-size: 18px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
-    .empty-desc { color: var(--muted); font-size: 14px; }
+    .empty-state { grid-column: 1/-1; text-align: center; padding: 60px 20px; color: var(--muted); font-size: 14px; }
 
     footer { background: var(--dark); padding: 36px 56px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-    .footer-brand { font-family: "Merriweather", serif; font-size: 15px; font-weight: 700; color: white; }
+    .footer-brand { font-family: 'Merriweather', serif; font-size: 15px; font-weight: 700; color: white; }
     .footer-brand span { color: var(--mint); }
     .footer-copy { font-size: 12px; color: #4a6070; }
     .footer-links { display: flex; gap: 20px; }
@@ -90,7 +91,7 @@
 
 <nav>
   <a href="index.html" class="brand">
-    <img src="hnai-logo.png" alt="HNAI Logo" style="width:36px;height:36px;border-radius:8px;object-fit:cover;"/>
+    <div class="brand-icon"><img src="hnai-logo.png" alt="HNAI Logo"/></div>
     <div><div class="brand-name">HNAI<span>.Researcher</span></div><div class="brand-sub">Humera Noor</div></div>
   </a>
   <a href="index.html" class="nav-back">← Back to Home</a>
@@ -99,132 +100,137 @@
 
 <div class="page-hero">
   <div class="breadcrumb"><a href="index.html">Home</a> → Research Archive</div>
-  <div class="page-badge">📄 50 Curated Papers · Daily Updates</div>
-  <h1>Engineering <span>Intelligence</span></h1>
-  <p class="page-desc">50 curated AI & ML research papers — broken down into clear, student-friendly summaries. Includes daily HNAI Scholar papers plus a curated PhD reading list on Intelligent Tutoring Agents, LLMs, and Reinforcement Learning.</p>
+  <div class="page-badge">50 Papers · Free PDFs · Curated Collections</div>
+  <h1>Research <span>Archive</span></h1>
+  <p class="page-desc">50 curated AI & ML research papers organized into focused collections. All papers link directly to free full PDFs — no paywalls, no abstracts-only.</p>
   <div class="page-meta">
-    <div class="meta-item">🔬 50 Papers Total</div>
-    <div class="meta-item">📅 Daily Updates via HNAI Scholar</div>
-
-    <div class="meta-item">🆓 Free Access</div>
+    <div class="meta-item">📄 50 Papers</div>
+    <div class="meta-item">🆓 All Free PDFs</div>
+    <div class="meta-item">📂 6 Collections</div>
+    <div class="meta-item">🔬 AI · ML · Education · NLP</div>
   </div>
+</div>
 
+<div class="collections-section">
+  <div class="collections-label">Collections</div>
+  <div class="collections-grid" id="collectionsGrid"></div>
 </div>
 
 <div class="search-bar">
-  <input type="text" class="search-input" id="searchInput" placeholder="🔍 Search papers by title, topic, author..." oninput="filterPapers()"/>
-  <button class="filter-btn active" onclick="filterBy('all', this)">All</button>
-
-  <button class="filter-btn" onclick="filterBy('Intelligent Tutoring Systems', this)">ITS</button>
-  <button class="filter-btn" onclick="filterBy('Reinforcement Learning', this)">RL</button>
-  <button class="filter-btn" onclick="filterBy('Knowledge Tracing', this)">Knowledge Tracing</button>
-  <button class="filter-btn" onclick="filterBy('LLM Fine-Tuning', this)">LLM Fine-Tuning</button>
-  <button class="filter-btn" onclick="filterBy('Personalized Learning', this)">Personalized</button>
-  <button class="filter-btn" onclick="filterBy('featured', this)">⭐ Featured</button>
-  <span class="results-count" id="resultsCount">50 papers</span>
+  <input type="text" class="search-input" id="searchInput" placeholder="Search papers by title or author..." oninput="filterPapers()"/>
+  <span class="results-count" id="resultsCount"></span>
 </div>
 
 <div class="papers-section">
-  <div class="papers-inner">
-    <div class="papers-grid" id="papersGrid">
-      <div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--muted);">Loading papers...</div>
-    </div>
+  <div class="active-collection-label" id="activeLabel"></div>
+  <div class="papers-grid" id="papersGrid">
+    <div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--muted);">Loading papers...</div>
   </div>
 </div>
 
 <footer>
   <div class="footer-brand">HNAI<span>.Researcher</span></div>
-  <div class="footer-copy">© 2026 Humera Noor · made with ❤️ in Pakistan 🇵🇰</div>
+  <div class="footer-copy">© 2026 Humera Noor · Pakistan</div>
   <div class="footer-links">
     <a href="https://github.com/aiengr-humera">GitHub</a>
-    <a href="https://www.linkedin.com/in/humera-noor/">LinkedIn</a>
-    <a href="https://www.facebook.com/profile.php?id=61587173570117">Facebook</a>
+    <a href="https://www.linkedin.com/in/humera-noorahmad/">LinkedIn</a>
+    <a href="https://www.facebook.com/HNAI.Researcher">Facebook</a>
     <a href="mailto:engr.humeranoor@gmail.com">Contact</a>
   </div>
 </footer>
 
 <script>
 let allPapers = [];
-let activeFilter = "all";
+let activeCollection = 'All';
 
-const PHD_CATEGORIES = ["Intelligent Tutoring Systems","Reinforcement Learning","Knowledge Tracing","LLM Fine-Tuning","Personalized Learning","Adaptive Learning","AI Agents","Foundation Models"];
+const collections = [
+  { name: 'All', label: 'All Papers' },
+  { name: 'AI in Education', label: 'AI in Education' },
+  { name: 'Intelligent Tutoring Systems', label: 'Tutoring Systems' },
+  { name: 'Foundation Models', label: 'Foundation Models' },
+  { name: 'Reinforcement Learning', label: 'Reinforcement Learning' },
+  { name: 'LLM Fine-Tuning', label: 'LLM Fine-Tuning' },
+  { name: 'NLP & Communication', label: 'NLP & Communication' },
+  { name: 'Knowledge Tracing', label: 'Knowledge Tracing' },
+  { name: 'AI Agents', label: 'AI Agents' },
+  { name: 'Machine Learning', label: 'Machine Learning' },
+  { name: 'Personalized Learning', label: 'Personalized Learning' },
+  { name: 'Python & Tools', label: 'Python & Tools' },
+];
 
 async function loadPapers() {
   try {
-    const res = await fetch("papers.json");
+    const res = await fetch('papers.json');
     allPapers = await res.json();
-    renderPapers(allPapers);
+    buildCollections();
+    filterPapers();
   } catch(e) {
-    document.getElementById("papersGrid").innerHTML = `
-      <div class="empty-state">
-        <div class="empty-icon">📄</div>
-        <div class="empty-title">Research Archive</div>
-        <p class="empty-desc">Papers are generated daily by HNAI Scholar. Check back soon!</p>
-      </div>`;
+    document.getElementById('papersGrid').innerHTML = '<div class="empty-state">Papers loading soon. Check back shortly!</div>';
   }
 }
 
-function isPhdPaper(p) {
-  return PHD_CATEGORIES.includes(p.category) || (p.id && p.id.startsWith('phd-'));
-}
+function buildCollections() {
+  const grid = document.getElementById('collectionsGrid');
+  const counts = {};
+  allPapers.forEach(p => { counts[p.category] = (counts[p.category] || 0) + 1; });
 
-function renderPapers(papers) {
-  const grid = document.getElementById("papersGrid");
-  document.getElementById("resultsCount").textContent = papers.length + " papers";
-  if (!papers.length) {
-    grid.innerHTML = `<div class="empty-state"><div class="empty-icon">🔍</div><div class="empty-title">No papers found</div><p class="empty-desc">Try a different search or filter.</p></div>`;
-    return;
-  }
-  grid.innerHTML = papers.map(p => {
-    const summary = p.summary || "";
-    const lines = summary.split("\n").filter(l => l.trim());
-    const titleLine = lines[0] || p.title || "AI Research Paper";
-    const bodyLines = lines.filter(l => !l.startsWith("http") && !l.startsWith("#") && l.length > 30);
-    const shortSummary = bodyLines.slice(0,2).join(" ").substring(0,280) + "...";
-    const url = p.url && p.url !== "#" ? p.url : (summary.match(/https?:\/\/[^\s]+/)?.[0] || "#");
-    const isPhd = isPhdPaper(p);
+  grid.innerHTML = collections.map(c => {
+    const count = c.name === 'All' ? allPapers.length : (counts[c.name] || 0);
+    if (c.name !== 'All' && count === 0) return '';
     return `
-    <div class="paper-card ${p.featured ? "featured" : ""}">
-      <div class="paper-header">
-        <div class="paper-tags">
-          <span class="paper-source">${p.source || "ArXiv"}</span>
-          ${p.category ? `<span class="paper-cat">${p.category}</span>` : ""}
-        </div>
-        <span class="paper-date">${p.date || ""}</span>
-      </div>
-      <div class="paper-title">${titleLine.substring(0,120)}</div>
-      <div class="paper-authors">${p.authors || "HNAI Scholar"}</div>
-      <div class="paper-summary">${shortSummary}</div>
-      <div class="paper-footer">
-        <div class="paper-badges">
-          ${p.featured ? '<span class="featured-badge">⭐ Featured</span>' : ""}
-
-        </div>
-        <a href="${url}" class="paper-link" target="_blank" rel="noopener">Read Paper →</a>
-      </div>
+    <div class="collection-card ${activeCollection === c.name ? 'active' : ''}" onclick="selectCollection('${c.name}')">
+      <div class="collection-logo"><img src="hnai-logo.png" alt="HNAI"/></div>
+      <div class="collection-name">${c.label}</div>
+      <div class="collection-count">${count} papers</div>
     </div>`;
-  }).join("");
+  }).join('');
+}
+
+function selectCollection(name) {
+  activeCollection = name;
+  document.querySelectorAll('.collection-card').forEach(el => {
+    el.classList.toggle('active', el.querySelector('.collection-name').textContent === collections.find(c=>c.name===name).label);
+  });
+  document.getElementById('searchInput').value = '';
+  filterPapers();
 }
 
 function filterPapers() {
-  const q = document.getElementById("searchInput").value.toLowerCase();
+  const q = document.getElementById('searchInput').value.toLowerCase();
   let filtered = allPapers;
-  if (activeFilter === "featured") filtered = filtered.filter(p => p.featured);
-  else if (activeFilter === "phd") filtered = filtered.filter(p => isPhdPaper(p));
-  else if (activeFilter !== "all") filtered = filtered.filter(p => (p.category || "") === activeFilter);
-  if (q) filtered = filtered.filter(p => {
-    const text = ((p.summary || "") + (p.title || "") + (p.authors || "") + (p.category || "")).toLowerCase();
-    return text.includes(q);
-  });
-  renderPapers(filtered);
-}
+  if (activeCollection !== 'All') filtered = filtered.filter(p => p.category === activeCollection);
+  if (q) filtered = filtered.filter(p => ((p.title||'')+(p.authors||'')+(p.summary||'')).toLowerCase().includes(q));
 
-function filterBy(filter, btn) {
-  activeFilter = filter;
-  document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-  btn.classList.add("active");
-  document.getElementById("searchInput").value = "";
-  filterPapers();
+  const label = activeCollection === 'All' ? 'All Papers' : (collections.find(c=>c.name===activeCollection)?.label || activeCollection);
+  document.getElementById('activeLabel').textContent = `${label} — ${filtered.length} papers`;
+  document.getElementById('resultsCount').textContent = `${filtered.length} results`;
+
+  const grid = document.getElementById('papersGrid');
+  if (!filtered.length) {
+    grid.innerHTML = '<div class="empty-state">No papers found. Try a different search.</div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(p => {
+    const summary = (p.summary || '');
+    const lines = summary.split('\n').filter(l => l.trim() && !l.startsWith('http') && !l.startsWith('#'));
+    const shortSummary = lines.slice(0,3).join(' ').substring(0,220) + '...';
+    const url = p.url || '#';
+    return `
+    <div class="paper-card ${p.featured ? 'featured' : ''}">
+      <div class="paper-header">
+        <span class="paper-source">${p.source || 'ArXiv'}</span>
+        <span class="paper-date">${p.date ? p.date.substring(0,4) : ''}</span>
+        ${p.featured ? '<span class="featured-badge">Featured</span>' : ''}
+      </div>
+      <div class="paper-title">${p.title || 'Research Paper'}</div>
+      <div class="paper-authors">${p.authors || ''}</div>
+      <div class="paper-summary">${shortSummary}</div>
+      <div class="paper-footer">
+        <a href="${url}" class="paper-link" target="_blank" rel="noopener">Read Full Paper →</a>
+      </div>
+    </div>`;
+  }).join('');
 }
 
 loadPapers();
