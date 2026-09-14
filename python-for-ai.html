@@ -15,7 +15,8 @@
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background: var(--warm); color: var(--text); line-height: 1.6; }
-    ::-webkit-scrollbar { width: 5px; } ::-webkit-scrollbar-thumb { background: var(--mint); border-radius: 10px; }
+    ::-webkit-scrollbar { width: 5px; }
+    .lesson-item { -webkit-tap-highlight-color: rgba(45,139,114,0.2); touch-action: manipulation; } ::-webkit-scrollbar-thumb { background: var(--mint); border-radius: 10px; }
     nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); padding: 0 48px; height: 60px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
     .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .brand-icon { width: 34px; height: 34px; background: var(--mint); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Merriweather', serif; font-size: 11px; font-weight: 700; color: white; }
@@ -109,30 +110,30 @@
     
     <div class="sidebar-section">
       <div class="sidebar-section-title">Module 1 — Python Basics</div>
-      <a class="lesson-item active" onclick="loadLesson(0);return false;" href="javascript:void(0)"><div class="lesson-num">1</div><div><div class="lesson-name">Python Full Course for Beginners</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(1);return false;" href="javascript:void(0)"><div class="lesson-num">2</div><div><div class="lesson-name">Python Data Structures Explained</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(2);return false;" href="javascript:void(0)"><div class="lesson-num">3</div><div><div class="lesson-name">Functions, Loops & OOP in Python</div></div></a>
+      <a class="lesson-item active" onclick="loadLesson(0)" ontouchend="loadLesson(0);return false;" href="#"><div class="lesson-num">1</div><div><div class="lesson-name">Python Full Course for Beginners</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(1)" ontouchend="loadLesson(1);return false;" href="#"><div class="lesson-num">2</div><div><div class="lesson-name">Python Data Structures Explained</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(2)" ontouchend="loadLesson(2);return false;" href="#"><div class="lesson-num">3</div><div><div class="lesson-name">Functions, Loops & OOP in Python</div></div></a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Module 2 — NumPy & Pandas</div>
-      <a class="lesson-item" onclick="loadLesson(3);return false;" href="javascript:void(0)"><div class="lesson-num">4</div><div><div class="lesson-name">NumPy Full Tutorial</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(4);return false;" href="javascript:void(0)"><div class="lesson-num">5</div><div><div class="lesson-name">Pandas for Data Analysis</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(5);return false;" href="javascript:void(0)"><div class="lesson-num">6</div><div><div class="lesson-name">Data Cleaning with Pandas</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(3)" ontouchend="loadLesson(3);return false;" href="#"><div class="lesson-num">4</div><div><div class="lesson-name">NumPy Full Tutorial</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(4)" ontouchend="loadLesson(4);return false;" href="#"><div class="lesson-num">5</div><div><div class="lesson-name">Pandas for Data Analysis</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(5)" ontouchend="loadLesson(5);return false;" href="#"><div class="lesson-num">6</div><div><div class="lesson-name">Data Cleaning with Pandas</div></div></a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Module 3 — Data Visualization</div>
-      <a class="lesson-item" onclick="loadLesson(6);return false;" href="javascript:void(0)"><div class="lesson-num">7</div><div><div class="lesson-name">Matplotlib Full Tutorial</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(7);return false;" href="javascript:void(0)"><div class="lesson-num">8</div><div><div class="lesson-name">Seaborn for Beautiful Charts</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(6)" ontouchend="loadLesson(6);return false;" href="#"><div class="lesson-num">7</div><div><div class="lesson-name">Matplotlib Full Tutorial</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(7)" ontouchend="loadLesson(7);return false;" href="#"><div class="lesson-num">8</div><div><div class="lesson-name">Seaborn for Beautiful Charts</div></div></a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Module 4 — Scientific Computing</div>
-      <a class="lesson-item" onclick="loadLesson(8);return false;" href="javascript:void(0)"><div class="lesson-num">9</div><div><div class="lesson-name">SciPy & Linear Algebra for AI</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(9);return false;" href="javascript:void(0)"><div class="lesson-num">10</div><div><div class="lesson-name">Statistics & Probability for ML</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(8)" ontouchend="loadLesson(8);return false;" href="#"><div class="lesson-num">9</div><div><div class="lesson-name">SciPy & Linear Algebra for AI</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(9)" ontouchend="loadLesson(9);return false;" href="#"><div class="lesson-num">10</div><div><div class="lesson-name">Statistics & Probability for ML</div></div></a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Module 5 — Projects</div>
-      <a class="lesson-item" onclick="loadLesson(10);return false;" href="javascript:void(0)"><div class="lesson-num">11</div><div><div class="lesson-name">Web Scraping with BeautifulSoup</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(11);return false;" href="javascript:void(0)"><div class="lesson-num">12</div><div><div class="lesson-name">Python Capstone Project</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(10)" ontouchend="loadLesson(10);return false;" href="#"><div class="lesson-num">11</div><div><div class="lesson-name">Web Scraping with BeautifulSoup</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(11)" ontouchend="loadLesson(11);return false;" href="#"><div class="lesson-num">12</div><div><div class="lesson-name">Python Capstone Project</div></div></a>
     </div>
   </aside>
   <main class="course-main">
@@ -162,7 +163,7 @@ const lessons = [
   {"tag":"Lesson 6 of 12 · Module 2 — NumPy & Pandas","title":"Data Cleaning with Pandas","subtitle":"Real datasets are messy. Learn how to clean, fix and prepare data for machine learning.","video":"bDhvCp3_lYw","learn":["Finding missing values","Filling & dropping NaNs","Removing duplicates","Fixing data types","String cleaning methods","Outlier detection"]},
   {"tag":"Lesson 7 of 12 · Module 3 — Data Visualization","title":"Matplotlib Full Tutorial","subtitle":"Turn your data into beautiful charts and graphs to understand patterns before building models.","video":"UO98U4y43Vc","learn":["Line & bar charts","Scatter plots","Histograms","Subplots & figure layout","Customizing colors & styles","Saving charts as images"]},
   {"tag":"Lesson 8 of 12 · Module 3 — Data Visualization","title":"Seaborn for Beautiful Charts","subtitle":"Seaborn makes statistical visualizations beautiful and simple — perfect for AI exploratory analysis.","video":"rzfmZqAYPZQ","learn":["Seaborn vs Matplotlib","Distribution plots","Correlation heatmaps","Pair plots","Categorical plots","Styling & themes"]},
-  {"tag":"Lesson 9 of 12 · Module 4 — Scientific Computing","title":"SciPy & Linear Algebra for AI","subtitle":"The math behind Machine Learning — vectors, matrices and linear algebra made simple.","video":"ZpNYhE66CqE","learn":["Vectors & matrices","Dot products","Matrix inverse & transpose","Eigenvalues basics","SciPy optimization","Solving linear equations"]},
+  {"tag":"Lesson 9 of 12 · Module 4 — Scientific Computing","title":"SciPy & Linear Algebra for AI","subtitle":"The math behind Machine Learning — vectors, matrices and linear algebra made simple.","video":"fNk_zzaMoSs","learn":["Vectors & matrices","Dot products","Matrix inverse & transpose","Eigenvalues basics","SciPy optimization","Solving linear equations"]},
   {"tag":"Lesson 10 of 12 · Module 4 — Scientific Computing","title":"Statistics & Probability for ML","subtitle":"Understand the statistics that power every ML algorithm — mean, variance, distributions and more.","video":"xxpc-HPKV2M","learn":["Mean, median & mode","Variance & standard deviation","Normal distribution","Bayes theorem","Probability basics","Hypothesis testing"]},
   {"tag":"Lesson 11 of 12 · Module 5 — Projects","title":"Web Scraping with BeautifulSoup","subtitle":"Collect your own datasets from the web — essential skill for any AI researcher.","video":"XVv6mJpFOb0","learn":["HTTP requests with requests","Parsing HTML with BS4","Scraping tables & lists","Handling pagination","Storing scraped data","Ethical scraping tips"]},
   {"tag":"Lesson 12 of 12 · Module 5 — Projects","title":"Python Capstone Project","subtitle":"Build a complete Python data pipeline from scratch — scrape, clean, analyze and visualize real data.","video":"GPVsHOlRBBI","learn":["Project planning","Data collection","Data cleaning pipeline","Exploratory analysis","Visualization","Presenting findings"]}
@@ -183,7 +184,7 @@ function loadLesson(index) {
   document.getElementById('lessonSubtitle').textContent = l.subtitle;
   const frame = document.getElementById('videoFrame');
   frame.src = '';
-  setTimeout(() => { frame.src = 'https://www.youtube.com/embed/' + l.video + '?playsinline=1&rel=0&modestbranding=1&iv_load_policy=3'; }, 100);
+  setTimeout(() => { frame.setAttribute('src', 'https://www.youtube.com/embed/' + l.video + '?playsinline=1&rel=0&modestbranding=1&autoplay=0'); }, 100);
   const grid = document.getElementById('learnGrid');
   grid.innerHTML = l.learn.map(item => `<div class="learn-item"><div class="learn-check">✓</div>${item}</div>`).join('');
   document.querySelectorAll('.lesson-item').forEach((el, i) => {

@@ -16,7 +16,8 @@
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background: var(--warm); color: var(--text); line-height: 1.6; }
-    ::-webkit-scrollbar { width: 5px; } ::-webkit-scrollbar-thumb { background: var(--mint); border-radius: 10px; }
+    ::-webkit-scrollbar { width: 5px; }
+    .lesson-item { -webkit-tap-highlight-color: rgba(45,139,114,0.2); touch-action: manipulation; } ::-webkit-scrollbar-thumb { background: var(--mint); border-radius: 10px; }
 
     nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); padding: 0 48px; height: 60px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
     .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
@@ -147,80 +148,80 @@
 
     <div class="sidebar-section">
       <div class="sidebar-module mod-1">Module 1 — Python for AI</div>
-      <a class="lesson-item active" onclick="loadLesson(0);return false;" href="javascript:void(0)"><div class="lesson-num">1</div><div class="lesson-name">Python for Beginners</div></a>
-      <a class="lesson-item" onclick="loadLesson(1);return false;" href="javascript:void(0)"><div class="lesson-num">2</div><div class="lesson-name">Data Structures</div></a>
-      <a class="lesson-item" onclick="loadLesson(2);return false;" href="javascript:void(0)"><div class="lesson-num">3</div><div class="lesson-name">Functions, Loops & OOP</div></a>
-      <a class="lesson-item" onclick="loadLesson(3);return false;" href="javascript:void(0)"><div class="lesson-num">4</div><div class="lesson-name">NumPy Tutorial</div></a>
-      <a class="lesson-item" onclick="loadLesson(4);return false;" href="javascript:void(0)"><div class="lesson-num">5</div><div class="lesson-name">Pandas for Data Analysis</div></a>
-      <a class="lesson-item" onclick="loadLesson(5);return false;" href="javascript:void(0)"><div class="lesson-num">6</div><div class="lesson-name">Data Cleaning with Pandas</div></a>
-      <a class="lesson-item" onclick="loadLesson(6);return false;" href="javascript:void(0)"><div class="lesson-num">7</div><div class="lesson-name">Matplotlib Tutorial</div></a>
-      <a class="lesson-item" onclick="loadLesson(7);return false;" href="javascript:void(0)"><div class="lesson-num">8</div><div class="lesson-name">Seaborn Charts</div></a>
-      <a class="lesson-item" onclick="loadLesson(8);return false;" href="javascript:void(0)"><div class="lesson-num">9</div><div class="lesson-name">SciPy & Linear Algebra</div></a>
-      <a class="lesson-item" onclick="loadLesson(9);return false;" href="javascript:void(0)"><div class="lesson-num">10</div><div class="lesson-name">Statistics & Probability</div></a>
-      <a class="lesson-item" onclick="loadLesson(10);return false;" href="javascript:void(0)"><div class="lesson-num">11</div><div class="lesson-name">Web Scraping</div></a>
-      <a class="lesson-item" onclick="loadLesson(11);return false;" href="javascript:void(0)"><div class="lesson-num">12</div><div class="lesson-name">Python Capstone Project</div></a>
+      <a class="lesson-item active" onclick="loadLesson(0)" ontouchend="loadLesson(0);return false;" href="#"><div class="lesson-num">1</div><div class="lesson-name">Python for Beginners</div></a>
+      <a class="lesson-item" onclick="loadLesson(1)" ontouchend="loadLesson(1);return false;" href="#"><div class="lesson-num">2</div><div class="lesson-name">Data Structures</div></a>
+      <a class="lesson-item" onclick="loadLesson(2)" ontouchend="loadLesson(2);return false;" href="#"><div class="lesson-num">3</div><div class="lesson-name">Functions, Loops & OOP</div></a>
+      <a class="lesson-item" onclick="loadLesson(3)" ontouchend="loadLesson(3);return false;" href="#"><div class="lesson-num">4</div><div class="lesson-name">NumPy Tutorial</div></a>
+      <a class="lesson-item" onclick="loadLesson(4)" ontouchend="loadLesson(4);return false;" href="#"><div class="lesson-num">5</div><div class="lesson-name">Pandas for Data Analysis</div></a>
+      <a class="lesson-item" onclick="loadLesson(5)" ontouchend="loadLesson(5);return false;" href="#"><div class="lesson-num">6</div><div class="lesson-name">Data Cleaning with Pandas</div></a>
+      <a class="lesson-item" onclick="loadLesson(6)" ontouchend="loadLesson(6);return false;" href="#"><div class="lesson-num">7</div><div class="lesson-name">Matplotlib Tutorial</div></a>
+      <a class="lesson-item" onclick="loadLesson(7)" ontouchend="loadLesson(7);return false;" href="#"><div class="lesson-num">8</div><div class="lesson-name">Seaborn Charts</div></a>
+      <a class="lesson-item" onclick="loadLesson(8)" ontouchend="loadLesson(8);return false;" href="#"><div class="lesson-num">9</div><div class="lesson-name">SciPy & Linear Algebra</div></a>
+      <a class="lesson-item" onclick="loadLesson(9)" ontouchend="loadLesson(9);return false;" href="#"><div class="lesson-num">10</div><div class="lesson-name">Statistics & Probability</div></a>
+      <a class="lesson-item" onclick="loadLesson(10)" ontouchend="loadLesson(10);return false;" href="#"><div class="lesson-num">11</div><div class="lesson-name">Web Scraping</div></a>
+      <a class="lesson-item" onclick="loadLesson(11)" ontouchend="loadLesson(11);return false;" href="#"><div class="lesson-num">12</div><div class="lesson-name">Python Capstone Project</div></a>
     </div>
 
     <div class="sidebar-section">
       <div class="sidebar-module mod-2">Module 2 — Machine Learning</div>
-      <a class="lesson-item" onclick="loadLesson(12);return false;" href="javascript:void(0)"><div class="lesson-num">13</div><div class="lesson-name">What is Machine Learning?</div></a>
-      <a class="lesson-item" onclick="loadLesson(13);return false;" href="javascript:void(0)"><div class="lesson-num">14</div><div class="lesson-name">Types of ML</div></a>
-      <a class="lesson-item" onclick="loadLesson(14);return false;" href="javascript:void(0)"><div class="lesson-num">15</div><div class="lesson-name">ML Environment (Colab)</div></a>
-      <a class="lesson-item" onclick="loadLesson(15);return false;" href="javascript:void(0)"><div class="lesson-num">16</div><div class="lesson-name">Linear Regression</div></a>
-      <a class="lesson-item" onclick="loadLesson(16);return false;" href="javascript:void(0)"><div class="lesson-num">17</div><div class="lesson-name">Logistic Regression</div></a>
-      <a class="lesson-item" onclick="loadLesson(17);return false;" href="javascript:void(0)"><div class="lesson-num">18</div><div class="lesson-name">Decision Trees & Random Forests</div></a>
-      <a class="lesson-item" onclick="loadLesson(18);return false;" href="javascript:void(0)"><div class="lesson-num">19</div><div class="lesson-name">Support Vector Machines</div></a>
-      <a class="lesson-item" onclick="loadLesson(19);return false;" href="javascript:void(0)"><div class="lesson-num">20</div><div class="lesson-name">K-Nearest Neighbors</div></a>
-      <a class="lesson-item" onclick="loadLesson(20);return false;" href="javascript:void(0)"><div class="lesson-num">21</div><div class="lesson-name">Train/Test Split & Cross Validation</div></a>
-      <a class="lesson-item" onclick="loadLesson(21);return false;" href="javascript:void(0)"><div class="lesson-num">22</div><div class="lesson-name">Accuracy, Precision & F1</div></a>
-      <a class="lesson-item" onclick="loadLesson(22);return false;" href="javascript:void(0)"><div class="lesson-num">23</div><div class="lesson-name">Overfitting & Regularization</div></a>
-      <a class="lesson-item" onclick="loadLesson(23);return false;" href="javascript:void(0)"><div class="lesson-num">24</div><div class="lesson-name">K-Means Clustering</div></a>
-      <a class="lesson-item" onclick="loadLesson(24);return false;" href="javascript:void(0)"><div class="lesson-num">25</div><div class="lesson-name">PCA</div></a>
-      <a class="lesson-item" onclick="loadLesson(25);return false;" href="javascript:void(0)"><div class="lesson-num">26</div><div class="lesson-name">Dimensionality Reduction</div></a>
-      <a class="lesson-item" onclick="loadLesson(26);return false;" href="javascript:void(0)"><div class="lesson-num">27</div><div class="lesson-name">House Price Prediction</div></a>
-      <a class="lesson-item" onclick="loadLesson(27);return false;" href="javascript:void(0)"><div class="lesson-num">28</div><div class="lesson-name">Customer Segmentation</div></a>
-      <a class="lesson-item" onclick="loadLesson(28);return false;" href="javascript:void(0)"><div class="lesson-num">29</div><div class="lesson-name">ML Pipeline with Sklearn</div></a>
-      <a class="lesson-item" onclick="loadLesson(29);return false;" href="javascript:void(0)"><div class="lesson-num">30</div><div class="lesson-name">ML Capstone Project</div></a>
+      <a class="lesson-item" onclick="loadLesson(12)" ontouchend="loadLesson(12);return false;" href="#"><div class="lesson-num">13</div><div class="lesson-name">What is Machine Learning?</div></a>
+      <a class="lesson-item" onclick="loadLesson(13)" ontouchend="loadLesson(13);return false;" href="#"><div class="lesson-num">14</div><div class="lesson-name">Types of ML</div></a>
+      <a class="lesson-item" onclick="loadLesson(14)" ontouchend="loadLesson(14);return false;" href="#"><div class="lesson-num">15</div><div class="lesson-name">ML Environment (Colab)</div></a>
+      <a class="lesson-item" onclick="loadLesson(15)" ontouchend="loadLesson(15);return false;" href="#"><div class="lesson-num">16</div><div class="lesson-name">Linear Regression</div></a>
+      <a class="lesson-item" onclick="loadLesson(16)" ontouchend="loadLesson(16);return false;" href="#"><div class="lesson-num">17</div><div class="lesson-name">Logistic Regression</div></a>
+      <a class="lesson-item" onclick="loadLesson(17)" ontouchend="loadLesson(17);return false;" href="#"><div class="lesson-num">18</div><div class="lesson-name">Decision Trees & Random Forests</div></a>
+      <a class="lesson-item" onclick="loadLesson(18)" ontouchend="loadLesson(18);return false;" href="#"><div class="lesson-num">19</div><div class="lesson-name">Support Vector Machines</div></a>
+      <a class="lesson-item" onclick="loadLesson(19)" ontouchend="loadLesson(19);return false;" href="#"><div class="lesson-num">20</div><div class="lesson-name">K-Nearest Neighbors</div></a>
+      <a class="lesson-item" onclick="loadLesson(20)" ontouchend="loadLesson(20);return false;" href="#"><div class="lesson-num">21</div><div class="lesson-name">Train/Test Split & Cross Validation</div></a>
+      <a class="lesson-item" onclick="loadLesson(21)" ontouchend="loadLesson(21);return false;" href="#"><div class="lesson-num">22</div><div class="lesson-name">Accuracy, Precision & F1</div></a>
+      <a class="lesson-item" onclick="loadLesson(22)" ontouchend="loadLesson(22);return false;" href="#"><div class="lesson-num">23</div><div class="lesson-name">Overfitting & Regularization</div></a>
+      <a class="lesson-item" onclick="loadLesson(23)" ontouchend="loadLesson(23);return false;" href="#"><div class="lesson-num">24</div><div class="lesson-name">K-Means Clustering</div></a>
+      <a class="lesson-item" onclick="loadLesson(24)" ontouchend="loadLesson(24);return false;" href="#"><div class="lesson-num">25</div><div class="lesson-name">PCA</div></a>
+      <a class="lesson-item" onclick="loadLesson(25)" ontouchend="loadLesson(25);return false;" href="#"><div class="lesson-num">26</div><div class="lesson-name">Dimensionality Reduction</div></a>
+      <a class="lesson-item" onclick="loadLesson(26)" ontouchend="loadLesson(26);return false;" href="#"><div class="lesson-num">27</div><div class="lesson-name">House Price Prediction</div></a>
+      <a class="lesson-item" onclick="loadLesson(27)" ontouchend="loadLesson(27);return false;" href="#"><div class="lesson-num">28</div><div class="lesson-name">Customer Segmentation</div></a>
+      <a class="lesson-item" onclick="loadLesson(28)" ontouchend="loadLesson(28);return false;" href="#"><div class="lesson-num">29</div><div class="lesson-name">ML Pipeline with Sklearn</div></a>
+      <a class="lesson-item" onclick="loadLesson(29)" ontouchend="loadLesson(29);return false;" href="#"><div class="lesson-num">30</div><div class="lesson-name">ML Capstone Project</div></a>
     </div>
 
     <div class="sidebar-section">
       <div class="sidebar-module mod-3">Module 3 — Deep Learning</div>
-      <a class="lesson-item" onclick="loadLesson(30);return false;" href="javascript:void(0)"><div class="lesson-num">31</div><div class="lesson-name">What is Deep Learning?</div></a>
-      <a class="lesson-item" onclick="loadLesson(31);return false;" href="javascript:void(0)"><div class="lesson-num">32</div><div class="lesson-name">The Perceptron & Neural Nets</div></a>
-      <a class="lesson-item" onclick="loadLesson(32);return false;" href="javascript:void(0)"><div class="lesson-num">33</div><div class="lesson-name">Activation Functions</div></a>
-      <a class="lesson-item" onclick="loadLesson(33);return false;" href="javascript:void(0)"><div class="lesson-num">34</div><div class="lesson-name">Backpropagation</div></a>
-      <a class="lesson-item" onclick="loadLesson(34);return false;" href="javascript:void(0)"><div class="lesson-num">35</div><div class="lesson-name">PyTorch Setup & Tensors</div></a>
-      <a class="lesson-item" onclick="loadLesson(35);return false;" href="javascript:void(0)"><div class="lesson-num">36</div><div class="lesson-name">First Neural Network</div></a>
-      <a class="lesson-item" onclick="loadLesson(36);return false;" href="javascript:void(0)"><div class="lesson-num">37</div><div class="lesson-name">Training Loop in PyTorch</div></a>
-      <a class="lesson-item" onclick="loadLesson(37);return false;" href="javascript:void(0)"><div class="lesson-num">38</div><div class="lesson-name">CNNs Explained</div></a>
-      <a class="lesson-item" onclick="loadLesson(38);return false;" href="javascript:void(0)"><div class="lesson-num">39</div><div class="lesson-name">CNN with PyTorch</div></a>
-      <a class="lesson-item" onclick="loadLesson(39);return false;" href="javascript:void(0)"><div class="lesson-num">40</div><div class="lesson-name">Transfer Learning</div></a>
-      <a class="lesson-item" onclick="loadLesson(40);return false;" href="javascript:void(0)"><div class="lesson-num">41</div><div class="lesson-name">RNNs & LSTMs</div></a>
-      <a class="lesson-item" onclick="loadLesson(41);return false;" href="javascript:void(0)"><div class="lesson-num">42</div><div class="lesson-name">Attention Mechanism</div></a>
-      <a class="lesson-item" onclick="loadLesson(42);return false;" href="javascript:void(0)"><div class="lesson-num">43</div><div class="lesson-name">Transformers from Scratch</div></a>
-      <a class="lesson-item" onclick="loadLesson(43);return false;" href="javascript:void(0)"><div class="lesson-num">44</div><div class="lesson-name">Image Classifier Project</div></a>
-      <a class="lesson-item" onclick="loadLesson(44);return false;" href="javascript:void(0)"><div class="lesson-num">45</div><div class="lesson-name">Text Sentiment with LSTM</div></a>
-      <a class="lesson-item" onclick="loadLesson(45);return false;" href="javascript:void(0)"><div class="lesson-num">46</div><div class="lesson-name">Deep Learning Capstone</div></a>
+      <a class="lesson-item" onclick="loadLesson(30)" ontouchend="loadLesson(30);return false;" href="#"><div class="lesson-num">31</div><div class="lesson-name">What is Deep Learning?</div></a>
+      <a class="lesson-item" onclick="loadLesson(31)" ontouchend="loadLesson(31);return false;" href="#"><div class="lesson-num">32</div><div class="lesson-name">The Perceptron & Neural Nets</div></a>
+      <a class="lesson-item" onclick="loadLesson(32)" ontouchend="loadLesson(32);return false;" href="#"><div class="lesson-num">33</div><div class="lesson-name">Activation Functions</div></a>
+      <a class="lesson-item" onclick="loadLesson(33)" ontouchend="loadLesson(33);return false;" href="#"><div class="lesson-num">34</div><div class="lesson-name">Backpropagation</div></a>
+      <a class="lesson-item" onclick="loadLesson(34)" ontouchend="loadLesson(34);return false;" href="#"><div class="lesson-num">35</div><div class="lesson-name">PyTorch Setup & Tensors</div></a>
+      <a class="lesson-item" onclick="loadLesson(35)" ontouchend="loadLesson(35);return false;" href="#"><div class="lesson-num">36</div><div class="lesson-name">First Neural Network</div></a>
+      <a class="lesson-item" onclick="loadLesson(36)" ontouchend="loadLesson(36);return false;" href="#"><div class="lesson-num">37</div><div class="lesson-name">Training Loop in PyTorch</div></a>
+      <a class="lesson-item" onclick="loadLesson(37)" ontouchend="loadLesson(37);return false;" href="#"><div class="lesson-num">38</div><div class="lesson-name">CNNs Explained</div></a>
+      <a class="lesson-item" onclick="loadLesson(38)" ontouchend="loadLesson(38);return false;" href="#"><div class="lesson-num">39</div><div class="lesson-name">CNN with PyTorch</div></a>
+      <a class="lesson-item" onclick="loadLesson(39)" ontouchend="loadLesson(39);return false;" href="#"><div class="lesson-num">40</div><div class="lesson-name">Transfer Learning</div></a>
+      <a class="lesson-item" onclick="loadLesson(40)" ontouchend="loadLesson(40);return false;" href="#"><div class="lesson-num">41</div><div class="lesson-name">RNNs & LSTMs</div></a>
+      <a class="lesson-item" onclick="loadLesson(41)" ontouchend="loadLesson(41);return false;" href="#"><div class="lesson-num">42</div><div class="lesson-name">Attention Mechanism</div></a>
+      <a class="lesson-item" onclick="loadLesson(42)" ontouchend="loadLesson(42);return false;" href="#"><div class="lesson-num">43</div><div class="lesson-name">Transformers from Scratch</div></a>
+      <a class="lesson-item" onclick="loadLesson(43)" ontouchend="loadLesson(43);return false;" href="#"><div class="lesson-num">44</div><div class="lesson-name">Image Classifier Project</div></a>
+      <a class="lesson-item" onclick="loadLesson(44)" ontouchend="loadLesson(44);return false;" href="#"><div class="lesson-num">45</div><div class="lesson-name">Text Sentiment with LSTM</div></a>
+      <a class="lesson-item" onclick="loadLesson(45)" ontouchend="loadLesson(45);return false;" href="#"><div class="lesson-num">46</div><div class="lesson-name">Deep Learning Capstone</div></a>
     </div>
 
     <div class="sidebar-section">
       <div class="sidebar-module mod-4">Module 4 — NLP & LLMs</div>
-      <a class="lesson-item" onclick="loadLesson(46);return false;" href="javascript:void(0)"><div class="lesson-num">47</div><div class="lesson-name">Introduction to NLP</div></a>
-      <a class="lesson-item" onclick="loadLesson(47);return false;" href="javascript:void(0)"><div class="lesson-num">48</div><div class="lesson-name">Text Preprocessing</div></a>
-      <a class="lesson-item" onclick="loadLesson(48);return false;" href="javascript:void(0)"><div class="lesson-num">49</div><div class="lesson-name">Bag of Words & TF-IDF</div></a>
-      <a class="lesson-item" onclick="loadLesson(49);return false;" href="javascript:void(0)"><div class="lesson-num">50</div><div class="lesson-name">Word Embeddings</div></a>
-      <a class="lesson-item" onclick="loadLesson(50);return false;" href="javascript:void(0)"><div class="lesson-num">51</div><div class="lesson-name">Text Classification</div></a>
-      <a class="lesson-item" onclick="loadLesson(51);return false;" href="javascript:void(0)"><div class="lesson-num">52</div><div class="lesson-name">Named Entity Recognition</div></a>
-      <a class="lesson-item" onclick="loadLesson(52);return false;" href="javascript:void(0)"><div class="lesson-num">53</div><div class="lesson-name">Sentiment Analysis</div></a>
-      <a class="lesson-item" onclick="loadLesson(53);return false;" href="javascript:void(0)"><div class="lesson-num">54</div><div class="lesson-name">Transformers for NLP</div></a>
-      <a class="lesson-item" onclick="loadLesson(54);return false;" href="javascript:void(0)"><div class="lesson-num">55</div><div class="lesson-name">BERT Fine-Tuning</div></a>
-      <a class="lesson-item" onclick="loadLesson(55);return false;" href="javascript:void(0)"><div class="lesson-num">56</div><div class="lesson-name">How LLMs Work</div></a>
-      <a class="lesson-item" onclick="loadLesson(56);return false;" href="javascript:void(0)"><div class="lesson-num">57</div><div class="lesson-name">Prompt Engineering</div></a>
-      <a class="lesson-item" onclick="loadLesson(57);return false;" href="javascript:void(0)"><div class="lesson-num">58</div><div class="lesson-name">Fine-Tuning LLMs</div></a>
-      <a class="lesson-item" onclick="loadLesson(58);return false;" href="javascript:void(0)"><div class="lesson-num">59</div><div class="lesson-name">RAG Systems</div></a>
-      <a class="lesson-item" onclick="loadLesson(59);return false;" href="javascript:void(0)"><div class="lesson-num">60</div><div class="lesson-name">Build a Chatbot</div></a>
-      <a class="lesson-item" onclick="loadLesson(60);return false;" href="javascript:void(0)"><div class="lesson-num">61</div><div class="lesson-name">Text Summarizer</div></a>
-      <a class="lesson-item" onclick="loadLesson(61);return false;" href="javascript:void(0)"><div class="lesson-num">62</div><div class="lesson-name">NLP Capstone Project</div></a>
+      <a class="lesson-item" onclick="loadLesson(46)" ontouchend="loadLesson(46);return false;" href="#"><div class="lesson-num">47</div><div class="lesson-name">Introduction to NLP</div></a>
+      <a class="lesson-item" onclick="loadLesson(47)" ontouchend="loadLesson(47);return false;" href="#"><div class="lesson-num">48</div><div class="lesson-name">Text Preprocessing</div></a>
+      <a class="lesson-item" onclick="loadLesson(48)" ontouchend="loadLesson(48);return false;" href="#"><div class="lesson-num">49</div><div class="lesson-name">Bag of Words & TF-IDF</div></a>
+      <a class="lesson-item" onclick="loadLesson(49)" ontouchend="loadLesson(49);return false;" href="#"><div class="lesson-num">50</div><div class="lesson-name">Word Embeddings</div></a>
+      <a class="lesson-item" onclick="loadLesson(50)" ontouchend="loadLesson(50);return false;" href="#"><div class="lesson-num">51</div><div class="lesson-name">Text Classification</div></a>
+      <a class="lesson-item" onclick="loadLesson(51)" ontouchend="loadLesson(51);return false;" href="#"><div class="lesson-num">52</div><div class="lesson-name">Named Entity Recognition</div></a>
+      <a class="lesson-item" onclick="loadLesson(52)" ontouchend="loadLesson(52);return false;" href="#"><div class="lesson-num">53</div><div class="lesson-name">Sentiment Analysis</div></a>
+      <a class="lesson-item" onclick="loadLesson(53)" ontouchend="loadLesson(53);return false;" href="#"><div class="lesson-num">54</div><div class="lesson-name">Transformers for NLP</div></a>
+      <a class="lesson-item" onclick="loadLesson(54)" ontouchend="loadLesson(54);return false;" href="#"><div class="lesson-num">55</div><div class="lesson-name">BERT Fine-Tuning</div></a>
+      <a class="lesson-item" onclick="loadLesson(55)" ontouchend="loadLesson(55);return false;" href="#"><div class="lesson-num">56</div><div class="lesson-name">How LLMs Work</div></a>
+      <a class="lesson-item" onclick="loadLesson(56)" ontouchend="loadLesson(56);return false;" href="#"><div class="lesson-num">57</div><div class="lesson-name">Prompt Engineering</div></a>
+      <a class="lesson-item" onclick="loadLesson(57)" ontouchend="loadLesson(57);return false;" href="#"><div class="lesson-num">58</div><div class="lesson-name">Fine-Tuning LLMs</div></a>
+      <a class="lesson-item" onclick="loadLesson(58)" ontouchend="loadLesson(58);return false;" href="#"><div class="lesson-num">59</div><div class="lesson-name">RAG Systems</div></a>
+      <a class="lesson-item" onclick="loadLesson(59)" ontouchend="loadLesson(59);return false;" href="#"><div class="lesson-num">60</div><div class="lesson-name">Build a Chatbot</div></a>
+      <a class="lesson-item" onclick="loadLesson(60)" ontouchend="loadLesson(60);return false;" href="#"><div class="lesson-num">61</div><div class="lesson-name">Text Summarizer</div></a>
+      <a class="lesson-item" onclick="loadLesson(61)" ontouchend="loadLesson(61);return false;" href="#"><div class="lesson-num">62</div><div class="lesson-name">NLP Capstone Project</div></a>
     </div>
   </aside>
 

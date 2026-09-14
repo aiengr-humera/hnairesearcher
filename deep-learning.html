@@ -15,7 +15,8 @@
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background: var(--warm); color: var(--text); line-height: 1.6; }
-    ::-webkit-scrollbar { width: 5px; } ::-webkit-scrollbar-thumb { background: var(--mint); border-radius: 10px; }
+    ::-webkit-scrollbar { width: 5px; }
+    .lesson-item { -webkit-tap-highlight-color: rgba(45,139,114,0.2); touch-action: manipulation; } ::-webkit-scrollbar-thumb { background: var(--mint); border-radius: 10px; }
     nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); padding: 0 48px; height: 60px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
     .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .brand-icon { width: 34px; height: 34px; background: var(--mint); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Merriweather', serif; font-size: 11px; font-weight: 700; color: white; }
@@ -109,34 +110,34 @@
     
     <div class="sidebar-section">
       <div class="sidebar-section-title">Module 1 — Neural Net Foundations</div>
-      <a class="lesson-item active" onclick="loadLesson(0);return false;" href="javascript:void(0)"><div class="lesson-num">1</div><div><div class="lesson-name">What is Deep Learning?</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(1);return false;" href="javascript:void(0)"><div class="lesson-num">2</div><div><div class="lesson-name">The Perceptron & Neural Nets</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(2);return false;" href="javascript:void(0)"><div class="lesson-num">3</div><div><div class="lesson-name">Activation Functions Explained</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(3);return false;" href="javascript:void(0)"><div class="lesson-num">4</div><div><div class="lesson-name">Backpropagation & Gradient Descent</div></div></a>
+      <a class="lesson-item active" onclick="loadLesson(0)" ontouchend="loadLesson(0);return false;" href="#"><div class="lesson-num">1</div><div><div class="lesson-name">What is Deep Learning?</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(1)" ontouchend="loadLesson(1);return false;" href="#"><div class="lesson-num">2</div><div><div class="lesson-name">The Perceptron & Neural Nets</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(2)" ontouchend="loadLesson(2);return false;" href="#"><div class="lesson-num">3</div><div><div class="lesson-name">Activation Functions Explained</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(3)" ontouchend="loadLesson(3);return false;" href="#"><div class="lesson-num">4</div><div><div class="lesson-name">Backpropagation & Gradient Descent</div></div></a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Module 2 — PyTorch Fundamentals</div>
-      <a class="lesson-item" onclick="loadLesson(4);return false;" href="javascript:void(0)"><div class="lesson-num">5</div><div><div class="lesson-name">PyTorch Setup & Tensors</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(5);return false;" href="javascript:void(0)"><div class="lesson-num">6</div><div><div class="lesson-name">Building Your First Neural Network</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(6);return false;" href="javascript:void(0)"><div class="lesson-num">7</div><div><div class="lesson-name">Training Loop in PyTorch</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(4)" ontouchend="loadLesson(4);return false;" href="#"><div class="lesson-num">5</div><div><div class="lesson-name">PyTorch Setup & Tensors</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(5)" ontouchend="loadLesson(5);return false;" href="#"><div class="lesson-num">6</div><div><div class="lesson-name">Building Your First Neural Network</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(6)" ontouchend="loadLesson(6);return false;" href="#"><div class="lesson-num">7</div><div><div class="lesson-name">Training Loop in PyTorch</div></div></a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Module 3 — CNNs</div>
-      <a class="lesson-item" onclick="loadLesson(7);return false;" href="javascript:void(0)"><div class="lesson-num">8</div><div><div class="lesson-name">CNNs Explained</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(8);return false;" href="javascript:void(0)"><div class="lesson-num">9</div><div><div class="lesson-name">Building a CNN with PyTorch</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(9);return false;" href="javascript:void(0)"><div class="lesson-num">10</div><div><div class="lesson-name">Transfer Learning</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(7)" ontouchend="loadLesson(7);return false;" href="#"><div class="lesson-num">8</div><div><div class="lesson-name">CNNs Explained</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(8)" ontouchend="loadLesson(8);return false;" href="#"><div class="lesson-num">9</div><div><div class="lesson-name">Building a CNN with PyTorch</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(9)" ontouchend="loadLesson(9);return false;" href="#"><div class="lesson-num">10</div><div><div class="lesson-name">Transfer Learning</div></div></a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Module 4 — RNNs & Transformers</div>
-      <a class="lesson-item" onclick="loadLesson(10);return false;" href="javascript:void(0)"><div class="lesson-num">11</div><div><div class="lesson-name">RNNs & LSTMs</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(11);return false;" href="javascript:void(0)"><div class="lesson-num">12</div><div><div class="lesson-name">Attention Mechanism</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(12);return false;" href="javascript:void(0)"><div class="lesson-num">13</div><div><div class="lesson-name">Transformers from Scratch</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(10)" ontouchend="loadLesson(10);return false;" href="#"><div class="lesson-num">11</div><div><div class="lesson-name">RNNs & LSTMs</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(11)" ontouchend="loadLesson(11);return false;" href="#"><div class="lesson-num">12</div><div><div class="lesson-name">Attention Mechanism</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(12)" ontouchend="loadLesson(12);return false;" href="#"><div class="lesson-num">13</div><div><div class="lesson-name">Transformers from Scratch</div></div></a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Module 5 — Projects</div>
-      <a class="lesson-item" onclick="loadLesson(13);return false;" href="javascript:void(0)"><div class="lesson-num">14</div><div><div class="lesson-name">Image Classifier Project</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(14);return false;" href="javascript:void(0)"><div class="lesson-num">15</div><div><div class="lesson-name">Text Sentiment with LSTM</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(15);return false;" href="javascript:void(0)"><div class="lesson-num">16</div><div><div class="lesson-name">Deep Learning Capstone</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(13)" ontouchend="loadLesson(13);return false;" href="#"><div class="lesson-num">14</div><div><div class="lesson-name">Image Classifier Project</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(14)" ontouchend="loadLesson(14);return false;" href="#"><div class="lesson-num">15</div><div><div class="lesson-name">Text Sentiment with LSTM</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(15)" ontouchend="loadLesson(15);return false;" href="#"><div class="lesson-num">16</div><div><div class="lesson-name">Deep Learning Capstone</div></div></a>
     </div>
   </aside>
   <main class="course-main">
@@ -159,18 +160,18 @@
 <script>
 const lessons = [
   {"tag":"Lesson 1 of 16 · Module 1 — Neural Net Foundations","title":"What is Deep Learning?","subtitle":"Understand how deep learning differs from classical ML and why it has revolutionized AI.","video":"aircAruvnKk","learn":["ML vs Deep Learning","Why deep learning works","The hierarchy of AI","GPU requirements","Real-world DL applications","What you will build"]},
-  {"tag":"Lesson 2 of 16 · Module 1 — Neural Net Foundations","title":"The Perceptron & Neural Nets","subtitle":"Learn how artificial neurons mimic biological ones, and how stacking them creates powerful networks.","video":"CqOfi41LfDw","learn":["Biological vs artificial neuron","The perceptron model","Weighted inputs & bias","Layers: input, hidden, output","Forward pass explained","Activation and output"]},
+  {"tag":"Lesson 2 of 16 · Module 1 — Neural Net Foundations","title":"The Perceptron & Neural Nets","subtitle":"Learn how artificial neurons mimic biological ones, and how stacking them creates powerful networks.","video":"VMj-3S1tku0","learn":["Biological vs artificial neuron","The perceptron model","Weighted inputs & bias","Layers: input, hidden, output","Forward pass explained","Activation and output"]},
   {"tag":"Lesson 3 of 16 · Module 1 — Neural Net Foundations","title":"Activation Functions Explained","subtitle":"ReLU, sigmoid, tanh and more — understand why these functions are the secret sauce of deep learning.","video":"m0pIlLfpXWE","learn":["Why activation functions?","Sigmoid & its problems","Tanh function","ReLU & Leaky ReLU","Softmax for classification","Choosing the right activation"]},
-  {"tag":"Lesson 4 of 16 · Module 1 — Neural Net Foundations","title":"Backpropagation & Gradient Descent","subtitle":"The algorithm that trains every neural network — understand how models learn from errors.","video":"Ilg3gGewQ5U","learn":["The loss function","Chain rule of calculus","Forward & backward pass","Learning rate explained","Optimizers: SGD, Adam","Vanishing gradient problem"]},
+  {"tag":"Lesson 4 of 16 · Module 1 — Neural Net Foundations","title":"Backpropagation & Gradient Descent","subtitle":"The algorithm that trains every neural network — understand how models learn from errors.","video":"VMj-3S1tku0","learn":["The loss function","Chain rule of calculus","Forward & backward pass","Learning rate explained","Optimizers: SGD, Adam","Vanishing gradient problem"]},
   {"tag":"Lesson 5 of 16 · Module 2 — PyTorch Fundamentals","title":"PyTorch Setup & Tensors","subtitle":"Install PyTorch and master tensors — the fundamental data structure powering all deep learning.","video":"IC0_FRiX-sw","learn":["Installing PyTorch","Tensors vs NumPy arrays","Tensor operations","Moving to GPU (CUDA)","Autograd explained","PyTorch ecosystem"]},
-  {"tag":"Lesson 6 of 16 · Module 2 — PyTorch Fundamentals","title":"Building Your First Neural Network","subtitle":"Code a neural network from scratch in PyTorch — your first real deep learning model.","video":"mozBidd58XI","learn":["nn.Module class","Defining layers","Forward method","Loss functions in PyTorch","Model parameters","Inspecting your model"]},
+  {"tag":"Lesson 6 of 16 · Module 2 — PyTorch Fundamentals","title":"Building Your First Neural Network","subtitle":"Code a neural network from scratch in PyTorch — your first real deep learning model.","video":"PaCmpygFfXo","learn":["nn.Module class","Defining layers","Forward method","Loss functions in PyTorch","Model parameters","Inspecting your model"]},
   {"tag":"Lesson 7 of 16 · Module 2 — PyTorch Fundamentals","title":"Training Loop in PyTorch","subtitle":"Write the training loop every ML engineer uses — optimizer step, loss backward, and evaluation.","video":"kQXIb2msfU4","learn":["The training loop pattern","DataLoader & Dataset","Batch training","Validation loop","Saving model checkpoints","Plotting training curves"]},
   {"tag":"Lesson 8 of 16 · Module 3 — CNNs","title":"CNNs Explained — How Computers See","subtitle":"Understand convolutions, pooling and how CNNs extract features from images.","video":"QzY57FaENXg","learn":["What is a convolution?","Filters & feature maps","Pooling layers","CNN architecture overview","Flattening & dense layers","Famous CNN architectures"]},
   {"tag":"Lesson 9 of 16 · Module 3 — CNNs","title":"Building a CNN with PyTorch","subtitle":"Code a full CNN image classifier in PyTorch and train it on a real image dataset.","video":"pDdP0TFzsoQ","learn":["Defining conv layers","MaxPooling in code","Flatten & linear layers","Training on CIFAR-10","Evaluating accuracy","Visualizing predictions"]},
   {"tag":"Lesson 10 of 16 · Module 3 — CNNs","title":"Transfer Learning","subtitle":"Achieve expert-level image classification using pretrained models with minimal training time.","video":"K0lWSB2QoIQ","learn":["ImageNet pretrained models","ResNet & EfficientNet","Feature extraction","Fine-tuning approach","Custom classification head","Practical tips"]},
   {"tag":"Lesson 11 of 16 · Module 4 — RNNs & Transformers","title":"RNNs & LSTMs","subtitle":"Process sequential data — text, time series and audio — with recurrent neural networks.","video":"LHXXI4-IEns","learn":["Sequence data problems","Vanilla RNN","Vanishing gradient","LSTM cell explained","GRU architecture","Bidirectional RNNs"]},
   {"tag":"Lesson 12 of 16 · Module 4 — RNNs & Transformers","title":"Attention Mechanism","subtitle":"The key innovation behind all modern AI — understand how attention helps models focus.","video":"eMlx5fFNoYc","learn":["The attention idea","Query, Key, Value","Scaled dot-product attention","Multi-head attention","Self-attention","Attention visualizations"]},
-  {"tag":"Lesson 13 of 16 · Module 4 — RNNs & Transformers","title":"Transformers from Scratch","subtitle":"Build the architecture that powers GPT, BERT and every modern LLM from the ground up.","video":"TQQlZhbC5ps","learn":["Encoder-decoder structure","Positional encoding","Multi-head self-attention","Feed-forward layers","Layer normalization","Full transformer assembly"]},
+  {"tag":"Lesson 13 of 16 · Module 4 — RNNs & Transformers","title":"Transformers from Scratch","subtitle":"Build the architecture that powers GPT, BERT and every modern LLM from the ground up.","video":"kCc8FmEb1nY","learn":["Encoder-decoder structure","Positional encoding","Multi-head self-attention","Feed-forward layers","Layer normalization","Full transformer assembly"]},
   {"tag":"Lesson 14 of 16 · Module 5 — Projects","title":"Image Classifier Project","subtitle":"Build a complete end-to-end image classification project — data loading to prediction.","video":"hppq8abaxzc","learn":["Dataset preparation","Augmentation techniques","Training with transfer learning","Validation & testing","Confusion matrix","Deployment basics"]},
   {"tag":"Lesson 15 of 16 · Module 5 — Projects","title":"Text Sentiment with LSTM","subtitle":"Train an LSTM to predict movie review sentiment — full pipeline from raw text to predictions.","video":"i8D90oqlUmE","learn":["Text preprocessing","Tokenization & padding","Embedding layer","LSTM model","Training & evaluation","Inference on new text"]},
   {"tag":"Lesson 16 of 16 · Module 5 — Projects","title":"Deep Learning Capstone","subtitle":"End-to-end deep learning project — choose your domain, build, train, evaluate and present.","video":"hVlOWvaNTwI","learn":["Project scoping","Data pipeline","Model selection","Hyperparameter tuning","Final evaluation","Presenting results"]}
@@ -191,7 +192,7 @@ function loadLesson(index) {
   document.getElementById('lessonSubtitle').textContent = l.subtitle;
   const frame = document.getElementById('videoFrame');
   frame.src = '';
-  setTimeout(() => { frame.src = 'https://www.youtube.com/embed/' + l.video + '?playsinline=1&rel=0&modestbranding=1&iv_load_policy=3'; }, 100);
+  setTimeout(() => { frame.setAttribute('src', 'https://www.youtube.com/embed/' + l.video + '?playsinline=1&rel=0&modestbranding=1&autoplay=0'); }, 100);
   const grid = document.getElementById('learnGrid');
   grid.innerHTML = l.learn.map(item => `<div class="learn-item"><div class="learn-check">✓</div>${item}</div>`).join('');
   document.querySelectorAll('.lesson-item').forEach((el, i) => {

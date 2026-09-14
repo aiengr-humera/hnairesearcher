@@ -15,7 +15,8 @@
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background: var(--warm); color: var(--text); line-height: 1.6; }
-    ::-webkit-scrollbar { width: 5px; } ::-webkit-scrollbar-thumb { background: var(--mint); border-radius: 10px; }
+    ::-webkit-scrollbar { width: 5px; }
+    .lesson-item { -webkit-tap-highlight-color: rgba(45,139,114,0.2); touch-action: manipulation; } ::-webkit-scrollbar-thumb { background: var(--mint); border-radius: 10px; }
     nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); padding: 0 48px; height: 60px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
     .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .brand-icon { width: 34px; height: 34px; background: var(--mint); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Merriweather', serif; font-size: 11px; font-weight: 700; color: white; }
@@ -109,29 +110,29 @@
     
     <div class="sidebar-section">
       <div class="sidebar-section-title">Module 1 — Vision Foundations</div>
-      <a class="lesson-item active" onclick="loadLesson(0);return false;" href="javascript:void(0)"><div class="lesson-num">1</div><div><div class="lesson-name">What is Computer Vision?</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(1);return false;" href="javascript:void(0)"><div class="lesson-num">2</div><div><div class="lesson-name">Images as Data — Pixels & Color</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(2);return false;" href="javascript:void(0)"><div class="lesson-num">3</div><div><div class="lesson-name">Image Processing with OpenCV</div></div></a>
+      <a class="lesson-item active" onclick="loadLesson(0)" ontouchend="loadLesson(0);return false;" href="#"><div class="lesson-num">1</div><div><div class="lesson-name">What is Computer Vision?</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(1)" ontouchend="loadLesson(1);return false;" href="#"><div class="lesson-num">2</div><div><div class="lesson-name">Images as Data — Pixels & Color</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(2)" ontouchend="loadLesson(2);return false;" href="#"><div class="lesson-num">3</div><div><div class="lesson-name">Image Processing with OpenCV</div></div></a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Module 2 — Deep Learning for Vision</div>
-      <a class="lesson-item" onclick="loadLesson(3);return false;" href="javascript:void(0)"><div class="lesson-num">4</div><div><div class="lesson-name">CNNs for Image Recognition</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(4);return false;" href="javascript:void(0)"><div class="lesson-num">5</div><div><div class="lesson-name">Transfer Learning for Vision</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(5);return false;" href="javascript:void(0)"><div class="lesson-num">6</div><div><div class="lesson-name">Object Detection with YOLO</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(6);return false;" href="javascript:void(0)"><div class="lesson-num">7</div><div><div class="lesson-name">Image Segmentation Explained</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(3)" ontouchend="loadLesson(3);return false;" href="#"><div class="lesson-num">4</div><div><div class="lesson-name">CNNs for Image Recognition</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(4)" ontouchend="loadLesson(4);return false;" href="#"><div class="lesson-num">5</div><div><div class="lesson-name">Transfer Learning for Vision</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(5)" ontouchend="loadLesson(5);return false;" href="#"><div class="lesson-num">6</div><div><div class="lesson-name">Object Detection with YOLO</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(6)" ontouchend="loadLesson(6);return false;" href="#"><div class="lesson-num">7</div><div><div class="lesson-name">Image Segmentation Explained</div></div></a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Module 3 — Advanced Vision</div>
-      <a class="lesson-item" onclick="loadLesson(7);return false;" href="javascript:void(0)"><div class="lesson-num">8</div><div><div class="lesson-name">Face Detection & Recognition</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(8);return false;" href="javascript:void(0)"><div class="lesson-num">9</div><div><div class="lesson-name">Video & Real-Time Processing</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(9);return false;" href="javascript:void(0)"><div class="lesson-num">10</div><div><div class="lesson-name">Generative Models (GANs & Diffusion)</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(7)" ontouchend="loadLesson(7);return false;" href="#"><div class="lesson-num">8</div><div><div class="lesson-name">Face Detection & Recognition</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(8)" ontouchend="loadLesson(8);return false;" href="#"><div class="lesson-num">9</div><div><div class="lesson-name">Video & Real-Time Processing</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(9)" ontouchend="loadLesson(9);return false;" href="#"><div class="lesson-num">10</div><div><div class="lesson-name">Generative Models (GANs & Diffusion)</div></div></a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Module 4 — Projects</div>
-      <a class="lesson-item" onclick="loadLesson(10);return false;" href="javascript:void(0)"><div class="lesson-num">11</div><div><div class="lesson-name">Plant Disease Classifier</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(11);return false;" href="javascript:void(0)"><div class="lesson-num">12</div><div><div class="lesson-name">Real-Time Object Counter</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(12);return false;" href="javascript:void(0)"><div class="lesson-num">13</div><div><div class="lesson-name">Face Attendance System</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(13);return false;" href="javascript:void(0)"><div class="lesson-num">14</div><div><div class="lesson-name">Computer Vision Capstone</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(10)" ontouchend="loadLesson(10);return false;" href="#"><div class="lesson-num">11</div><div><div class="lesson-name">Plant Disease Classifier</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(11)" ontouchend="loadLesson(11);return false;" href="#"><div class="lesson-num">12</div><div><div class="lesson-name">Real-Time Object Counter</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(12)" ontouchend="loadLesson(12);return false;" href="#"><div class="lesson-num">13</div><div><div class="lesson-name">Face Attendance System</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(13)" ontouchend="loadLesson(13);return false;" href="#"><div class="lesson-num">14</div><div><div class="lesson-name">Computer Vision Capstone</div></div></a>
     </div>
   </aside>
   <main class="course-main">
@@ -155,7 +156,7 @@
 const lessons = [
   {"tag":"Lesson 1 of 14 · Module 1 — Vision Foundations","title":"What is Computer Vision?","subtitle":"Discover how machines see and interpret visual information — from pixels to understanding.","video":"01sAkU_NvOY","learn":["Human vs computer vision","CV applications everywhere","History of computer vision","Key CV tasks","Modern CV landscape","What you will build"]},
   {"tag":"Lesson 2 of 14 · Module 1 — Vision Foundations","title":"Images as Data — Pixels & Color","subtitle":"Understand how images are stored as numbers — RGB, grayscale, channels and resolution.","video":"aircAruvnKk","learn":["Pixels & resolution","RGB color model","Grayscale conversion","Image as NumPy array","Image normalization","Common image formats"]},
-  {"tag":"Lesson 3 of 14 · Module 1 — Vision Foundations","title":"Image Processing with OpenCV","subtitle":"Master OpenCV — the industry-standard library for image and video processing.","video":"E3Lg4aZVCAU","learn":["Installing OpenCV","Reading & displaying images","Resizing & cropping","Color space conversions","Blurring & edge detection","Drawing on images"]},
+  {"tag":"Lesson 3 of 14 · Module 1 — Vision Foundations","title":"Image Processing with OpenCV","subtitle":"Master OpenCV — the industry-standard library for image and video processing.","video":"oXlwWbU8l2o","learn":["Installing OpenCV","Reading & displaying images","Resizing & cropping","Color space conversions","Blurring & edge detection","Drawing on images"]},
   {"tag":"Lesson 4 of 14 · Module 2 — Deep Learning for Vision","title":"CNNs for Image Recognition","subtitle":"Build and train a convolutional neural network for image classification from scratch.","video":"pDdP0TFzsoQ","learn":["Conv layers for images","Pooling & stride","Batch normalization","Building CNN in PyTorch","CIFAR-10 classification","Evaluating image models"]},
   {"tag":"Lesson 5 of 14 · Module 2 — Deep Learning for Vision","title":"Transfer Learning for Vision","subtitle":"Achieve expert-level image classification using pretrained models with minimal training.","video":"K0lWSB2QoIQ","learn":["ImageNet pretrained models","ResNet, VGG, EfficientNet","Feature extraction approach","Fine-tuning approach","Custom classification head","Practical tips"]},
   {"tag":"Lesson 6 of 14 · Module 2 — Deep Learning for Vision","title":"Object Detection with YOLO","subtitle":"Detect and locate multiple objects in images in real-time with the YOLO family.","video":"ag3DLKsl2vk","learn":["Detection vs classification","Bounding boxes & IoU","YOLO architecture","YOLOv8 with Ultralytics","Training on custom data","Real-time detection demo"]},
@@ -184,7 +185,7 @@ function loadLesson(index) {
   document.getElementById('lessonSubtitle').textContent = l.subtitle;
   const frame = document.getElementById('videoFrame');
   frame.src = '';
-  setTimeout(() => { frame.src = 'https://www.youtube.com/embed/' + l.video + '?playsinline=1&rel=0&modestbranding=1&iv_load_policy=3'; }, 100);
+  setTimeout(() => { frame.setAttribute('src', 'https://www.youtube.com/embed/' + l.video + '?playsinline=1&rel=0&modestbranding=1&autoplay=0'); }, 100);
   const grid = document.getElementById('learnGrid');
   grid.innerHTML = l.learn.map(item => `<div class="learn-item"><div class="learn-check">✓</div>${item}</div>`).join('');
   document.querySelectorAll('.lesson-item').forEach((el, i) => {

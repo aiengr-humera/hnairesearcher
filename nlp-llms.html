@@ -15,7 +15,8 @@
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background: var(--warm); color: var(--text); line-height: 1.6; }
-    ::-webkit-scrollbar { width: 5px; } ::-webkit-scrollbar-thumb { background: var(--mint); border-radius: 10px; }
+    ::-webkit-scrollbar { width: 5px; }
+    .lesson-item { -webkit-tap-highlight-color: rgba(45,139,114,0.2); touch-action: manipulation; } ::-webkit-scrollbar-thumb { background: var(--mint); border-radius: 10px; }
     nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); padding: 0 48px; height: 60px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
     .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .brand-icon { width: 34px; height: 34px; background: var(--mint); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Merriweather', serif; font-size: 11px; font-weight: 700; color: white; }
@@ -109,34 +110,34 @@
     
     <div class="sidebar-section">
       <div class="sidebar-section-title">Module 1 — NLP Foundations</div>
-      <a class="lesson-item active" onclick="loadLesson(0);return false;" href="javascript:void(0)"><div class="lesson-num">1</div><div><div class="lesson-name">Introduction to NLP</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(1);return false;" href="javascript:void(0)"><div class="lesson-num">2</div><div><div class="lesson-name">Text Preprocessing & Tokenization</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(2);return false;" href="javascript:void(0)"><div class="lesson-num">3</div><div><div class="lesson-name">Bag of Words & TF-IDF</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(3);return false;" href="javascript:void(0)"><div class="lesson-num">4</div><div><div class="lesson-name">Word Embeddings & Word2Vec</div></div></a>
+      <a class="lesson-item active" onclick="loadLesson(0)" ontouchend="loadLesson(0);return false;" href="#"><div class="lesson-num">1</div><div><div class="lesson-name">Introduction to NLP</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(1)" ontouchend="loadLesson(1);return false;" href="#"><div class="lesson-num">2</div><div><div class="lesson-name">Text Preprocessing & Tokenization</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(2)" ontouchend="loadLesson(2);return false;" href="#"><div class="lesson-num">3</div><div><div class="lesson-name">Bag of Words & TF-IDF</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(3)" ontouchend="loadLesson(3);return false;" href="#"><div class="lesson-num">4</div><div><div class="lesson-name">Word Embeddings & Word2Vec</div></div></a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Module 2 — Classical NLP</div>
-      <a class="lesson-item" onclick="loadLesson(4);return false;" href="javascript:void(0)"><div class="lesson-num">5</div><div><div class="lesson-name">Text Classification with Sklearn</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(5);return false;" href="javascript:void(0)"><div class="lesson-num">6</div><div><div class="lesson-name">Named Entity Recognition</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(6);return false;" href="javascript:void(0)"><div class="lesson-num">7</div><div><div class="lesson-name">Sentiment Analysis Pipeline</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(4)" ontouchend="loadLesson(4);return false;" href="#"><div class="lesson-num">5</div><div><div class="lesson-name">Text Classification with Sklearn</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(5)" ontouchend="loadLesson(5);return false;" href="#"><div class="lesson-num">6</div><div><div class="lesson-name">Named Entity Recognition</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(6)" ontouchend="loadLesson(6);return false;" href="#"><div class="lesson-num">7</div><div><div class="lesson-name">Sentiment Analysis Pipeline</div></div></a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Module 3 — Transformers & BERT</div>
-      <a class="lesson-item" onclick="loadLesson(7);return false;" href="javascript:void(0)"><div class="lesson-num">8</div><div><div class="lesson-name">Transformers for NLP</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(8);return false;" href="javascript:void(0)"><div class="lesson-num">9</div><div><div class="lesson-name">BERT Explained & Fine-Tuning</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(7)" ontouchend="loadLesson(7);return false;" href="#"><div class="lesson-num">8</div><div><div class="lesson-name">Transformers for NLP</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(8)" ontouchend="loadLesson(8);return false;" href="#"><div class="lesson-num">9</div><div><div class="lesson-name">BERT Explained & Fine-Tuning</div></div></a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Module 4 — LLMs & Prompting</div>
-      <a class="lesson-item" onclick="loadLesson(9);return false;" href="javascript:void(0)"><div class="lesson-num">10</div><div><div class="lesson-name">How LLMs Work</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(10);return false;" href="javascript:void(0)"><div class="lesson-num">11</div><div><div class="lesson-name">Prompt Engineering</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(11);return false;" href="javascript:void(0)"><div class="lesson-num">12</div><div><div class="lesson-name">Fine-Tuning LLMs with Hugging Face</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(12);return false;" href="javascript:void(0)"><div class="lesson-num">13</div><div><div class="lesson-name">RAG — Retrieval Augmented Generation</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(9)" ontouchend="loadLesson(9);return false;" href="#"><div class="lesson-num">10</div><div><div class="lesson-name">How LLMs Work</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(10)" ontouchend="loadLesson(10);return false;" href="#"><div class="lesson-num">11</div><div><div class="lesson-name">Prompt Engineering</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(11)" ontouchend="loadLesson(11);return false;" href="#"><div class="lesson-num">12</div><div><div class="lesson-name">Fine-Tuning LLMs with Hugging Face</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(12)" ontouchend="loadLesson(12);return false;" href="#"><div class="lesson-num">13</div><div><div class="lesson-name">RAG — Retrieval Augmented Generation</div></div></a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Module 5 — Projects</div>
-      <a class="lesson-item" onclick="loadLesson(13);return false;" href="javascript:void(0)"><div class="lesson-num">14</div><div><div class="lesson-name">Build a Chatbot with LLM</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(14);return false;" href="javascript:void(0)"><div class="lesson-num">15</div><div><div class="lesson-name">Text Summarizer Project</div></div></a>
-      <a class="lesson-item" onclick="loadLesson(15);return false;" href="javascript:void(0)"><div class="lesson-num">16</div><div><div class="lesson-name">NLP Capstone Project</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(13)" ontouchend="loadLesson(13);return false;" href="#"><div class="lesson-num">14</div><div><div class="lesson-name">Build a Chatbot with LLM</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(14)" ontouchend="loadLesson(14);return false;" href="#"><div class="lesson-num">15</div><div><div class="lesson-name">Text Summarizer Project</div></div></a>
+      <a class="lesson-item" onclick="loadLesson(15)" ontouchend="loadLesson(15);return false;" href="#"><div class="lesson-num">16</div><div><div class="lesson-name">NLP Capstone Project</div></div></a>
     </div>
   </aside>
   <main class="course-main">
@@ -158,7 +159,7 @@
 </div>
 <script>
 const lessons = [
-  {"tag":"Lesson 1 of 16 · Module 1 — NLP Foundations","title":"Introduction to NLP","subtitle":"Discover what Natural Language Processing is and how machines understand human language.","video":"taX_CP_ACV8","learn":["What NLP is","Core NLP tasks","NLP vs traditional programming","NLP in the real world","Key NLP challenges","The NLP pipeline"]},
+  {"tag":"Lesson 1 of 16 · Module 1 — NLP Foundations","title":"Introduction to NLP","subtitle":"Discover what Natural Language Processing is and how machines understand human language.","video":"8rXD5wn-WZQ","learn":["What NLP is","Core NLP tasks","NLP vs traditional programming","NLP in the real world","Key NLP challenges","The NLP pipeline"]},
   {"tag":"Lesson 2 of 16 · Module 1 — NLP Foundations","title":"Text Preprocessing & Tokenization","subtitle":"Clean and prepare raw text for ML — tokenization, stemming, lemmatization and stop words.","video":"fNxaJsNG3-s","learn":["Why preprocessing matters","Tokenization techniques","Stop word removal","Stemming vs lemmatization","NLTK & SpaCy basics","Text cleaning pipeline"]},
   {"tag":"Lesson 3 of 16 · Module 1 — NLP Foundations","title":"Bag of Words & TF-IDF","subtitle":"Convert text into numbers machines understand — the foundation of classical NLP.","video":"D2V1okCEsiE","learn":["Bag of Words model","Vocabulary building","TF-IDF formula","CountVectorizer in Sklearn","TfidfVectorizer","Limitations of BoW"]},
   {"tag":"Lesson 4 of 16 · Module 1 — NLP Foundations","title":"Word Embeddings & Word2Vec","subtitle":"Words as vectors in space — understand how semantic meaning is captured by embeddings.","video":"viZrOnJclY0","learn":["Distributional hypothesis","Word2Vec CBOW & Skip-gram","GloVe embeddings","Cosine similarity","Loading pretrained embeddings","Semantic analogies"]},
@@ -167,7 +168,7 @@ const lessons = [
   {"tag":"Lesson 7 of 16 · Module 2 — Classical NLP","title":"Sentiment Analysis Pipeline","subtitle":"Build end-to-end sentiment analysis — from raw reviews to positive/negative predictions.","video":"i8D90oqlUmE","learn":["Sentiment analysis types","VADER for lexicon-based","ML-based sentiment","IMDB reviews dataset","Training a classifier","Deploying the pipeline"]},
   {"tag":"Lesson 8 of 16 · Module 3 — Transformers & BERT","title":"Transformers for NLP","subtitle":"The architecture that changed everything — understand transformers applied to language tasks.","video":"TQQlZhbC5ps","learn":["Transformers recap for NLP","Encoder-only models","Self-attention for text","Positional encoding for text","Pre-training vs fine-tuning","BERT vs GPT families"]},
   {"tag":"Lesson 9 of 16 · Module 3 — Transformers & BERT","title":"BERT Explained & Fine-Tuning","subtitle":"Fine-tune Google BERT on your own text classification task with Hugging Face.","video":"xI0HHN5XKDo","learn":["BERT pre-training tasks","[CLS] & [SEP] tokens","Tokenizer for BERT","Fine-tuning on downstream tasks","Hugging Face Trainer API","Evaluating fine-tuned BERT"]},
-  {"tag":"Lesson 10 of 16 · Module 4 — LLMs & Prompting","title":"How LLMs Work","subtitle":"Understand the architecture, training and capabilities of large language models like GPT and LLaMA.","video":"5sLYAQS9sWQ","learn":["GPT architecture","Pre-training on text","Next token prediction","Context window","Temperature & sampling","LLM families overview"]},
+  {"tag":"Lesson 10 of 16 · Module 4 — LLMs & Prompting","title":"How LLMs Work","subtitle":"Understand the architecture, training and capabilities of large language models like GPT and LLaMA.","video":"zjkBMFhNj_g","learn":["GPT architecture","Pre-training on text","Next token prediction","Context window","Temperature & sampling","LLM families overview"]},
   {"tag":"Lesson 11 of 16 · Module 4 — LLMs & Prompting","title":"Prompt Engineering","subtitle":"Get the most out of any LLM — learn systematic prompt design techniques used by AI professionals.","video":"_ZvnD73m40o","learn":["Zero-shot prompting","Few-shot prompting","Chain-of-thought","Role prompting","Output formatting","Common prompt mistakes"]},
   {"tag":"Lesson 12 of 16 · Module 4 — LLMs & Prompting","title":"Fine-Tuning LLMs with Hugging Face","subtitle":"Customize open-source LLMs for your own tasks — QLoRA fine-tuning on Google Colab.","video":"eC6Hd1hFvos","learn":["When to fine-tune","QLoRA explained","Dataset preparation","Hugging Face SFT Trainer","Training on Colab","Evaluating fine-tuned LLM"]},
   {"tag":"Lesson 13 of 16 · Module 4 — LLMs & Prompting","title":"RAG — Retrieval Augmented Generation","subtitle":"Give LLMs access to your own documents — build a Q&A system on private data.","video":"T-D1OfcDW1M","learn":["Why RAG?","Document chunking","Embedding & vector stores","Similarity search","LLM + retrieval pipeline","Evaluating RAG systems"]},
@@ -191,7 +192,7 @@ function loadLesson(index) {
   document.getElementById('lessonSubtitle').textContent = l.subtitle;
   const frame = document.getElementById('videoFrame');
   frame.src = '';
-  setTimeout(() => { frame.src = 'https://www.youtube.com/embed/' + l.video + '?playsinline=1&rel=0&modestbranding=1&iv_load_policy=3'; }, 100);
+  setTimeout(() => { frame.setAttribute('src', 'https://www.youtube.com/embed/' + l.video + '?playsinline=1&rel=0&modestbranding=1&autoplay=0'); }, 100);
   const grid = document.getElementById('learnGrid');
   grid.innerHTML = l.learn.map(item => `<div class="learn-item"><div class="learn-check">✓</div>${item}</div>`).join('');
   document.querySelectorAll('.lesson-item').forEach((el, i) => {
