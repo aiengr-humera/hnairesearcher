@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MLOps & Deployment — HNAI.Researcher</title>
+  <title>MLOps & Deployment Course — Free | HNAI.Researcher</title>
+  <meta property="og:title" content="MLOps & Deployment Course — Free | HNAI.Researcher"/>
+  <meta property="og:description" content="Free MLOps course with 10 lessons. Deploy ML models with FastAPI, Docker, cloud platforms and CI/CD pipelines."/>
+  <meta property="og:image" content="https://aiengr-humera.github.io/hnairesearcher/hnai-logo.png"/>
+  <meta property="og:url" content="https://aiengr-humera.github.io/hnairesearcher/mlops.html"/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="keywords" content="MLOps course free, FastAPI ML, Docker machine learning, model deployment, CI/CD ML pipeline"/>
+  <meta name="description" content="Free MLOps course with 10 lessons. Deploy ML models with FastAPI, Docker, cloud platforms and CI/CD pipelines."/>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -16,6 +24,26 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background: var(--warm); color: var(--text); line-height: 1.6; }
     ::-webkit-scrollbar { width: 5px; }
+
+    .share-bar { display: flex; align-items: center; gap: 10px; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+    .share-label { font-size: 12px; color: var(--muted); font-weight: 500; }
+    .share-btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 6px; font-size: 12px; font-weight: 600; text-decoration: none; transition: opacity 0.2s; }
+    .share-btn:hover { opacity: 0.85; }
+    .share-fb { background: #1877f2; color: white; }
+    .share-li { background: #0077b5; color: white; }
+    .share-tw { background: #1da1f2; color: white; }
+    .share-wa { background: #25d366; color: white; }
+
+    /* Mobile sidebar toggle */
+    .sidebar-toggle { display: none; position: fixed; bottom: 24px; right: 24px; z-index: 200; background: var(--mint); color: white; border: none; border-radius: 50%; width: 52px; height: 52px; font-size: 20px; cursor: pointer; box-shadow: 0 4px 16px rgba(45,139,114,0.4); transition: all 0.2s; }
+    .sidebar-toggle:hover { background: var(--mint-mid); transform: scale(1.05); }
+    @media(max-width:900px){
+      .sidebar-toggle { display: flex; align-items: center; justify-content: center; }
+      .sidebar { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 150; max-height: 100vh; border-right: none; padding-top: 60px; }
+      .sidebar.open { display: block; }
+      .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 140; }
+      .sidebar-overlay.open { display: block; }
+    }
     .lesson-item { -webkit-tap-highlight-color: rgba(45,139,114,0.2); touch-action: manipulation; } ::-webkit-scrollbar-thumb { background: var(--mint); border-radius: 10px; }
     nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); padding: 0 48px; height: 60px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
     .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
@@ -104,6 +132,9 @@
   <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
   <span class="progress-pct" id="progressPct">0% complete</span>
 </div>
+
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+<button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()">☰</button>
 <div class="course-layout">
   <aside class="sidebar">
     <div class="sidebar-title">Course Lessons</div>
@@ -139,6 +170,12 @@
       <div class="learn-box-title">✅ What You'll Learn in This Lesson</div>
       <div class="learn-grid" id="learnGrid"></div>
     </div>
+    <div class="share-bar" id="shareBar" style="display:none;">
+      <span class="share-label">Share this lesson:</span>
+      <a class="share-btn share-fb" id="shareFB" href="#" target="_blank">Facebook</a>
+      <a class="share-btn share-li" id="shareLI" href="#" target="_blank">LinkedIn</a>
+      <a class="share-btn share-wa" id="shareWA" href="#" target="_blank">WhatsApp</a>
+    </div>
     <div class="lesson-nav">
       <button class="nav-btn" id="prevBtn" onclick="changeLesson(-1)">← Previous</button>
       <button class="nav-btn next" id="nextBtn" onclick="changeLesson(1)">Next Lesson →</button>
@@ -161,6 +198,26 @@ const lessons = [
 
 let current = 0;
 const completed = new Set();
+
+// Save & restore progress
+function saveProgress() {
+  const key = 'hnai_progress_' + window.location.pathname;
+  const data = { current: current, completed: Array.from(completed) };
+  try { localStorage.setItem(key, JSON.stringify(data)); } catch(e) {}
+}
+function restoreProgress() {
+  const key = 'hnai_progress_' + window.location.pathname;
+  try {
+    const saved = localStorage.getItem(key);
+    if (saved) {
+      const data = JSON.parse(saved);
+      data.completed.forEach(i => completed.add(i));
+      loadLesson(data.current || 0);
+      return;
+    }
+  } catch(e) {}
+  loadLesson(0);
+}
 function loadLesson(index) {
   // scroll sidebar item into view on mobile
   const items = document.querySelectorAll('.lesson-item');
@@ -184,6 +241,8 @@ function loadLesson(index) {
   });
   if (index > 0) completed.add(index - 1);
   updateProgress();
+  saveProgress();
+  updateShareLinks(l.title, window.location.href);
   document.getElementById('prevBtn').style.visibility = index === 0 ? 'hidden' : 'visible';
   document.getElementById('nextBtn').textContent = index === lessons.length - 1 ? '🎉 Course Complete!' : 'Next Lesson →';
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -193,13 +252,21 @@ function changeLesson(dir) {
   const next = current + dir;
   if (next >= 0 && next < lessons.length) loadLesson(next);
 }
+
+function updateShareLinks(title, url) {
+  const encoded = encodeURIComponent(url);
+  const text = encodeURIComponent('Learning: ' + title + ' on HNAI.Researcher — Free AI Education by Humera Noor');
+  document.getElementById('shareFB').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encoded;
+  document.getElementById('shareLI').href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encoded;
+  document.getElementById('shareWA').href = 'https://wa.me/?text=' + text + '%20' + encoded;
+  document.getElementById('shareBar').style.display = 'flex';
+}
 function updateProgress() {
   const pct = Math.round((completed.size / lessons.length) * 100);
   document.getElementById('progressFill').style.width = pct + '%';
   document.getElementById('progressPct').textContent = pct + '% complete';
 }
-loadLesson(0);
-
+restoreProgress();
 </script>
 </body>
 </html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Free AI & ML Resources — HNAI.Researcher</title>
+  <meta property="og:title" content="Free AI & ML Resources — HNAI.Researcher"/>
+  <meta property="og:description" content="Curated free tools, platforms, datasets and YouTube channels for AI and ML learning. Google Colab, Hugging Face, Kaggle, ArXiv and more."/>
+  <meta property="og:image" content="https://aiengr-humera.github.io/hnairesearcher/hnai-logo.png"/>
+  <meta property="og:url" content="https://aiengr-humera.github.io/hnairesearcher/resources.html"/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="keywords" content="free AI resources, ML tools free, AI learning platforms, Kaggle datasets, Hugging Face, ArXiv papers"/>
+  <meta name="description" content="Curated free tools, platforms, datasets and YouTube channels for AI and ML learning. Google Colab, Hugging Face, Kaggle, ArXiv and more."/>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --mint: #2D8B72; --mint-light: #f0faf6; --warm: #faf8f4; --dark: #1a1a2e; --text: #2d3748; --slate: #5a6a7a; --muted: #8fa0b0; --border: #e8e4dc; --white: #ffffff; }
+    body { font-family: 'Inter', sans-serif; background: var(--warm); color: var(--text); }
+    ::-webkit-scrollbar { width: 5px; } ::-webkit-scrollbar-thumb { background: var(--mint); border-radius: 10px; }
+    nav { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 56px; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .brand-icon { width: 36px; height: 36px; border-radius: 8px; overflow: hidden; }
+    .brand-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .brand-name { font-family: 'Merriweather', serif; font-size: 16px; font-weight: 700; color: var(--dark); }
+    .brand-name span { color: var(--mint); }
+    .brand-sub { font-size: 10px; color: var(--muted); }
+    .nav-back { font-size: 13px; color: var(--slate); text-decoration: none; font-weight: 500; }
+    .nav-back:hover { color: var(--mint); }
+    .nav-cta { background: var(--mint); color: white; font-size: 12px; font-weight: 600; padding: 8px 18px; border-radius: 6px; text-decoration: none; }
+    @media(max-width:768px){nav{padding:0 20px;}}
+    .page-hero { background: var(--white); padding: 52px 56px 44px; border-bottom: 1px solid var(--border); }
+    .page-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--mint-light); border: 1px solid #b2ddd0; border-radius: 20px; padding: 4px 12px; margin-bottom: 14px; font-size: 11px; color: var(--mint); font-weight: 600; }
+    .page-hero h1 { font-family: 'Merriweather', serif; font-size: 30px; font-weight: 700; color: var(--dark); margin-bottom: 12px; }
+    .page-hero h1 span { color: var(--mint); }
+    .page-desc { font-size: 14px; color: var(--slate); max-width: 560px; line-height: 1.8; }
+    @media(max-width:768px){.page-hero{padding:36px 20px 28px;}}
+    .res-section { padding: 48px 56px; max-width: 1100px; margin: 0 auto; }
+    @media(max-width:768px){.res-section{padding:32px 20px;}}
+    .res-category { font-size: 11px; font-weight: 700; color: var(--mint); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 16px; margin-top: 36px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .res-category:first-child { margin-top: 0; }
+    .res-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-bottom: 8px; }
+    @media(max-width:900px){.res-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:580px){.res-grid{grid-template-columns:1fr;}}
+    .res-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-decoration: none; display: block; transition: all 0.2s; }
+    .res-card:hover { border-color: var(--mint); box-shadow: 0 4px 12px rgba(45,139,114,0.08); transform: translateY(-1px); }
+    .res-name { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .res-desc { font-size: 12px; color: var(--slate); line-height: 1.5; margin-bottom: 10px; }
+    .res-tag { font-size: 10px; font-weight: 600; color: var(--mint); background: var(--mint-light); border-radius: 3px; padding: 2px 7px; }
+    footer { background: var(--dark); padding: 36px 56px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-brand { font-family: 'Merriweather', serif; font-size: 15px; font-weight: 700; color: white; }
+    .footer-brand span { color: var(--mint); }
+    .footer-copy { font-size: 12px; color: #4a6070; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 13px; color: #4a6070; text-decoration: none; }
+    .footer-links a:hover { color: var(--mint); }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="brand">
+    <div class="brand-icon"><img src="hnai-logo.png" alt="HNAI Logo"/></div>
+    <div><div class="brand-name">HNAI<span>.Researcher</span></div><div class="brand-sub">Humera Noor</div></div>
+  </a>
+  <a href="index.html" class="nav-back">← Back to Home</a>
+  <a href="index.html#courses" class="nav-cta">Start Learning →</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-badge">Curated Resources</div>
+  <h1>Free <span>Resources</span></h1>
+  <p class="page-desc">Hand-picked free tools, platforms, datasets and references for every stage of your AI learning journey. All free, all tested.</p>
+</div>
+
+<div class="res-section">
+
+  <div class="res-category">Learning Platforms</div>
+  <div class="res-grid">
+    <a href="https://colab.research.google.com" target="_blank" class="res-card"><div class="res-name">Google Colab</div><div class="res-desc">Free browser-based Python notebook with GPU access. Best tool for ML/AI practice.</div><span class="res-tag">Free · GPU</span></a>
+    <a href="https://www.deeplearning.ai/short-courses/" target="_blank" class="res-card"><div class="res-name">DeepLearning.AI Short Courses</div><div class="res-desc">Free 1-2 hour courses on LLMs, RAG, agents, and prompt engineering by Andrew Ng.</div><span class="res-tag">Free · Certificates</span></a>
+    <a href="https://huggingface.co/learn/nlp-course" target="_blank" class="res-card"><div class="res-name">Hugging Face NLP Course</div><div class="res-desc">Official free course on transformers, BERT, and fine-tuning LLMs from Hugging Face.</div><span class="res-tag">Free · Hands-on</span></a>
+    <a href="https://cs50.harvard.edu/ai/" target="_blank" class="res-card"><div class="res-name">Harvard CS50 AI</div><div class="res-desc">Free Harvard University AI course covering search, ML, neural networks and NLP.</div><span class="res-tag">Free · Certificate</span></a>
+    <a href="https://www.kaggle.com/learn" target="_blank" class="res-card"><div class="res-name">Kaggle Learn</div><div class="res-desc">Short, practical courses on Python, ML, deep learning and data visualization.</div><span class="res-tag">Free · Certificates</span></a>
+    <a href="https://anthropic.com/learn" target="_blank" class="res-card"><div class="res-name">Anthropic Academy</div><div class="res-desc">Official free courses from Anthropic on Claude API, prompt engineering and AI safety.</div><span class="res-tag">Free · Official</span></a>
+  </div>
+
+  <div class="res-category">Research & Papers</div>
+  <div class="res-grid">
+    <a href="https://arxiv.org" target="_blank" class="res-card"><div class="res-name">ArXiv</div><div class="res-desc">Free access to all AI/ML research papers before peer review. The go-to for latest research.</div><span class="res-tag">Free · Latest</span></a>
+    <a href="https://paperswithcode.com" target="_blank" class="res-card"><div class="res-name">Papers With Code</div><div class="res-desc">AI papers with linked code implementations. Find state-of-the-art models with benchmarks.</div><span class="res-tag">Free · Code</span></a>
+    <a href="https://semanticscholar.org" target="_blank" class="res-card"><div class="res-name">Semantic Scholar</div><div class="res-desc">AI-powered research discovery. Find related papers, citations, and authors easily.</div><span class="res-tag">Free · Search</span></a>
+  </div>
+
+  <div class="res-category">Tools & Libraries</div>
+  <div class="res-grid">
+    <a href="https://scikit-learn.org" target="_blank" class="res-card"><div class="res-name">Scikit-Learn</div><div class="res-desc">The standard ML library for Python. Classification, regression, clustering, and more.</div><span class="res-tag">Free · Python</span></a>
+    <a href="https://pytorch.org" target="_blank" class="res-card"><div class="res-name">PyTorch</div><div class="res-desc">The most popular deep learning framework for research and production.</div><span class="res-tag">Free · Deep Learning</span></a>
+    <a href="https://huggingface.co" target="_blank" class="res-card"><div class="res-name">Hugging Face</div><div class="res-desc">Hub for pretrained models, datasets, and spaces. The GitHub of AI.</div><span class="res-tag">Free · Models</span></a>
+    <a href="https://groq.com" target="_blank" class="res-card"><div class="res-name">Groq API</div><div class="res-desc">Free API for running LLaMA, Mixtral and other open-source LLMs at blazing speed.</div><span class="res-tag">Free Tier · Fast</span></a>
+    <a href="https://wandb.ai" target="_blank" class="res-card"><div class="res-name">Weights & Biases</div><div class="res-desc">Free experiment tracking for ML training. Visualize metrics, compare runs, log models.</div><span class="res-tag">Free Tier</span></a>
+    <a href="https://streamlit.io" target="_blank" class="res-card"><div class="res-name">Streamlit</div><div class="res-desc">Build and deploy ML web apps in pure Python. No frontend knowledge needed.</div><span class="res-tag">Free · Deploy</span></a>
+  </div>
+
+  <div class="res-category">Datasets</div>
+  <div class="res-grid">
+    <a href="https://kaggle.com/datasets" target="_blank" class="res-card"><div class="res-name">Kaggle Datasets</div><div class="res-desc">Thousands of free datasets for every ML problem type. Ready to use with Colab.</div><span class="res-tag">Free · Huge</span></a>
+    <a href="https://huggingface.co/datasets" target="_blank" class="res-card"><div class="res-name">Hugging Face Datasets</div><div class="res-desc">Curated NLP and vision datasets ready for training. Loads directly in Python.</div><span class="res-tag">Free · NLP</span></a>
+    <a href="https://datasetsearch.research.google.com" target="_blank" class="res-card"><div class="res-name">Google Dataset Search</div><div class="res-desc">Google's search engine for publicly available datasets across all domains.</div><span class="res-tag">Free · Search</span></a>
+  </div>
+
+  <div class="res-category">YouTube Channels</div>
+  <div class="res-grid">
+    <a href="https://youtube.com/@3blue1brown" target="_blank" class="res-card"><div class="res-name">3Blue1Brown</div><div class="res-desc">Beautiful visual explanations of neural networks, linear algebra and calculus.</div><span class="res-tag">Free · Visual</span></a>
+    <a href="https://youtube.com/@statquest" target="_blank" class="res-card"><div class="res-name">StatQuest</div><div class="res-desc">Josh Starmer explains ML algorithms with clarity and BAM! Best ML channel on YouTube.</div><span class="res-tag">Free · ML</span></a>
+    <a href="https://youtube.com/@AndrejKarpathy" target="_blank" class="res-card"><div class="res-name">Andrej Karpathy</div><div class="res-desc">Deep dives into neural networks and LLMs from a world-class AI researcher.</div><span class="res-tag">Free · Advanced</span></a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-brand">HNAI<span>.Researcher</span></div>
+  <div class="footer-copy">© 2026 Humera Noor · Pakistan 🇵🇰</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="faq.html">FAQ</a>
+    <a href="mailto:engr.humeranoor@gmail.com">Contact</a>
+  </div>
+</footer>
+</body>
+</html>

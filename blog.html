@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Learning Notes & Blog — HNAI.Researcher</title>
+  <meta property="og:title" content="AI Learning Notes & Blog — HNAI.Researcher"/>
+  <meta property="og:description" content="Personal AI learning notes and blog posts by Humera Noor. Simple explanations of ML, Deep Learning, NLP and LLM concepts."/>
+  <meta property="og:image" content="https://aiengr-humera.github.io/hnairesearcher/hnai-logo.png"/>
+  <meta property="og:url" content="https://aiengr-humera.github.io/hnairesearcher/blog.html"/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="keywords" content="AI learning notes, machine learning explained, deep learning blog, NLP notes, LLM explained simply"/>
+  <meta name="description" content="Personal AI learning notes and blog posts by Humera Noor. Simple explanations of ML, Deep Learning, NLP and LLM concepts."/>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --mint: #2D8B72; --mint-light: #f0faf6; --warm: #faf8f4; --dark: #1a1a2e; --text: #2d3748; --slate: #5a6a7a; --muted: #8fa0b0; --border: #e8e4dc; --white: #ffffff; }
+    body { font-family: 'Inter', sans-serif; background: var(--warm); color: var(--text); }
+    ::-webkit-scrollbar { width: 5px; } ::-webkit-scrollbar-thumb { background: var(--mint); border-radius: 10px; }
+    nav { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 56px; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .brand-icon { width: 36px; height: 36px; border-radius: 8px; overflow: hidden; }
+    .brand-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .brand-name { font-family: 'Merriweather', serif; font-size: 16px; font-weight: 700; color: var(--dark); }
+    .brand-name span { color: var(--mint); }
+    .brand-sub { font-size: 10px; color: var(--muted); }
+    .nav-back { font-size: 13px; color: var(--slate); text-decoration: none; font-weight: 500; }
+    .nav-back:hover { color: var(--mint); }
+    .nav-cta { background: var(--mint); color: white; font-size: 12px; font-weight: 600; padding: 8px 18px; border-radius: 6px; text-decoration: none; }
+    @media(max-width:768px){nav{padding:0 20px;}}
+
+    .page-hero { background: var(--white); padding: 52px 56px 44px; border-bottom: 1px solid var(--border); }
+    .page-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--mint-light); border: 1px solid #b2ddd0; border-radius: 20px; padding: 4px 12px; margin-bottom: 14px; font-size: 11px; color: var(--mint); font-weight: 600; }
+    .page-hero h1 { font-family: 'Merriweather', serif; font-size: 30px; font-weight: 700; color: var(--dark); margin-bottom: 12px; }
+    .page-hero h1 span { color: var(--mint); }
+    .page-desc { font-size: 14px; color: var(--slate); max-width: 560px; line-height: 1.8; }
+    @media(max-width:768px){.page-hero{padding:36px 20px 28px;}}
+
+    .blog-section { padding: 48px 56px; max-width: 1100px; margin: 0 auto; }
+    @media(max-width:768px){.blog-section{padding:32px 20px;}}
+
+    .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+    .filter-btn { padding: 7px 16px; border: 1px solid var(--border); border-radius: 20px; font-size: 12px; font-weight: 600; color: var(--slate); cursor: pointer; background: var(--white); transition: all 0.2s; font-family: 'Inter', sans-serif; }
+    .filter-btn:hover, .filter-btn.active { background: var(--mint); color: white; border-color: var(--mint); }
+
+    .blog-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+    @media(max-width:700px){.blog-grid{grid-template-columns:1fr;}}
+
+    .blog-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: all 0.2s; cursor: pointer; }
+    .blog-card:hover { border-color: #b2ddd0; box-shadow: 0 4px 16px rgba(45,139,114,0.08); transform: translateY(-2px); }
+    .blog-tag { font-size: 10px; font-weight: 700; color: var(--mint); background: var(--mint-light); border-radius: 4px; padding: 2px 8px; display: inline-block; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .05em; }
+    .blog-title { font-family: 'Merriweather', serif; font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 8px; line-height: 1.4; }
+    .blog-excerpt { font-size: 13px; color: var(--slate); line-height: 1.7; margin-bottom: 14px; }
+    .blog-meta { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--border); }
+    .blog-date { font-size: 11px; color: var(--muted); }
+    .blog-read { font-size: 12px; color: var(--mint); font-weight: 600; }
+
+    /* Blog Post Modal */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200; }
+    .modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; padding: 20px; overflow-y: auto; }
+    .modal { background: var(--white); border-radius: 16px; max-width: 700px; width: 100%; padding: 40px; position: relative; margin: auto; }
+    .modal-close { position: absolute; top: 16px; right: 20px; font-size: 24px; cursor: pointer; color: var(--muted); background: none; border: none; }
+    .modal-tag { font-size: 10px; font-weight: 700; color: var(--mint); background: var(--mint-light); border-radius: 4px; padding: 2px 8px; display: inline-block; margin-bottom: 12px; }
+    .modal-title { font-family: 'Merriweather', serif; font-size: 24px; font-weight: 700; color: var(--dark); margin-bottom: 8px; line-height: 1.3; }
+    .modal-date { font-size: 12px; color: var(--muted); margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+    .modal-body { font-size: 14px; color: var(--slate); line-height: 1.9; }
+    .modal-body h3 { font-family: 'Merriweather', serif; font-size: 16px; color: var(--dark); margin: 20px 0 8px; }
+    .modal-body p { margin-bottom: 14px; }
+    .modal-body ul { padding-left: 20px; margin-bottom: 14px; }
+    .modal-body li { margin-bottom: 6px; }
+    .modal-body code { background: var(--mint-light); color: var(--mint); padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px; }
+
+    footer { background: var(--dark); padding: 36px 56px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-brand { font-family: 'Merriweather', serif; font-size: 15px; font-weight: 700; color: white; }
+    .footer-brand span { color: var(--mint); }
+    .footer-copy { font-size: 12px; color: #4a6070; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 13px; color: #4a6070; text-decoration: none; }
+    .footer-links a:hover { color: var(--mint); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="brand">
+    <div class="brand-icon"><img src="hnai-logo.png" alt="HNAI Logo"/></div>
+    <div><div class="brand-name">HNAI<span>.Researcher</span></div><div class="brand-sub">Humera Noor</div></div>
+  </a>
+  <a href="index.html" class="nav-back">← Back to Home</a>
+  <a href="index.html#courses" class="nav-cta">Start Learning →</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-badge">Blog & Learning Notes</div>
+  <h1>AI Learning <span>Notes</span></h1>
+  <p class="page-desc">Personal notes, insights and summaries from my AI learning journey. Written to help you understand complex concepts simply.</p>
+</div>
+
+<div class="blog-section">
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterPosts('all', this)">All</button>
+    <button class="filter-btn" onclick="filterPosts('Machine Learning', this)">Machine Learning</button>
+    <button class="filter-btn" onclick="filterPosts('Deep Learning', this)">Deep Learning</button>
+    <button class="filter-btn" onclick="filterPosts('NLP & LLMs', this)">NLP & LLMs</button>
+    <button class="filter-btn" onclick="filterPosts('Python', this)">Python</button>
+    <button class="filter-btn" onclick="filterPosts('Research', this)">Research</button>
+  </div>
+
+  <div class="blog-grid" id="blogGrid"></div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modalContent">
+    <button class="modal-close" onclick="closeModalBtn()">✕</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">HNAI<span>.Researcher</span></div>
+  <div class="footer-copy">© 2026 Humera Noor · Pakistan 🇵🇰</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="faq.html">FAQ</a>
+    <a href="mailto:engr.humeranoor@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+const posts = [
+  {
+    tag: "Machine Learning",
+    title: "What I Learned from StatQuest — ML Explained Simply",
+    excerpt: "StatQuest is the best resource for understanding ML concepts visually. Here are my key takeaways from the first 10 lessons on machine learning fundamentals.",
+    date: "September 2026",
+    content: `
+      <div class="modal-tag">Machine Learning</div>
+      <div class="modal-title">What I Learned from StatQuest — ML Explained Simply</div>
+      <div class="modal-date">September 2026 · 5 min read</div>
+      <div class="modal-body">
+        <p>When I started learning Machine Learning, the biggest challenge was not the concepts themselves — it was finding someone who could explain them without drowning me in mathematics. StatQuest by Josh Starmer changed everything.</p>
+        <h3>Key Lesson 1: Machine Learning is Pattern Recognition</h3>
+        <p>At its core, ML is about finding patterns in data that humans would take too long to find manually. A model does not "think" — it finds correlations and weights that minimize error on a given dataset.</p>
+        <h3>Key Lesson 2: The Bias-Variance Tradeoff</h3>
+        <p>This is the most important concept in ML that nobody explains properly. <strong>High bias</strong> means your model is too simple and misses patterns (underfitting). <strong>High variance</strong> means your model memorizes the training data and fails on new data (overfitting). The goal is always to find the sweet spot between the two.</p>
+        <h3>Key Lesson 3: Always Evaluate on Unseen Data</h3>
+        <p>A model that performs 99% on training data but 60% on test data is useless in the real world. Always split your data into training, validation, and test sets — and never touch your test set until the very end.</p>
+        <h3>My Takeaway</h3>
+        <p>The mathematics behind ML algorithms matters less than understanding what they do, when to use them, and how to evaluate them properly. Focus on intuition first, then dive into the math.</p>
+      </div>`
+  },
+  {
+    tag: "Deep Learning",
+    title: "Andrej Karpathy's Zero to Hero — What You Must Know",
+    excerpt: "Karpathy's neural network series is the most honest and deep dive into how LLMs actually work. Here are the concepts that changed how I think about AI.",
+    date: "September 2026",
+    content: `
+      <div class="modal-tag">Deep Learning</div>
+      <div class="modal-title">Andrej Karpathy's Zero to Hero — What You Must Know</div>
+      <div class="modal-date">September 2026 · 6 min read</div>
+      <div class="modal-body">
+        <p>If you want to truly understand how neural networks and LLMs work from first principles, Andrej Karpathy's "Neural Networks: Zero to Hero" series is the only resource you need. Here is what I found most valuable.</p>
+        <h3>Everything is Backpropagation</h3>
+        <p>Every neural network — from a simple perceptron to GPT-4 — learns by computing gradients and adjusting weights. Karpathy's micrograd library shows this in just 100 lines of Python. Understanding this demystifies everything.</p>
+        <h3>Language Models Predict the Next Token</h3>
+        <p>GPT, LLaMA, Claude — they all do one thing: predict the next most likely token given what came before. That single objective, trained at massive scale on massive data, produces remarkably capable systems. It sounds simple because it is — the magic is in the scale.</p>
+        <h3>Attention is the Key Innovation</h3>
+        <p>The attention mechanism allows every token in a sequence to "look at" every other token and decide what is relevant. This is what allows transformers to handle long-range dependencies that RNNs struggled with.</p>
+        <h3>My Recommendation</h3>
+        <p>Watch the entire series with Google Colab open. Type out every line of code. Do not copy-paste. The muscle memory of building these things from scratch is irreplaceable.</p>
+      </div>`
+  },
+  {
+    tag: "NLP & LLMs",
+    title: "How Large Language Models Actually Work — A Simple Explanation",
+    excerpt: "LLMs are not magic. They are statistical models trained on text to predict the next token. Here is my simple breakdown of what's really happening under the hood.",
+    date: "September 2026",
+    content: `
+      <div class="modal-tag">NLP & LLMs</div>
+      <div class="modal-title">How Large Language Models Actually Work — A Simple Explanation</div>
+      <div class="modal-date">September 2026 · 7 min read</div>
+      <div class="modal-body">
+        <p>Everyone is talking about LLMs but very few people understand what they actually are. Let me break it down as simply as possible.</p>
+        <h3>Step 1: Tokenization</h3>
+        <p>Text is broken into small pieces called tokens. The word "learning" might be one token, while "unbelievable" might be broken into "un", "believ", "able". The model never sees raw text — only numbers representing tokens.</p>
+        <h3>Step 2: Embeddings</h3>
+        <p>Each token is converted into a high-dimensional vector — a list of numbers that captures its meaning. Similar words end up with similar vectors. This is where semantic meaning lives in the model.</p>
+        <h3>Step 3: Transformer Layers</h3>
+        <p>The embeddings pass through many transformer layers. Each layer applies attention (which tokens should influence each other?) and feed-forward networks. After many layers, the model has a rich representation of the input.</p>
+        <h3>Step 4: Next Token Prediction</h3>
+        <p>The final layer produces a probability distribution over all possible next tokens. The model picks the most likely one (or samples from the distribution). This is repeated until the response is complete.</p>
+        <h3>Why Are They So Capable?</h3>
+        <p>Because they were trained on essentially all human-written text. The model has learned to compress and represent vast amounts of human knowledge into its billions of parameters.</p>
+      </div>`
+  },
+  {
+    tag: "Python",
+    title: "Why Google Colab is the Best Tool for AI Learning",
+    excerpt: "Forget Anaconda, PyCharm, and virtual environments. Google Colab gives you free GPU, all libraries pre-installed, and runs in your browser. Here is how to use it properly.",
+    date: "September 2026",
+    content: `
+      <div class="modal-tag">Python</div>
+      <div class="modal-title">Why Google Colab is the Best Tool for AI Learning</div>
+      <div class="modal-date">September 2026 · 4 min read</div>
+      <div class="modal-body">
+        <p>One of the biggest barriers for beginners in AI is the setup. Installing Python, managing virtual environments, debugging CUDA — it is painful and discouraging. Google Colab removes all of that.</p>
+        <h3>What is Google Colab?</h3>
+        <p>Colab is a free, browser-based Jupyter notebook environment provided by Google. It comes with Python, NumPy, Pandas, TensorFlow, PyTorch and hundreds of other libraries pre-installed. You just open a browser and start coding.</p>
+        <h3>Free GPU Access</h3>
+        <p>Colab provides free access to GPU (and sometimes TPU) computing. Training neural networks that would take hours on a CPU can complete in minutes on Colab's free GPU.</p>
+        <h3>How to Use It Effectively</h3>
+        <ul>
+          <li>Use <code>!pip install library_name</code> to install any extra library</li>
+          <li>Mount Google Drive with <code>from google.colab import drive; drive.mount('/content/drive')</code></li>
+          <li>Use <code>Runtime → Change runtime type → GPU</code> for deep learning</li>
+          <li>Save your notebooks to Drive — they persist across sessions</li>
+        </ul>
+        <h3>One Tip</h3>
+        <p>Colab sessions disconnect after 90 minutes of inactivity. For long training jobs, add a simple loop that runs periodically to keep the session alive, or upgrade to Colab Pro for longer sessions.</p>
+      </div>`
+  },
+  {
+    tag: "Research",
+    title: "How to Read an AI Research Paper Without Getting Lost",
+    excerpt: "Most AI papers are dense and intimidating. But there is a simple 3-pass method that makes any paper approachable. Here is how I read papers efficiently.",
+    date: "September 2026",
+    content: `
+      <div class="modal-tag">Research</div>
+      <div class="modal-title">How to Read an AI Research Paper Without Getting Lost</div>
+      <div class="modal-date">September 2026 · 5 min read</div>
+      <div class="modal-body">
+        <p>Research papers look intimidating — dense equations, technical jargon, walls of text. But there is a structured way to read them that makes even complex papers approachable.</p>
+        <h3>Pass 1: The 5-Minute Skim (Abstract + Figures)</h3>
+        <p>Read only the abstract, introduction, conclusion, and look at all the figures. This gives you 80% of what the paper is about. Ask yourself: what problem does this solve? What is their main result? Is this relevant to what I am working on?</p>
+        <h3>Pass 2: The Structure Read (30 minutes)</h3>
+        <p>Now read the full paper but skip the math. Focus on the section headings, methodology description, and experiment design. You want to understand HOW they solved the problem, even if you do not understand every equation.</p>
+        <h3>Pass 3: The Deep Dive (if needed)</h3>
+        <p>Only do this for papers that are directly relevant to your research. Work through the mathematics, implement the key algorithm in code, and try to reproduce one of the main results.</p>
+        <h3>My Personal Tip</h3>
+        <p>After reading a paper, write a 3-sentence summary in your own words. If you cannot do this, you have not understood it yet. This forces active recall and reveals gaps in your understanding.</p>
+      </div>`
+  },
+  {
+    tag: "Machine Learning",
+    title: "Supervised vs Unsupervised vs Reinforcement Learning — When to Use Which",
+    excerpt: "The three paradigms of machine learning each solve different types of problems. Understanding when to use which one is the first skill every ML practitioner must develop.",
+    date: "September 2026",
+    content: `
+      <div class="modal-tag">Machine Learning</div>
+      <div class="modal-title">Supervised vs Unsupervised vs Reinforcement Learning — When to Use Which</div>
+      <div class="modal-date">September 2026 · 5 min read</div>
+      <div class="modal-body">
+        <p>One of the most common questions from ML beginners is: which type of learning should I use for my problem? Here is a clear breakdown.</p>
+        <h3>Supervised Learning — When you have labeled data</h3>
+        <p>You have input data AND correct output labels. The model learns to map inputs to outputs. Use this for: spam detection (email → spam/not spam), image classification (image → cat/dog), house price prediction (features → price).</p>
+        <h3>Unsupervised Learning — When you have unlabeled data</h3>
+        <p>You only have input data with no labels. The model finds hidden structure on its own. Use this for: customer segmentation (group similar customers), anomaly detection (find unusual patterns), dimensionality reduction (compress data for visualization).</p>
+        <h3>Reinforcement Learning — When you have an environment and reward</h3>
+        <p>An agent learns by taking actions and receiving rewards or penalties. Use this for: game playing (chess, Go), robotics (walking, manipulation), recommendation systems (maximize user engagement).</p>
+        <h3>Quick Decision Rule</h3>
+        <p>Do you have labeled training data? → Supervised. No labels but want to find structure? → Unsupervised. Have an environment where you can take actions and get feedback? → Reinforcement Learning.</p>
+      </div>`
+  },
+];
+
+let activeFilter = 'all';
+
+function renderPosts(filter) {
+  const grid = document.getElementById('blogGrid');
+  const filtered = filter === 'all' ? posts : posts.filter(p => p.tag === filter);
+  grid.innerHTML = filtered.map((p, i) => `
+    <div class="blog-card" onclick="openPost(${posts.indexOf(p)})">
+      <span class="blog-tag">${p.tag}</span>
+      <div class="blog-title">${p.title}</div>
+      <div class="blog-excerpt">${p.excerpt}</div>
+      <div class="blog-meta">
+        <span class="blog-date">${p.date}</span>
+        <span class="blog-read">Read more →</span>
+      </div>
+    </div>`).join('');
+}
+
+function filterPosts(filter, btn) {
+  activeFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderPosts(filter);
+}
+
+function openPost(index) {
+  document.getElementById('modalBody').innerHTML = posts[index].content;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModalBtn();
+}
+
+function closeModalBtn() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+renderPosts('all');
+</script>
+</body>
+</html>
