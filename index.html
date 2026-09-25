@@ -52,9 +52,11 @@
     .btn-primary:hover { background: var(--mint-mid); }
     .btn-secondary { background: var(--warm2); color: var(--text); font-size: 14px; font-weight: 600; padding: 12px 24px; border-radius: 6px; text-decoration: none; border: 1px solid var(--border); }
     .btn-secondary:hover { border-color: var(--mint); color: var(--mint); }
-    .hero-stats { display: flex; gap: 28px; flex-wrap: wrap; }
-    .hstat-n { font-family: "Merriweather", serif; font-size: 26px; font-weight: 700; color: var(--dark); }
-    .hstat-l { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    
+    .hstat-n { font-family: "Merriweather", serif; font-size: 22px; font-weight: 700; color: var(--dark); }
+    .hero-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+    .hero-badge-pill { font-size: 12px; font-weight: 600; color: var(--mint); background: var(--mint-light); border: 1px solid #b2ddd0; border-radius: 20px; padding: 5px 14px; }
+    
     .hero-card { background: var(--warm); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
     .hero-card-title { font-family: "Merriweather", serif; font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 14px; }
     .track-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--white); border-radius: 8px; border: 1px solid var(--border); text-decoration: none; margin-bottom: 8px; transition: border-color 0.2s; }
@@ -64,14 +66,14 @@
     .track-level { font-size: 11px; color: var(--muted); }
     .track-arrow { color: var(--muted); font-size: 14px; }
 
-    .stats { display: grid; grid-template-columns: repeat(4,1fr); background: var(--dark); }
+    .stats { display: grid; grid-template-columns: repeat(3,1fr); background: var(--dark); }
     .stat { padding: 22px 20px; text-align: center; border-right: 1px solid #1e2d40; }
     .stat:last-child { border-right: none; }
     .stat:hover { background: #131e2e; }
     .stat-n { font-family: "Merriweather", serif; font-size: 26px; font-weight: 700; color: white; }
     .stat-n em { font-style: normal; color: var(--mint); }
     .stat-l { font-size: 10px; color: #4a6070; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.08em; }
-    @media(max-width:600px){.stats{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:480px){.stats{grid-template-columns:repeat(3,1fr);}}
 
     .section { padding: 64px 56px; }
     .section-inner { max-width: 1100px; margin: 0 auto; }
@@ -157,10 +159,10 @@
         <a href="#courses" class="btn-primary">Explore Courses →</a>
         <a href="research-bank.html" class="btn-secondary">Research Archive</a>
       </div>
-      <div class="hero-stats">
-        <div class="hstat"><div class="hstat-n">6</div><div class="hstat-l">Free Courses</div></div>
-        <div class="hstat"><div class="hstat-n">92+</div><div class="hstat-l">Lessons</div></div>
-        <div class="hstat"><div class="hstat-n">0₨</div><div class="hstat-l">Forever Free</div></div>
+      <div class="hero-badges">
+        <span class="hero-badge-pill">6 Free Courses</span>
+        <span class="hero-badge-pill">92+ Lessons</span>
+        <span class="hero-badge-pill">100% Open Source</span>
       </div>
     </div>
     <div class="hero-card">
@@ -177,7 +179,7 @@
   <div class="stat"><div class="stat-n">6<em>+</em></div><div class="stat-l">Free Courses</div></div>
   <div class="stat"><div class="stat-n">92<em>+</em></div><div class="stat-l">Lessons</div></div>
   <div class="stat"><div class="stat-n">100<em>%</em></div><div class="stat-l">Open Source</div></div>
-  <div class="stat"><div class="stat-n">0<em>₨</em></div><div class="stat-l">Forever Free</div></div>
+  
 </div>
 
 <div class="section" id="courses">
